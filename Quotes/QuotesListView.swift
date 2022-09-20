@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  QuotesListView.swift
 //  Quotes
 //
 //  Created by Sima Nerush on 9/2/22.
@@ -8,9 +8,11 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct QuotesListView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+  @ObservedObject var model: QuoteModel
 
   @State private var textField = ""
   @State private var alertIsPresented = false

@@ -10,25 +10,30 @@ import SwiftUI
 import Intents
 
 struct QuotesTimelineProvider: TimelineProvider {
-  typealias Entry = SimpleEntry
+  @ObservedObject var model: QuoteModel
 
   // Provides a timeline entry representing a placeholder version of the widget.
-  func placeholder(in context: Context) -> SimpleEntry {
-    return SimpleEntry(date: Date(), configuration: .init())
+  func placeholder(in context: Context) -> Entry {
+    return Entry(date: Date(), title: "Loading")
   }
 
   // Provides a timeline entry that represents the current time and state of a widget.
-  func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+  func getSnapshot(in context: Context, completion: @escaping (Entry) -> Void) {
+    completion(Entry(date: Date(), title: "Quote of the day"))
   }
 
   // Provides an array of timeline entries for the current time and, optionally, any future times to update a widget.
-  func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+  func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    let entry = Entry(date: Date(), title: model.getRandomQuote() ?? "You don't have any quotes!")
+    let timeline = Timeline(entries: [entry],
+                            policy: .after(Date.tomorrow))
+    completion(timeline)
   }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct Entry: TimelineEntry {
   let date: Date
-  let configuration: ConfigurationIntent
+  let title: String
 }
 
 struct QuotesWidgetEntryView : View {
@@ -38,8 +43,7 @@ struct QuotesWidgetEntryView : View {
   var entry: QuotesTimelineProvider.Entry
 
   var body: some View {
-    Text(entry.date, style: .time)
-      .foregroundColor(.red)
+    Text(entry.title)
   }
 }
 
@@ -49,8 +53,8 @@ struct QuotesWidget: Widget {
 
   var body: some WidgetConfiguration {
     StaticConfiguration(
-      kind: "com.tanaschita.ExampleWidget",
-      provider: QuotesTimelineProvider()) { entry in
+      kind: "com.simanerush.Quotes.QuotesWidget",
+      provider: QuotesTimelineProvider(model: QuoteModel())) { entry in
         QuotesWidgetEntryView(model: QuoteModel(), entry: entry)
       }
       .configurationDisplayName("My Widget")

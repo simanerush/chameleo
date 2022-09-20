@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct QuotesApp: App {
   let persistenceController = PersistenceController.shared
-  
+  let model = QuoteModel()
+
   var body: some Scene {
     WindowGroup {
-      RandomQuoteView(model: QuoteModel())
+      RandomQuoteView(model: model)
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }

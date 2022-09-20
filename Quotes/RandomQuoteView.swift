@@ -17,7 +17,7 @@ struct RandomQuoteView: View {
     NavigationView {
       VStack {
         Text(model.getRandomQuote())
-        NavigationLink(destination: ContentView().navigationBarHidden(true),
+        NavigationLink(destination: QuotesListView(model: model).navigationBarHidden(true),
                        isActive: $showQuotes) {}
       }
       .toolbar {

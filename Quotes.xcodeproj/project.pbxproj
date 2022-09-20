@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
-		2335B6C428C331F800D8024F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* ContentView.swift */; };
+		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
 		2335B6C928C331F900D8024F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C828C331F900D8024F /* Preview Assets.xcassets */; };
 		2335B6CB28C331F900D8024F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
@@ -25,6 +25,8 @@
 		2358859428CAE071006ED60C /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
 		2358859528CAE0E3006ED60C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
 		2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
+		23952D5728CAE94B00C71E2D /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */; };
+		23E8B52828D92244007345FE /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,7 @@
 /* Begin PBXFileReference section */
 		2335B6BE28C331F800D8024F /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2335B6C128C331F800D8024F /* QuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesApp.swift; sourceTree = "<group>"; };
-		2335B6C328C331F800D8024F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2335B6C328C331F800D8024F /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 		2335B6C528C331F900D8024F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2335B6C828C331F900D8024F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2335B6CA28C331F900D8024F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		2358858728CADADD006ED60C /* QuotesWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = QuotesWidget.intentdefinition; sourceTree = "<group>"; };
 		2358858828CADADD006ED60C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2358858A28CADADD006ED60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +118,7 @@
 				2335B6C128C331F800D8024F /* QuotesApp.swift */,
 				2335B6D428C3329600D8024F /* RandomQuoteView.swift */,
 				2335B6D628C3C30000D8024F /* QuoteModel.swift */,
-				2335B6C328C331F800D8024F /* ContentView.swift */,
+				2335B6C328C331F800D8024F /* QuotesListView.swift */,
 				2335B6C528C331F900D8024F /* Assets.xcassets */,
 				2335B6CA28C331F900D8024F /* Persistence.swift */,
 				2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */,
@@ -148,6 +151,7 @@
 				2358858728CADADD006ED60C /* QuotesWidget.intentdefinition */,
 				2358858828CADADD006ED60C /* Assets.xcassets */,
 				2358858A28CADADD006ED60C /* Info.plist */,
+				23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */,
 			);
 			path = QuotesWidget;
 			sourceTree = "<group>";
@@ -253,11 +257,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E8B52828D92244007345FE /* Date+Tomorrow.swift in Sources */,
 				2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */,
 				2335B6D528C3329600D8024F /* RandomQuoteView.swift in Sources */,
 				2335B6CE28C331F900D8024F /* Quotes.xcdatamodeld in Sources */,
 				2335B6CB28C331F900D8024F /* Persistence.swift in Sources */,
-				2335B6C428C331F800D8024F /* ContentView.swift in Sources */,
+				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
 				2358858C28CADADD006ED60C /* QuotesWidget.intentdefinition in Sources */,
 				2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */,
 			);
@@ -269,6 +274,7 @@
 			files = (
 				2358859428CAE071006ED60C /* QuoteModel.swift in Sources */,
 				2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */,
+				23952D5728CAE94B00C71E2D /* Date+Tomorrow.swift in Sources */,
 				2358859528CAE0E3006ED60C /* Persistence.swift in Sources */,
 				2358858628CADADD006ED60C /* QuotesWidget.swift in Sources */,
 				2358858B28CADADD006ED60C /* QuotesWidget.intentdefinition in Sources */,
@@ -409,6 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Quotes/Preview Content\"";
+				DEVELOPMENT_TEAM = QJZL455652;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -438,6 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Quotes/Preview Content\"";
+				DEVELOPMENT_TEAM = QJZL455652;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -465,6 +473,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QJZL455652;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuotesWidget;
@@ -491,6 +500,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QJZL455652;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuotesWidget;
