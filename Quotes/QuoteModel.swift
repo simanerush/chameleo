@@ -8,8 +8,23 @@
 import CoreData
 
 class QuoteModel: ObservableObject {
-  func getRandomQuote() -> String {
-    let persistenceController = PersistenceController()
+  let defaults = UserDefaults.standard
+  let persistenceController: PersistenceController
+
+  init(persistenceController: PersistenceController) {
+    self.persistenceController = persistenceController
+  }
+
+  func getTodayQuote() -> String {
+    if let quote = defaults.array(forKey: "todaysQuote") {
+      return quote[1] as! String
+    } else {
+      return "You don't have any quotes!"
+    }
+  }
+
+  func computeRandomQuote() {
+    // TODO: - If there's no quote saved already, compute a new one (save + return). Else, return the one that is stored already.
 
     var fetchedQuotes = [String]()
 
@@ -25,6 +40,8 @@ class QuoteModel: ObservableObject {
     } catch {
       print("Failed to fetch data request.")
     }
-    return fetchedQuotes.randomElement() ?? "You don't have any quotes!"
+    if !fetchedQuotes.isEmpty {
+      defaults.set([Date.today, fetchedQuotes.randomElement() as Any], forKey: "todaysQuote")
+    }
   }
 }

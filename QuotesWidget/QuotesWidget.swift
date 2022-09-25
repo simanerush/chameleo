@@ -24,7 +24,7 @@ struct QuotesTimelineProvider: TimelineProvider {
 
   // Provides an array of timeline entries for the current time and, optionally, any future times to update a widget.
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    let entry = Entry(date: Date(), title: model.getRandomQuote() ?? "You don't have any quotes!")
+    let entry = Entry(date: Date(), title: model.getTodayQuote())
     let timeline = Timeline(entries: [entry],
                             policy: .after(Date.tomorrow))
     completion(timeline)
@@ -54,8 +54,8 @@ struct QuotesWidget: Widget {
   var body: some WidgetConfiguration {
     StaticConfiguration(
       kind: "com.simanerush.Quotes.QuotesWidget",
-      provider: QuotesTimelineProvider(model: QuoteModel())) { entry in
-        QuotesWidgetEntryView(model: QuoteModel(), entry: entry)
+      provider: QuotesTimelineProvider(model: QuoteModel(persistenceController: PersistenceController.shared))) { entry in
+        QuotesWidgetEntryView(model: QuoteModel(persistenceController: PersistenceController.shared), entry: entry)
       }
       .configurationDisplayName("My Widget")
   }

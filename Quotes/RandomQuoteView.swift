@@ -16,7 +16,7 @@ struct RandomQuoteView: View {
   var body: some View {
     NavigationView {
       VStack {
-        Text(model.getRandomQuote())
+        Text(model.getTodayQuote())
         NavigationLink(destination: QuotesListView(model: model).navigationBarHidden(true),
                        isActive: $showQuotes) {}
       }
