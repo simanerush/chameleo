@@ -11,7 +11,7 @@ import SwiftUI
 struct QuotesApp: App {
   let persistenceController = PersistenceController.shared
   let model: QuoteModel
-  let defaults = UserDefaults.standard
+  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")
 
   init() {
     // When the day changes, update the quote

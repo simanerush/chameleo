@@ -10,7 +10,6 @@ import SwiftUI
 import Intents
 
 struct QuotesTimelineProvider: TimelineProvider {
-  @ObservedObject var model: QuoteModel
 
   // Provides a timeline entry representing a placeholder version of the widget.
   func placeholder(in context: Context) -> Entry {
@@ -24,7 +23,7 @@ struct QuotesTimelineProvider: TimelineProvider {
 
   // Provides an array of timeline entries for the current time and, optionally, any future times to update a widget.
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    let entry = Entry(date: Date(), title: model.getTodayQuote())
+    let entry = Entry(date: Date(), title: "test")
     let timeline = Timeline(entries: [entry],
                             policy: .after(Date.tomorrow))
     completion(timeline)
@@ -43,7 +42,7 @@ struct QuotesWidgetEntryView : View {
   var entry: QuotesTimelineProvider.Entry
 
   var body: some View {
-    Text(entry.title)
+    Text(model.getTodayQuote())
   }
 }
 
@@ -51,11 +50,27 @@ struct QuotesWidgetEntryView : View {
 struct QuotesWidget: Widget {
   let kind: String = "QuotesWidget"
 
+  let persistenceController = PersistenceController.shared
+  let model: QuoteModel
+  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")
+
+  init() {
+    // When the day changes, update the quote
+    self.model = QuoteModel(persistenceController: persistenceController)
+    if let storedQuote = UserDefaults.standard.array(forKey: "todaysQuote") {
+      if storedQuote.first! as! Date != Date.today {
+        model.computeRandomQuote()
+      }
+    } else if UserDefaults.standard.array(forKey: "todaysQuote") == nil {
+       model.computeRandomQuote()
+    }
+  }
+
   var body: some WidgetConfiguration {
     StaticConfiguration(
       kind: "com.simanerush.Quotes.QuotesWidget",
-      provider: QuotesTimelineProvider(model: QuoteModel(persistenceController: PersistenceController.shared))) { entry in
-        QuotesWidgetEntryView(model: QuoteModel(persistenceController: PersistenceController.shared), entry: entry)
+      provider: QuotesTimelineProvider()) { entry in
+        QuotesWidgetEntryView(model: model, entry: entry)
       }
       .configurationDisplayName("My Widget")
   }
