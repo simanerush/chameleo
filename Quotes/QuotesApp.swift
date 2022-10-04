@@ -11,16 +11,17 @@ import SwiftUI
 struct QuotesApp: App {
   let persistenceController = PersistenceController.shared
   let model: QuoteModel
-  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")
+  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
 
   init() {
     // When the day changes, update the quote
     self.model = QuoteModel(persistenceController: persistenceController)
-    if let storedQuote = UserDefaults.standard.array(forKey: "todaysQuote") {
-      if storedQuote.first! as! Date != Date.today {
+    if let storedQuote = defaults.array(forKey: "todaysQuote") {
+      let storedDate = storedQuote.first! as! Date
+      if !storedDate.hasSameOfMultiple([.day, .month, .year], as: Date.today) {
         model.computeRandomQuote()
       }
-    } else if UserDefaults.standard.array(forKey: "todaysQuote") == nil {
+    } else if defaults.array(forKey: "todaysQuote") == nil {
        model.computeRandomQuote()
     }
   }
