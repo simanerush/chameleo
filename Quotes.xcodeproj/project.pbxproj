@@ -26,6 +26,7 @@
 		2358859528CAE0E3006ED60C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
 		2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
 		237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
+		237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
 		23952D5728CAE94B00C71E2D /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */; };
 		23E8B52828D92244007345FE /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */; };
 /* End PBXBuildFile section */
@@ -307,6 +308,7 @@
 				2358859428CAE071006ED60C /* QuoteModel.swift in Sources */,
 				2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */,
 				23952D5728CAE94B00C71E2D /* Date+Tomorrow.swift in Sources */,
+				237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */,
 				2358859528CAE0E3006ED60C /* Persistence.swift in Sources */,
 				2358858628CADADD006ED60C /* QuotesWidget.swift in Sources */,
 				2358858B28CADADD006ED60C /* QuotesWidget.intentdefinition in Sources */,
