@@ -28,7 +28,7 @@ class QuoteModel: ObservableObject {
     if let quote = defaults.array(forKey: "todaysQuote") {
       return quote[1] as! String
     } else {
-      return "You don't have any quotes!"
+      return "you don't have any quotes!"
     }
   }
 
