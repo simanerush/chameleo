@@ -23,62 +23,65 @@ struct QuotesListView: View {
     animation: .default)
   private var items: FetchedResults<Item>
 
-  var body: some View {      List {
-    HStack {
-      TextField("new quote", text: $textField)
-        .font(.custom("FiraMono-Medium", size: 20))
-        .padding(5)
-      Button {
-        if !textField.isEmpty {
-          let newQuote = Item(context: viewContext)
-          newQuote.timestamp = Date()
-          newQuote.title = textField
-          addItem(newItem: newQuote)
-          textField = ""
-        }
-      } label: {
-        Image(systemName: "plus")
-          .foregroundColor(Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)))
-      }
-    }
-    ForEach(items) { item in
-      Text(item.title!)
-        .font(.custom("FiraMono-Medium", size: 20))
-        .padding(5)
-    }
-    .onDelete(perform: deleteItems)
-  }
-  .scrollContentBackground(.hidden)
-  .background(Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)))
-  .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
-    Button("ok", role: .cancel) {}
-  }
-  .navigationBarBackButtonHidden(true)
-  .environment(\.editMode, $editMode)
-  .toolbar {
-    ToolbarItem(placement: .navigationBarLeading) {
-      Button(action: goBack) {
-        Label("", systemImage: "arrow.backward")
-      }
-      .foregroundColor(.white)
-      .bold()
-    }
-    ToolbarItem(placement: .navigationBarTrailing) {
-      Button {
-              if editMode == .inactive {
-                  editMode = .active
-              } else {
-                  editMode = .inactive
-              }
-          } label: {
-              Text(editMode == .inactive ? "edit" : "done")
-              .foregroundColor(.white)
-              .font(.headline)
-              .bold()
+  var body: some View {
+    List {
+      HStack {
+        TextField("new quote", text: $textField)
+          .font(.custom("FiraMono-Medium", size: 20))
+          .padding(5)
+        Button {
+          if !textField.isEmpty {
+            let newQuote = Item(context: viewContext)
+            newQuote.timestamp = Date()
+            newQuote.title = textField
+            addItem(newItem: newQuote)
+            textField = ""
           }
+        } label: {
+          Image(systemName: "plus")
+            .foregroundColor(Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)))
+        }
+      }
+      ForEach(items) { item in
+        Text(item.title!)
+          .font(.custom("FiraMono-Medium", size: 20))
+          .padding(5)
+          .opacity(0.7)
+      }
+      .onDelete(perform: deleteItems)
     }
+    .opacity(0.98)
+    .scrollContentBackground(.hidden)
+    .background(Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)))
+    .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
+      Button("ok", role: .cancel) {}
+    }
+    .navigationBarBackButtonHidden(true)
+    .environment(\.editMode, $editMode)
+    .toolbar {
+      ToolbarItem(placement: .navigationBarLeading) {
+        Button(action: goBack) {
+          Label("", systemImage: "arrow.backward")
+        }
+        .foregroundColor(.white)
+        .bold()
+      }
+      ToolbarItem(placement: .navigationBarTrailing) {
+        Button {
+          if editMode == .inactive {
+            editMode = .active
+          } else {
+            editMode = .inactive
+          }
+        } label: {
+          Text(editMode == .inactive ? "edit" : "done")
+            .foregroundColor(.white)
+            .font(.headline)
+            .bold()
+        }
+      }
 
-  }
+    }
 
   }
 
