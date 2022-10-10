@@ -39,7 +39,7 @@ struct QuotesListView: View {
           }
         } label: {
           Image(systemName: "plus")
-            .foregroundColor(Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)))
+            .foregroundColor(Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)))
         }
       }
       ForEach(items) { item in
@@ -52,7 +52,7 @@ struct QuotesListView: View {
     }
     .opacity(0.98)
     .scrollContentBackground(.hidden)
-    .background(Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)))
+    .background(Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)))
     .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
       Button("ok", role: .cancel) {}
     }

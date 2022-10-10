@@ -16,7 +16,7 @@ struct RandomQuoteView: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        Color(UIColor(red: 0.92, green: 0.71, blue: 0.26, alpha: 1.00)).ignoresSafeArea()
+        Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)).ignoresSafeArea()
         VStack {
           Text(model.getTodayQuote()).font(.custom("DelaGothicOne-Regular", size: 50))
             .foregroundColor(Color(UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)))
