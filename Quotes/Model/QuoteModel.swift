@@ -45,7 +45,7 @@ class QuoteModel: ObservableObject {
         }
       }
     } catch {
-      print("Failed to fetch data request.")
+      fatalError("🚨failed to fetch data")
     }
     if !fetchedQuotes.isEmpty {
       defaults.set([Date.today, fetchedQuotes.randomElement() as Any], forKey: "todaysQuote")

@@ -18,8 +18,11 @@ struct RandomQuoteView: View {
       ZStack {
         Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)).ignoresSafeArea()
         VStack {
-          Text(model.getTodayQuote()).font(.custom("DelaGothicOne-Regular", size: 50))
+          Text(model.getTodayQuote())
+            .padding(5)
+            .font(.custom("DelaGothicOne-Regular", size: 50))
             .foregroundColor(Color(UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)))
+            .minimumScaleFactor(0.01)
         }
         .toolbar {
           ToolbarItem {
@@ -36,7 +39,6 @@ struct RandomQuoteView: View {
         .navigationBarTitleDisplayMode(.inline)
       }
       .navigationDestination(isPresented: $showQuotes) {
-        let _ = print("lol")
         QuotesListView(model: model)
           .navigationBarTitleDisplayMode(.inline)
       }
