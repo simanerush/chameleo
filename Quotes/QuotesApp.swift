@@ -11,7 +11,6 @@ import SwiftUI
 struct QuotesApp: App {
   let persistenceController = PersistenceController.shared
   let model: QuoteModel
-  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
 
   init() {
     self.model = QuoteModel(persistenceController: persistenceController)
