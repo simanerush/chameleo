@@ -17,6 +17,9 @@ struct QuotesListView: View {
   @State private var editMode: EditMode = .inactive
   @State private var textField = ""
   @State private var alertIsPresented = false
+  
+  @AppStorage("backgroundColor") private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
+  @AppStorage("fontColor") private var fontColor: Color = .white
 
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -39,7 +42,7 @@ struct QuotesListView: View {
           }
         } label: {
           Image(systemName: "plus")
-            .foregroundColor(Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)))
+            .foregroundColor(backgroundColor)
         }
       }
       ForEach(items) { item in
@@ -52,7 +55,7 @@ struct QuotesListView: View {
     }
     .opacity(0.98)
     .scrollContentBackground(.hidden)
-    .background(Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)))
+    .background(backgroundColor)
     .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
       Button("ok", role: .cancel) {}
     }
@@ -63,7 +66,7 @@ struct QuotesListView: View {
         Button(action: goBack) {
           Label("", systemImage: "arrow.backward")
         }
-        .foregroundColor(.white)
+        .foregroundColor(fontColor)
         .bold()
       }
       ToolbarItem(placement: .navigationBarTrailing) {
@@ -75,14 +78,13 @@ struct QuotesListView: View {
           }
         } label: {
           Text(editMode == .inactive ? "edit" : "done")
-            .foregroundColor(.white)
+            .foregroundColor(fontColor)
             .font(.headline)
             .bold()
         }
       }
 
     }
-
   }
 
   private func addItem(newItem: Item) {

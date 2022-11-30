@@ -12,25 +12,38 @@ struct RandomQuoteView: View {
   @ObservedObject var model: QuoteModel
 
   @State var showQuotes = false
+  @State var showSettings = false
+  
+  @AppStorage("backgroundColor") private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
+  @AppStorage("fontColor") private var fontColor: Color = .white
 
   var body: some View {
     NavigationStack {
       ZStack {
-        Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)).ignoresSafeArea()
+        backgroundColor.ignoresSafeArea()
         VStack {
           Text(model.getTodayQuote())
             .padding(5)
             .font(.custom("DelaGothicOne-Regular", size: 50))
-            .foregroundColor(Color(UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)))
+            .foregroundColor(fontColor)
             .minimumScaleFactor(0.01)
         }
         .toolbar {
-          ToolbarItem {
+          ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+              showSettings.toggle()
+            } label: {
+              Image(systemName: "gear")
+                .foregroundColor(fontColor)
+                .bold()
+            }
+          }
+          ToolbarItem(placement: .navigationBarTrailing) {
             Button {
               showQuotes.toggle()
             } label: {
               Text("my quotes")
-                .foregroundColor(.white)
+                .foregroundColor(fontColor)
                 .font(.headline)
                 .bold()
             }
@@ -41,6 +54,10 @@ struct RandomQuoteView: View {
       .navigationDestination(isPresented: $showQuotes) {
         QuotesListView(model: model)
           .navigationBarTitleDisplayMode(.inline)
+      }
+      .navigationDestination(isPresented: $showSettings) {
+        SettingsView()
+          .navigationBarTitleDisplayMode(.large)
       }
     }
   }
