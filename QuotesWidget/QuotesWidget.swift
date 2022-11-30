@@ -33,7 +33,7 @@ struct QuotesTimelineProvider: TimelineProvider {
     let title: String = model.getTodayQuote()
     let entry = Entry(date: Date(), title: title)
     let timeline = Timeline(entries: [entry],
-                            policy: .after(Date.tomorrow))
+                            policy: .atEnd)
     completion(timeline)
   }
 }
