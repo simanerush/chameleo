@@ -1,3 +1,3 @@
-![Apple_iPhone_13_Pro_6_1-inch_1284x2778_Screenshot1](https://user-images.githubusercontent.com/51447912/196308140-b3e29f6c-8015-4f2e-90ae-b7d7b1237f1c.png)
-![Apple_iPhone_13_Pro_6_1-inch_1284x2778_Screenshot2](https://user-images.githubusercontent.com/51447912/196308134-be09fc8e-7f01-4564-8aa7-8ee6eabc675f.png)
-![Apple_iPhone_13_Pro_6_1-inch_1284x2778_Screenshot3](https://user-images.githubusercontent.com/51447912/196308130-22fa0847-8d66-4a9b-b070-18adc5b8fe46.png)
+![quotes1](https://user-images.githubusercontent.com/51447912/196553868-eab4b5a7-f150-4d1b-85b1-71b3d2250c4f.png)
+![quotes2](https://user-images.githubusercontent.com/51447912/196553862-452c6c73-2c74-4f01-aedd-5e83e69524ab.png)
+![quotes3](https://user-images.githubusercontent.com/51447912/196553858-b51c07b4-c25b-4754-9fc6-791cd02156f5.png)
