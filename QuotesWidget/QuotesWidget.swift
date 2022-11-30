@@ -46,14 +46,17 @@ struct Entry: TimelineEntry {
 struct QuotesWidgetEntryView : View {
 
   var entry: QuotesTimelineProvider.Entry
-
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
+  
+  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = .white
+  
   var body: some View {
     ZStack {
-      Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00)).ignoresSafeArea()
+      backgroundColor.ignoresSafeArea()
       Text(entry.title)
         .padding(5)
         .font(.custom("DelaGothicOne-Regular", size: 50))
-        .foregroundColor(Color(UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)))
+        .foregroundColor(fontColor)
         .minimumScaleFactor(0.01)
     }
   }

@@ -18,9 +18,9 @@ struct QuotesListView: View {
   @State private var textField = ""
   @State private var alertIsPresented = false
   
-  @AppStorage("backgroundColor") private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
-  @AppStorage("fontColor") private var fontColor: Color = .white
-
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
+  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = .white
+  
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
     animation: .default)
@@ -83,8 +83,8 @@ struct QuotesListView: View {
             .bold()
         }
       }
-
     }
+    .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
   }
 
   private func addItem(newItem: Item) {

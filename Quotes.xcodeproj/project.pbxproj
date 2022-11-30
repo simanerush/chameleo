@@ -35,6 +35,7 @@
 		23E8B52828D92244007345FE /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23952D5628CAE94B00C71E2D /* Date+Tomorrow.swift */; };
 		23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69D2936E2B7002C36D7 /* SettingsView.swift */; };
 		23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
+		23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +344,7 @@
 				2358859528CAE0E3006ED60C /* Persistence.swift in Sources */,
 				2358858628CADADD006ED60C /* QuotesWidget.swift in Sources */,
 				2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
+				23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
