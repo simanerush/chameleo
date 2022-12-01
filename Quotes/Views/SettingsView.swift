@@ -30,7 +30,7 @@ struct SettingsView: View {
           fontColor = .white
         } label: {
           Text("reset settings")
-            .foregroundColor(backgroundColor)
+            .foregroundColor(.blue)
         }
       }
     }
@@ -41,7 +41,7 @@ struct SettingsView: View {
         Button(action: goBack) {
           Label("", systemImage: "arrow.backward")
         }
-        .foregroundColor(backgroundColor)
+        .foregroundColor(.blue)
         .bold()
       }
     }

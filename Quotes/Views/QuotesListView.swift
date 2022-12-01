@@ -29,8 +29,11 @@ struct QuotesListView: View {
   var body: some View {
     List {
       HStack {
-        TextField("new quote", text: $textField)
+        TextField("", text: $textField)
+          .foregroundColor(fontColor)
           .font(.custom("FiraMono-Medium", size: 20))
+          .tint(fontColor)
+          .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
           .padding(5)
         Button {
           if !textField.isEmpty {
@@ -42,18 +45,19 @@ struct QuotesListView: View {
           }
         } label: {
           Image(systemName: "plus")
-            .foregroundColor(backgroundColor)
+            .foregroundColor(fontColor)
         }
       }
+      .listRowBackground(backgroundColor)
       ForEach(items) { item in
         Text(item.title!)
           .font(.custom("FiraMono-Medium", size: 20))
           .padding(5)
-          .opacity(0.7)
+          .foregroundColor(fontColor)
+          .listRowBackground(backgroundColor)
       }
       .onDelete(perform: deleteItems)
     }
-    .opacity(0.98)
     .scrollContentBackground(.hidden)
     .background(backgroundColor)
     .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
