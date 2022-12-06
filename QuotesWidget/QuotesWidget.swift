@@ -31,9 +31,12 @@ struct QuotesTimelineProvider: TimelineProvider {
   // Provides an array of timeline entries for the current time and, optionally, any future times to update a widget.
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
     let title: String = model.getTodayQuote()
-    let entry = Entry(date: Date(), title: title)
+    let creationDate = Date()
+    let nextUpdate = Calendar.autoupdatingCurrent.date(byAdding: .day, value: 1, to: Calendar.autoupdatingCurrent.startOfDay(for: creationDate))!
+    let entry = Entry(date: creationDate, title: title)
     let timeline = Timeline(entries: [entry],
-                            policy: .atEnd)
+                            policy:
+        .after(nextUpdate))
     completion(timeline)
   }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 @main
 struct QuotesApp: App {
@@ -14,6 +15,7 @@ struct QuotesApp: App {
 
   init() {
     self.model = QuoteModel(persistenceController: persistenceController)
+    WidgetCenter.shared.reloadAllTimelines()
   }
 
   var body: some Scene {
