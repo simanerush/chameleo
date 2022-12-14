@@ -16,16 +16,15 @@ class QuoteModel: ObservableObject {
   }
 
   func getTodayQuote() -> String {
-//    if let storedQuote = defaults.array(forKey: "todaysQuote") {
-//      let storedDate = storedQuote.first! as! Date
-//      if !storedDate.hasSameOfMultiple([.day, .month, .year], as: Date.today) {
-//        self.computeRandomQuote()
-//      }
-//    } else if defaults.array(forKey: "todaysQuote") == nil {
-//       self.computeRandomQuote()
-//    }
+    if let storedQuote = defaults.array(forKey: "todaysQuote") {
+      let storedDate = storedQuote.first! as! Date
+      if !storedDate.hasSameOfMultiple([.day, .month, .year], as: Date.today) {
+        self.computeRandomQuote()
+      }
+    } else if defaults.array(forKey: "todaysQuote") == nil {
+       self.computeRandomQuote()
+    }
     
-    self.computeRandomQuote()
     if let quote = defaults.array(forKey: "todaysQuote") {
       return quote[1] as! String
     } else {
