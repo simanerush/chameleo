@@ -20,7 +20,7 @@ struct QuotesApp: App {
   
   var body: some Scene {
     WindowGroup {
-      RandomQuoteView(model: model)
+      MainView(model: model)
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }

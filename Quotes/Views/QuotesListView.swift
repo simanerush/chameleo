@@ -13,8 +13,6 @@ struct QuotesListView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   
   @ObservedObject var model: QuoteModel
-  
-  @State private var editMode: EditMode = .inactive
   @State private var textField = ""
   @State private var alertIsPresented = false
   
@@ -57,36 +55,8 @@ struct QuotesListView: View {
           .listRowBackground(backgroundColor)
       }
       .onDelete(perform: deleteItems)
-    }
-    .scrollContentBackground(.hidden)
-    .background(backgroundColor)
-    .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
+    }      .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
       Button("ok", role: .cancel) {}
-    }
-    .navigationBarBackButtonHidden(true)
-    .environment(\.editMode, $editMode)
-    .toolbar {
-      ToolbarItem(placement: .navigationBarLeading) {
-        Button(action: goBack) {
-          Label("", systemImage: "arrow.backward")
-        }
-        .foregroundColor(fontColor)
-        .bold()
-      }
-      ToolbarItem(placement: .navigationBarTrailing) {
-        Button {
-          if editMode == .inactive {
-            editMode = .active
-          } else {
-            editMode = .inactive
-          }
-        } label: {
-          Text(editMode == .inactive ? "edit" : "done")
-            .foregroundColor(fontColor)
-            .font(.headline)
-            .bold()
-        }
-      }
     }
     .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
   }
@@ -97,10 +67,6 @@ struct QuotesListView: View {
     } catch {
       alertIsPresented.toggle()
     }
-  }
-  
-  private func goBack() {
-    self.presentationMode.wrappedValue.dismiss()
   }
   
   private func deleteItems(offsets: IndexSet) {
@@ -114,11 +80,5 @@ struct QuotesListView: View {
         fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
       }
     }
-  }
-}
-
-struct QuotesListView_Previews: PreviewProvider {
-  static var previews: some View {
-    QuotesListView(model: QuoteModel(persistenceController: PersistenceController.shared))
   }
 }
