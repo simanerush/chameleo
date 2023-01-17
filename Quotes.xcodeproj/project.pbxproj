@@ -35,8 +35,6 @@
 		23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69D2936E2B7002C36D7 /* SettingsView.swift */; };
 		23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 		23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
-		23EDD6A329372EBC002C36D7 /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */; };
-		23EDD6A429372ED2002C36D7 /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +88,6 @@
 		23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesWidgetExtension.entitlements; sourceTree = "<group>"; };
 		23EDD69D2936E2B7002C36D7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
-		23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +177,6 @@
 		237C1DCB28ECE166003FC21C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */,
 				237C1DCC28ECE182003FC21C /* Date+Compare.swift */,
 				23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */,
 				2398673E29393976006A86DD /* View+Placeholder.swift */,
@@ -331,7 +327,6 @@
 				2398673F29393976006A86DD /* View+Placeholder.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
-				23EDD6A329372EBC002C36D7 /* Date+Tomorrow.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */,
 			);
@@ -341,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23EDD6A429372ED2002C36D7 /* Date+Tomorrow.swift in Sources */,
 				2358859428CAE071006ED60C /* QuoteModel.swift in Sources */,
 				2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */,
 				237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */,
@@ -503,7 +497,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quotes/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "💭my quotes";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -537,7 +531,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quotes/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "💭my quotes";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

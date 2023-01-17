@@ -16,14 +16,14 @@ struct SettingsView: View {
   
   var body: some View {
     Form {
-      Section("appearance") {
+      Section("theme") {
         ColorPicker("background color", selection: $backgroundColor)
         ColorPicker("font color", selection: $fontColor)
       }
-//      TODO
-//      Section("widget") {
-//        Text("frequency of widget update")
-//      }
+      //      TODO
+      //      Section("widget") {
+      //        Text("frequency of widget update")
+      //      }
       Section {
         Button {
           backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))

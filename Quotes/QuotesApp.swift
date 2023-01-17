@@ -12,12 +12,12 @@ import WidgetKit
 struct QuotesApp: App {
   let persistenceController = PersistenceController.shared
   let model: QuoteModel
-
+  
   init() {
     self.model = QuoteModel(persistenceController: persistenceController)
     WidgetCenter.shared.reloadAllTimelines()
   }
-
+  
   var body: some Scene {
     WindowGroup {
       RandomQuoteView(model: model)

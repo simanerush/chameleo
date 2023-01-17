@@ -11,9 +11,9 @@ import CoreData
 struct QuotesListView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+  
   @ObservedObject var model: QuoteModel
-
+  
   @State private var editMode: EditMode = .inactive
   @State private var textField = ""
   @State private var alertIsPresented = false
@@ -25,7 +25,7 @@ struct QuotesListView: View {
     sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
     animation: .default)
   private var items: FetchedResults<Item>
-
+  
   var body: some View {
     List {
       HStack {
@@ -90,7 +90,7 @@ struct QuotesListView: View {
     }
     .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
   }
-
+  
   private func addItem(newItem: Item) {
     do {
       try viewContext.save()
@@ -98,15 +98,15 @@ struct QuotesListView: View {
       alertIsPresented.toggle()
     }
   }
-
+  
   private func goBack() {
     self.presentationMode.wrappedValue.dismiss()
   }
-
+  
   private func deleteItems(offsets: IndexSet) {
     withAnimation {
       offsets.map { items[$0] }.forEach(viewContext.delete)
-
+      
       do {
         try viewContext.save()
       } catch {

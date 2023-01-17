@@ -10,14 +10,14 @@ import SwiftUI
 struct RandomQuoteView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @ObservedObject var model: QuoteModel
-
+  
   @State var showQuotes = false
   @State var showSettings = false
   
   @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
   
   @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = .white
-
+  
   var body: some View {
     NavigationStack {
       ZStack {
