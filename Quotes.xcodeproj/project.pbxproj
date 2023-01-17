@@ -167,9 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				2358858528CADADD006ED60C /* QuotesWidget.swift */,
-				2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */,
 				2358858828CADADD006ED60C /* Assets.xcassets */,
 				2358858A28CADADD006ED60C /* Info.plist */,
+				2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */,
 			);
 			path = QuotesWidget;
 			sourceTree = "<group>";
