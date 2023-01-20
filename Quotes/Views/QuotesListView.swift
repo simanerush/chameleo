@@ -25,40 +25,58 @@ struct QuotesListView: View {
   private var items: FetchedResults<Item>
   
   var body: some View {
-    List {
-      HStack {
-        TextField("", text: $textField)
-          .foregroundColor(fontColor)
-          .font(.custom("FiraMono-Medium", size: 20))
-          .tint(fontColor)
-          .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
-          .padding(5)
-        Button {
-          if !textField.isEmpty {
-            let newQuote = Item(context: viewContext)
-            newQuote.timestamp = Date()
-            newQuote.title = textField
-            addItem(newItem: newQuote)
-            textField = ""
-          }
-        } label: {
-          Image(systemName: "plus")
+    NavigationView {
+      VStack {
+        HStack {
+          TextField("", text: $textField)
             .foregroundColor(fontColor)
+            .font(.custom("FiraMono-Medium", size: 20))
+            .tint(fontColor)
+            .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
+            .background(backgroundColor)
+            .padding(5)
+          Button {
+            if !textField.isEmpty {
+              let newQuote = Item(context: viewContext)
+              newQuote.timestamp = Date()
+              newQuote.title = textField
+              addItem(newItem: newQuote)
+              textField = ""
+            }
+          } label: {
+            Image(systemName: "plus")
+              .foregroundColor(fontColor)
+          }
         }
+        .padding()
+        .background(backgroundColor)
+        .contentShape(Rectangle())
+        .cornerRadius(10.0)
+        .padding(.vertical, 2)
+        .padding(.horizontal, 10)
+        ForEach(items) { item in
+            HStack {
+              Text(item.title!)
+                .font(.custom("FiraMono-Medium", size: 20))
+                .padding(5)
+                .foregroundColor(fontColor)
+              Spacer()
+            }
+            .padding()
+            .background(backgroundColor)
+            .contentShape(Rectangle())
+            .cornerRadius(5.0)
+            .padding(.vertical, 2)
+            .padding(.horizontal, 10)
+        }
+        Spacer()
       }
-      .listRowBackground(backgroundColor)
-      ForEach(items) { item in
-        Text(item.title!)
-          .font(.custom("FiraMono-Medium", size: 20))
-          .padding(5)
-          .foregroundColor(fontColor)
-          .listRowBackground(backgroundColor)
+      .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
+        Button("ok", role: .cancel) {}
       }
-      .onDelete(perform: deleteItems)
-    }      .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
-      Button("ok", role: .cancel) {}
+      .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
+      .navigationTitle("my quotes")
     }
-    .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
   }
   
   private func addItem(newItem: Item) {
