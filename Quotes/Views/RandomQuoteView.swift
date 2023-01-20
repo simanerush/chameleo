@@ -11,8 +11,9 @@ struct RandomQuoteView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @ObservedObject var model: QuoteModel
   
-  @State var showQuotes = false
-  @State var showSettings = false
+  @State private var showTabBar = true
+  @State private var showQuotes = false
+  @State private var showSettings = false
   
   @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
   
@@ -20,7 +21,7 @@ struct RandomQuoteView: View {
   
   var body: some View {
     ZStack {
-      backgroundColor.edgesIgnoringSafeArea([.top, .horizontal])
+      backgroundColor.edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
       VStack {
         Text(model.getTodayQuote())
           .padding(5)
@@ -30,6 +31,12 @@ struct RandomQuoteView: View {
       }
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
     }
+    .onTapGesture {
+      withAnimation(.easeInOut) {
+        showTabBar.toggle()
+      }
+    }
+    .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
   }
 }
 
