@@ -15,6 +15,7 @@ struct QuotesListView: View {
   @ObservedObject var model: QuoteModel
   @State private var textField = ""
   @State private var alertIsPresented = false
+  @State private var editMode: EditMode = .inactive
   
   @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
   @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = .white
@@ -26,32 +27,32 @@ struct QuotesListView: View {
   
   var body: some View {
     NavigationView {
-      VStack {
-        HStack {
-          TextField("", text: $textField)
-            .foregroundColor(fontColor)
-            .font(.custom("FiraMono-Medium", size: 20))
-            .tint(fontColor)
-            .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
-            .background(backgroundColor)
-            .padding(5)
-            .onSubmit {
-              addQuote()
-            }
-          Button {
-            addQuote()
-          } label: {
-            Image(systemName: "plus")
+        List {
+          HStack {
+            TextField("", text: $textField)
               .foregroundColor(fontColor)
+              .font(.custom("FiraMono-Medium", size: 20))
+              .tint(fontColor)
+              .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
+              .background(backgroundColor)
+              .padding(5)
+              .onSubmit {
+                addQuote()
+              }
+            Button {
+              addQuote()
+            } label: {
+              Image(systemName: "plus")
+                .foregroundColor(fontColor)
+            }
           }
-        }
-        .padding()
-        .background(backgroundColor)
-        .contentShape(Rectangle())
-        .cornerRadius(10.0)
-        .padding(.vertical, 2)
-        .padding(.horizontal, 10)
-        ForEach(items) { item in
+          .padding()
+          .background(backgroundColor)
+          .contentShape(Rectangle())
+          .cornerRadius(10)
+          .padding(.vertical, -2)
+          .padding(.horizontal, -10)
+          ForEach(items) { item in
             HStack {
               Text(item.title!)
                 .font(.custom("FiraMono-Medium", size: 20))
@@ -62,17 +63,39 @@ struct QuotesListView: View {
             .padding()
             .background(backgroundColor)
             .contentShape(Rectangle())
-            .cornerRadius(5.0)
-            .padding(.vertical, 2)
-            .padding(.horizontal, 10)
+            .cornerRadius(10)
+            .listRowSeparator(.hidden)
+            .padding(.vertical, -2)
+            .padding(.horizontal, -10)
+          }
+          .onDelete(perform: deleteItems)
+          // TODO .onMove
         }
-        Spacer()
+        .listStyle(.plain)
+        .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
+          Button("ok", role: .cancel) {}
+        }
+        .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
+        .navigationTitle("my quotes")
+        .environment(\.editMode, $editMode)
+        .toolbar {
+          editButton
+        }
       }
-      .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
-        Button("ok", role: .cancel) {}
+  }
+  
+  private var editButton: some View {
+    Button {
+      withAnimation {
+        switch editMode {
+        case .inactive:
+          editMode = .active
+        default:
+          editMode = .inactive
+        }
       }
-      .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
-      .navigationTitle("my quotes")
+    } label: {
+      Text("edit")
     }
   }
   
@@ -93,6 +116,7 @@ struct QuotesListView: View {
       textField = ""
     }
   }
+  
   private func deleteItems(offsets: IndexSet) {
     withAnimation {
       offsets.map { items[$0] }.forEach(viewContext.delete)
