@@ -21,67 +21,72 @@ struct QuotesListView: View {
   @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = .white
   
   @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+    sortDescriptors:
+      [
+        NSSortDescriptor(keyPath: \Item.timestamp, ascending: true),
+        NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
+      ],
     animation: .default)
   private var items: FetchedResults<Item>
   
   var body: some View {
     NavigationView {
-        List {
-          HStack {
-            TextField("", text: $textField)
-              .foregroundColor(fontColor)
-              .font(.custom("FiraMono-Medium", size: 20))
-              .tint(fontColor)
-              .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
-              .background(backgroundColor)
-              .padding(5)
-              .onSubmit {
-                addQuote()
-              }
-            Button {
+      List {
+        HStack {
+          TextField("", text: $textField)
+            .foregroundColor(fontColor)
+            .font(.custom("FiraMono-Medium", size: 20))
+            .tint(fontColor)
+            .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
+            .background(backgroundColor)
+            .padding(5)
+            .onSubmit {
               addQuote()
-            } label: {
-              Image(systemName: "plus")
-                .foregroundColor(fontColor)
             }
+          Button {
+            addQuote()
+          } label: {
+            Image(systemName: "plus")
+              .foregroundColor(fontColor)
+          }
+        }
+        .padding()
+        .background(backgroundColor)
+        .contentShape(Rectangle())
+        .cornerRadius(10)
+        .padding(.vertical, -2)
+        .padding(.horizontal, -10)
+        ForEach(items) { item in
+          HStack {
+            Text(item.title!)
+              .font(.custom("FiraMono-Medium", size: 20))
+              .padding(5)
+              .foregroundColor(fontColor)
+            Spacer()
           }
           .padding()
           .background(backgroundColor)
           .contentShape(Rectangle())
           .cornerRadius(10)
+          .listRowSeparator(.hidden)
           .padding(.vertical, -2)
           .padding(.horizontal, -10)
-          ForEach(items) { item in
-            HStack {
-              Text(item.title!)
-                .font(.custom("FiraMono-Medium", size: 20))
-                .padding(5)
-                .foregroundColor(fontColor)
-              Spacer()
-            }
-            .padding()
-            .background(backgroundColor)
-            .contentShape(Rectangle())
-            .cornerRadius(10)
-            .listRowSeparator(.hidden)
-            .padding(.vertical, -2)
-            .padding(.horizontal, -10)
-          }
-          .onDelete(perform: deleteItems)
-          // TODO .onMove
         }
-        .listStyle(.plain)
-        .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
-          Button("ok", role: .cancel) {}
-        }
-        .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
-        .navigationTitle("my quotes")
-        .environment(\.editMode, $editMode)
-        .toolbar {
-          editButton
-        }
+        .onDelete(perform: deleteItems)
+        .onMove(perform: moveItems)
       }
+      .listStyle(.plain)
+      .id(UUID())
+      .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
+        Button("ok", role: .cancel) {}
+      }
+      .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
+      .navigationTitle("my quotes")
+      .environment(\.editMode, $editMode)
+      .toolbar {
+        editButton
+      }
+    }
   }
   
   private var editButton: some View {
@@ -95,7 +100,7 @@ struct QuotesListView: View {
         }
       }
     } label: {
-      Text("edit")
+      Text(editMode.isEditing ? "done" : "edit")
     }
   }
   
@@ -114,6 +119,23 @@ struct QuotesListView: View {
       newQuote.title = textField
       addItem(newItem: newQuote)
       textField = ""
+    }
+  }
+  
+  private func moveItems(from source: IndexSet, to destination: Int) {
+    // make an array of items from fetched results
+    var revisedItems: [Item] = items.map { $0 }
+    
+    // change the order of the items in the array
+    revisedItems.move(fromOffsets: source, toOffset: destination)
+    
+    // update the userOrder attribute in revisedItems to
+    // persist the new order. This is done in reverse order
+    // to minimize changes to the indices.
+    for reverseIndex in stride(from: revisedItems.count - 1,
+                               through: 0,
+                               by: -1) {
+      revisedItems[reverseIndex].userOrder = Int16(reverseIndex)
     }
   }
   
