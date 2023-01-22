@@ -35,14 +35,11 @@ struct QuotesListView: View {
             .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
             .background(backgroundColor)
             .padding(5)
-          Button {
-            if !textField.isEmpty {
-              let newQuote = Item(context: viewContext)
-              newQuote.timestamp = Date()
-              newQuote.title = textField
-              addItem(newItem: newQuote)
-              textField = ""
+            .onSubmit {
+              addQuote()
             }
+          Button {
+            addQuote()
           } label: {
             Image(systemName: "plus")
               .foregroundColor(fontColor)
@@ -87,6 +84,15 @@ struct QuotesListView: View {
     }
   }
   
+  private func addQuote() {
+    if !textField.isEmpty {
+      let newQuote = Item(context: viewContext)
+      newQuote.timestamp = Date()
+      newQuote.title = textField
+      addItem(newItem: newQuote)
+      textField = ""
+    }
+  }
   private func deleteItems(offsets: IndexSet) {
     withAnimation {
       offsets.map { items[$0] }.forEach(viewContext.delete)
