@@ -57,20 +57,22 @@ struct QuotesListView: View {
         .padding(.vertical, -2)
         .padding(.horizontal, -10)
         ForEach(items) { item in
-          HStack {
-            Text(item.title!)
-              .font(.custom("FiraMono-Medium", size: 20))
-              .padding(5)
-              .foregroundColor(fontColor)
-            Spacer()
+          NavigationLink(destination: QuoteDetailView(item: item)) {
+            HStack {
+              Text(item.title!)
+                .font(.custom("FiraMono-Medium", size: 20))
+                .padding(5)
+                .foregroundColor(fontColor)
+              Spacer()
+            }
+            .padding()
+            .background(backgroundColor)
+            .contentShape(Rectangle())
+            .cornerRadius(10)
+            .padding(.vertical, -2)
+            .padding(.horizontal, -10)
           }
-          .padding()
-          .background(backgroundColor)
-          .contentShape(Rectangle())
-          .cornerRadius(10)
           .listRowSeparator(.hidden)
-          .padding(.vertical, -2)
-          .padding(.horizontal, -10)
         }
         .onDelete(perform: deleteItems)
         .onMove(perform: moveItems)

@@ -39,6 +39,7 @@
 		23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69D2936E2B7002C36D7 /* SettingsView.swift */; };
 		23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 		23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
+		23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FE3390297F11C80086AC39 /* QuoteDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesWidgetExtension.entitlements; sourceTree = "<group>"; };
 		23EDD69D2936E2B7002C36D7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
+		23FE3390297F11C80086AC39 /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,10 +208,10 @@
 		237C1DCE28ECE35A003FC21C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				23FE338F297F11B30086AC39 /* List */,
 				2305779A2978775C00D4CD67 /* Settings */,
 				2305779829766E0000D4CD67 /* MainView.swift */,
 				2335B6D428C3329600D8024F /* RandomQuoteView.swift */,
-				2335B6C328C331F800D8024F /* QuotesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +233,15 @@
 				237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		23FE338F297F11B30086AC39 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2335B6C328C331F800D8024F /* QuotesListView.swift */,
+				23FE3390297F11C80086AC39 /* QuoteDetailView.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 				2398673F29393976006A86DD /* View+Placeholder.swift in Sources */,
 				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
+				23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */,
@@ -521,7 +533,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quotes/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "💭my quotes";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -554,7 +566,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quotes/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "💭my quotes";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

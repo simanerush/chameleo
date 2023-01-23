@@ -39,9 +39,3 @@ struct RandomQuoteView: View {
     .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
   }
 }
-
-struct RandomQuoteView_Previews: PreviewProvider {
-  static var previews: some View {
-    RandomQuoteView(model: QuoteModel(persistenceController: PersistenceController.shared))
-  }
-}
