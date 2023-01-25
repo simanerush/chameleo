@@ -78,7 +78,6 @@ struct QuotesListView: View {
         .onMove(perform: moveItems)
       }
       .listStyle(.plain)
-      .id(UUID())
       .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
         Button("ok", role: .cancel) {}
       }
@@ -125,20 +124,7 @@ struct QuotesListView: View {
   }
   
   private func moveItems(from source: IndexSet, to destination: Int) {
-    // make an array of items from fetched results
-    var revisedItems: [Item] = items.map { $0 }
-    
-    // change the order of the items in the array
-    revisedItems.move(fromOffsets: source, toOffset: destination)
-    
-    // update the userOrder attribute in revisedItems to
-    // persist the new order. This is done in reverse order
-    // to minimize changes to the indices.
-    for reverseIndex in stride(from: revisedItems.count - 1,
-                               through: 0,
-                               by: -1) {
-      revisedItems[reverseIndex].userOrder = Int16(reverseIndex)
-    }
+    // TODO: Move items without breaking the Table
   }
   
   private func deleteItems(offsets: IndexSet) {
@@ -148,8 +134,7 @@ struct QuotesListView: View {
       do {
         try viewContext.save()
       } catch {
-        let nsError = error as NSError
-        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        alertIsPresented.toggle()
       }
     }
   }
