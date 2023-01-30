@@ -23,8 +23,7 @@ struct QuotesListView: View {
   @FetchRequest(
     sortDescriptors:
       [
-        NSSortDescriptor(keyPath: \Item.timestamp, ascending: true),
-        NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
+        NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)
       ],
     animation: .default)
   private var items: FetchedResults<Item>
