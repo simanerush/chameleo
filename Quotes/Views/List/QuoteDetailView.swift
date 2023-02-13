@@ -28,20 +28,35 @@ struct QuoteDetailView: View {
   @State private var alertIsPresented = false
   
   var body: some View {
-    VStack {
-      TextField("edit the quote", text: Binding($item.title)!)
-        .onChange(of: item.title!) { _ in
-          do {
-            try viewContext.save()
-          } catch {
-            alertIsPresented.toggle()
+    VStack(alignment: .leading) {
+      Text("📝edit this quote")
+      HStack {
+        TextField("edit the quote", text: Binding($item.title)!)
+          .font(.custom("FiraMono-Medium", size: 20))
+          .padding(5)
+          .foregroundColor(fontColor)
+          .onChange(of: item.title!) { _ in
+            do {
+              try viewContext.save()
+            } catch {
+              alertIsPresented.toggle()
+            }
           }
-        }
-        .textFieldStyle(.roundedBorder)
-        .padding()
+        Spacer()
+      }
+      .padding()
+      .background(backgroundColor)
+      .contentShape(Rectangle())
+      .cornerRadius(10)
+      .padding(.vertical, -2)
+      .padding(.horizontal, -10)
+      Spacer()
     }
+    .padding()
     .alert("🚨failed to edit the quote!", isPresented: $alertIsPresented) {
       Button("ok", role: .cancel) {}
     }
   }
 }
+
+
