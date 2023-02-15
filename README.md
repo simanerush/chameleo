@@ -1,3 +1,3 @@
 # chameleo
 
-Save your favorite quotes, all in one place.
+save your favorite quotes, all in one place.
