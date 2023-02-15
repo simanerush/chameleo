@@ -23,7 +23,7 @@ struct QuotesListView: View {
   @FetchRequest(
     sortDescriptors:
       [
-        NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)
+        NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
       ],
     animation: .default)
   private var items: FetchedResults<Item>
@@ -128,7 +128,20 @@ struct QuotesListView: View {
   }
   
   private func moveItems(from source: IndexSet, to destination: Int) {
-    // TODO: Move items without breaking the Table
+    withAnimation {
+      var revisedItems: [Item] = items.map { $0 }
+      revisedItems.move(fromOffsets: source, toOffset: destination)
+      
+      for reverseIndex in stride(from: revisedItems.count - 1, through: 0, by: -1) {
+        revisedItems[reverseIndex].userOrder = Int16(reverseIndex)
+      }
+      
+      do {
+        try viewContext.save()
+      } catch {
+        alertIsPresented.toggle()
+      }
+    }
   }
   
   private func deleteItems(offsets: IndexSet) {
