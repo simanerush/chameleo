@@ -56,7 +56,7 @@ struct QuotesListView: View {
         .padding(.vertical, -2)
         .padding(.horizontal, -10)
         ForEach(items) { item in
-          NavigationLink(destination: QuoteDetailView(item: item)) {
+          ZStack {
             HStack {
               Text(item.title!)
                 .font(.custom("FiraMono-Medium", size: 20))
@@ -70,6 +70,11 @@ struct QuotesListView: View {
             .cornerRadius(10)
             .padding(.vertical, -2)
             .padding(.horizontal, -10)
+            
+            NavigationLink(destination: QuoteDetailView(item: item).navigationBarTitleDisplayMode(.inline)) {
+              EmptyView()
+            }
+            .opacity(0)
           }
           .listRowSeparator(.hidden)
         }
