@@ -11,6 +11,7 @@
 		2305779C2978777400D4CD67 /* ThemeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305779B2978777400D4CD67 /* ThemeSettingView.swift */; };
 		230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A0297A68D000D4CD67 /* RootSettingView.swift */; };
 		230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A2297A698300D4CD67 /* WidgetSettingView.swift */; };
+		230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
 		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		2305779B2978777400D4CD67 /* ThemeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingView.swift; sourceTree = "<group>"; };
 		230577A0297A68D000D4CD67 /* RootSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSettingView.swift; sourceTree = "<group>"; };
 		230577A2297A698300D4CD67 /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
+		230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateFrequency.swift; sourceTree = "<group>"; };
 		2335B6BE28C331F800D8024F /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2335B6C128C331F800D8024F /* QuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesApp.swift; sourceTree = "<group>"; };
 		2335B6C328C331F800D8024F /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -126,9 +128,18 @@
 				23EDD69D2936E2B7002C36D7 /* SettingsView.swift */,
 				230577A0297A68D000D4CD67 /* RootSettingView.swift */,
 				2305779B2978777400D4CD67 /* ThemeSettingView.swift */,
-				230577A2297A698300D4CD67 /* WidgetSettingView.swift */,
+				230C29B9299EC7C300C41E0A /* Widget */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		230C29B9299EC7C300C41E0A /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				230577A2297A698300D4CD67 /* WidgetSettingView.swift */,
+				230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		2335B6B528C331F800D8024F = {
@@ -362,6 +373,7 @@
 				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
 				23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */,
+				230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */,
