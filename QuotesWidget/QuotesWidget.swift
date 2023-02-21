@@ -11,6 +11,8 @@ import Intents
 
 struct QuotesTimelineProvider: TimelineProvider {
   
+  @AppStorage("widgetUpdateFrequency", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var widgetUpdateFrequency = WidgetUpdateFrequency.daily
+  
   let model: QuoteModel
   
   init(model: QuoteModel) {
@@ -29,12 +31,16 @@ struct QuotesTimelineProvider: TimelineProvider {
     let title: String = model.getTodayQuote()
     // we know that the quote's date must be today
     let creationDate = Date()
-    // schedule the next update to next day
-    let nextUpdate = Calendar.autoupdatingCurrent.date(byAdding: .day, value: 1, to: Calendar.autoupdatingCurrent.startOfDay(for: creationDate))!
+    // schedule the next update to next day depending on user's preference
+    let nextUpdate = Calendar
+      .autoupdatingCurrent
+      .date(byAdding: widgetUpdateFrequency == .daily ? .day : .hour,
+            value: 1,
+            to: Calendar.autoupdatingCurrent.startOfDay(for: creationDate))!
+    
     let entry = Entry(date: creationDate, title: title)
     let timeline = Timeline(entries: [entry],
-                            policy:
-        .after(nextUpdate))
+                            policy: .after(nextUpdate))
     completion(timeline)
   }
 }
@@ -44,7 +50,7 @@ struct Entry: TimelineEntry {
   let title: String
 }
 
-struct QuotesWidgetEntryView : View {
+struct QuotesWidgetEntryView: View {
   
   var entry: QuotesTimelineProvider.Entry
   @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))

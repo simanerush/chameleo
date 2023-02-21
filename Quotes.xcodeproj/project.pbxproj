@@ -12,6 +12,7 @@
 		230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A0297A68D000D4CD67 /* RootSettingView.swift */; };
 		230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A2297A698300D4CD67 /* WidgetSettingView.swift */; };
 		230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
+		230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
 		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
@@ -391,6 +392,7 @@
 				2358858628CADADD006ED60C /* QuotesWidget.swift in Sources */,
 				2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */,
+				230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
