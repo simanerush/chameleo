@@ -38,6 +38,17 @@
 		237C1DDA28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */; };
 		237C1DDB28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */; };
 		2398673F29393976006A86DD /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398673E29393976006A86DD /* View+Placeholder.swift */; };
+		239C16CD29A5919C00CC6553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239C16CC29A5919C00CC6553 /* Assets.xcassets */; };
+		239C16D029A5919C00CC6553 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */; };
+		239C16D529A591D800CC6553 /* QuotesWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */; };
+		239C16D629A591D800CC6553 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C16B229A58C0800CC6553 /* QuoteView.swift */; };
+		239C16D729A591E400CC6553 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
+		239C16D829A591E700CC6553 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398673E29393976006A86DD /* View+Placeholder.swift */; };
+		239C16D929A591E700CC6553 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
+		239C16DA29A591E700CC6553 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
+		239C16DB29A591F700CC6553 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
+		239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
+		239C16DD29A595E200CC6553 /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
 		23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69D2936E2B7002C36D7 /* SettingsView.swift */; };
 		23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 		23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
@@ -96,6 +107,14 @@
 		237C1DD528EE8B12003FC21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraMono-Medium.ttf"; sourceTree = "<group>"; };
 		2398673E29393976006A86DD /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
+		239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesWatchApp.swift; sourceTree = "<group>"; };
+		239C16B229A58C0800CC6553 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		239C16BD29A58F1300CC6553 /* QuotesWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QuotesWatch Watch App.entitlements"; sourceTree = "<group>"; };
+		239C16C629A5919C00CC6553 /* chameleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chameleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		239C16CC29A5919C00CC6553 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		239C16D429A591B100CC6553 /* QuotesW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QuotesW Watch App.entitlements"; sourceTree = "<group>"; };
+		239C16DE29A5962F00CC6553 /* QuotesW-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "QuotesW-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		23DB8DB028E262B3005DB6CA /* Quotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quotes.entitlements; sourceTree = "<group>"; };
 		23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesWidgetExtension.entitlements; sourceTree = "<group>"; };
 		23EDD69D2936E2B7002C36D7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -117,6 +136,13 @@
 			files = (
 				2358858328CADADD006ED60C /* SwiftUI.framework in Frameworks */,
 				2358858128CADADD006ED60C /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		239C16C329A5919C00CC6553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,9 +172,11 @@
 		2335B6B528C331F800D8024F = {
 			isa = PBXGroup;
 			children = (
+				239C16BD29A58F1300CC6553 /* QuotesWatch Watch App.entitlements */,
 				23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */,
 				2335B6C028C331F800D8024F /* Quotes */,
 				2358858428CADADD006ED60C /* QuotesWidget */,
+				239C16C729A5919C00CC6553 /* QuotesW Watch App */,
 				2358857F28CADADD006ED60C /* Frameworks */,
 				2335B6BF28C331F800D8024F /* Products */,
 			);
@@ -159,6 +187,7 @@
 			children = (
 				2335B6BE28C331F800D8024F /* Quotes.app */,
 				2358857E28CADADD006ED60C /* QuotesWidgetExtension.appex */,
+				239C16C629A5919C00CC6553 /* chameleo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +276,27 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		239C16C729A5919C00CC6553 /* QuotesW Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				239C16DE29A5962F00CC6553 /* QuotesW-Watch-App-Info.plist */,
+				239C16D429A591B100CC6553 /* QuotesW Watch App.entitlements */,
+				239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */,
+				239C16B229A58C0800CC6553 /* QuoteView.swift */,
+				239C16CC29A5919C00CC6553 /* Assets.xcassets */,
+				239C16CE29A5919C00CC6553 /* Preview Content */,
+			);
+			path = "QuotesW Watch App";
+			sourceTree = "<group>";
+		};
+		239C16CE29A5919C00CC6553 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		23FE338F297F11B30086AC39 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +345,23 @@
 			productReference = 2358857E28CADADD006ED60C /* QuotesWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		239C16C529A5919C00CC6553 /* QuotesW Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 239C16D129A5919C00CC6553 /* Build configuration list for PBXNativeTarget "QuotesW Watch App" */;
+			buildPhases = (
+				239C16C229A5919C00CC6553 /* Sources */,
+				239C16C329A5919C00CC6553 /* Frameworks */,
+				239C16C429A5919C00CC6553 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuotesW Watch App";
+			productName = "QuotesW Watch App";
+			productReference = 239C16C629A5919C00CC6553 /* chameleo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -302,7 +369,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					2335B6BD28C331F800D8024F = {
@@ -310,6 +377,9 @@
 					};
 					2358857D28CADADD006ED60C = {
 						CreatedOnToolsVersion = 13.4;
+					};
+					239C16C529A5919C00CC6553 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -327,6 +397,7 @@
 			projectRoot = "";
 			targets = (
 				2335B6BD28C331F800D8024F /* Quotes */,
+				239C16C529A5919C00CC6553 /* QuotesW Watch App */,
 				2358857D28CADADD006ED60C /* QuotesWidgetExtension */,
 			);
 		};
@@ -351,6 +422,16 @@
 				237C1DD428EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */,
 				2358858928CADADD006ED60C /* Assets.xcassets in Resources */,
 				237C1DDB28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		239C16C429A5919C00CC6553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				239C16D029A5919C00CC6553 /* Preview Assets.xcassets in Resources */,
+				239C16CD29A5919C00CC6553 /* Assets.xcassets in Resources */,
+				239C16DD29A595E200CC6553 /* DelaGothicOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +474,21 @@
 				2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */,
 				230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		239C16C229A5919C00CC6553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				239C16D929A591E700CC6553 /* Color+RawRepresentable.swift in Sources */,
+				239C16D729A591E400CC6553 /* QuoteModel.swift in Sources */,
+				239C16D529A591D800CC6553 /* QuotesWatchApp.swift in Sources */,
+				239C16DB29A591F700CC6553 /* Persistence.swift in Sources */,
+				239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */,
+				239C16D829A591E700CC6553 /* View+Placeholder.swift in Sources */,
+				239C16D629A591D800CC6553 /* QuoteView.swift in Sources */,
+				239C16DA29A591E700CC6553 /* Date+Compare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +751,70 @@
 			};
 			name = Release;
 		};
+		239C16D229A5919C00CC6553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "QuotesW Watch App/QuotesW Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QuotesW Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = QJZL455652;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuotesW-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.Quotes;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Quotes.watchkitapp;
+				PRODUCT_NAME = chameleo;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		239C16D329A5919C00CC6553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "QuotesW Watch App/QuotesW Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QuotesW Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = QJZL455652;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuotesW-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.Quotes;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Quotes.watchkitapp;
+				PRODUCT_NAME = chameleo;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -681,6 +841,15 @@
 			buildConfigurations = (
 				2358859128CADADD006ED60C /* Debug */,
 				2358859228CADADD006ED60C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		239C16D129A5919C00CC6553 /* Build configuration list for PBXNativeTarget "QuotesW Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				239C16D229A5919C00CC6553 /* Debug */,
+				239C16D329A5919C00CC6553 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
