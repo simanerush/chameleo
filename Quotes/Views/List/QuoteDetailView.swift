@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SFSafeSymbols
 
 struct QuoteDetailView: View {
   
@@ -43,6 +44,13 @@ struct QuoteDetailView: View {
             }
           }
         Spacer()
+        ShareLink(item: item.title!) {
+          Image(systemSymbol: .squareAndArrowUp)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 20)
+            .foregroundColor(.white)
+        }
       }
       .padding()
       .background(backgroundColor)
