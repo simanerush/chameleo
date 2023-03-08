@@ -50,6 +50,9 @@
 		239C16DB29A591F700CC6553 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
 		239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
 		239C16DD29A595E200CC6553 /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
+		23B5E7DF29B91AB4001E0310 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* AppColors.swift */; };
+		23B5E7E229B91C18001E0310 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* AppColors.swift */; };
+		23B5E7E329B91C18001E0310 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* AppColors.swift */; };
 		23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69D2936E2B7002C36D7 /* SettingsView.swift */; };
 		23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 		23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
@@ -116,6 +119,7 @@
 		239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		239C16D429A591B100CC6553 /* QuotesW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QuotesW Watch App.entitlements"; sourceTree = "<group>"; };
 		239C16DE29A5962F00CC6553 /* QuotesW-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "QuotesW-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		23B5E7DE29B91AB4001E0310 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppColors.swift; path = Quotes/AppColors.swift; sourceTree = SOURCE_ROOT; };
 		23DB8DB028E262B3005DB6CA /* Quotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quotes.entitlements; sourceTree = "<group>"; };
 		23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesWidgetExtension.entitlements; sourceTree = "<group>"; };
 		23EDD69D2936E2B7002C36D7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				237C1DD528EE8B12003FC21C /* Info.plist */,
 				23DB8DB028E262B3005DB6CA /* Quotes.entitlements */,
 				2335B6C128C331F800D8024F /* QuotesApp.swift */,
+				23B5E7DE29B91AB4001E0310 /* AppColors.swift */,
 				237C1DCE28ECE35A003FC21C /* Views */,
 				237C1DCB28ECE166003FC21C /* Extensions */,
 				237C1DCF28ECE37B003FC21C /* Model */,
@@ -459,6 +464,7 @@
 				2335B6CB28C331F900D8024F /* Persistence.swift in Sources */,
 				23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */,
 				2305779C2978777400D4CD67 /* ThemeSettingView.swift in Sources */,
+				23B5E7DF29B91AB4001E0310 /* AppColors.swift in Sources */,
 				2398673F29393976006A86DD /* View+Placeholder.swift in Sources */,
 				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
@@ -474,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B5E7E329B91C18001E0310 /* AppColors.swift in Sources */,
 				2358859428CAE071006ED60C /* QuoteModel.swift in Sources */,
 				2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */,
 				237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */,
@@ -489,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B5E7E229B91C18001E0310 /* AppColors.swift in Sources */,
 				239C16D929A591E700CC6553 /* Color+RawRepresentable.swift in Sources */,
 				239C16D729A591E400CC6553 /* QuoteModel.swift in Sources */,
 				239C16D529A591D800CC6553 /* QuotesWatchApp.swift in Sources */,
