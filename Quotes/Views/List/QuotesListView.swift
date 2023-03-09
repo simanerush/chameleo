@@ -37,7 +37,6 @@ struct QuotesListView: View {
             .font(.custom("FiraMono-Medium", size: 20))
             .tint(fontColor)
             .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
-            .background(backgroundColor)
             .padding(5)
             .onSubmit {
               addQuote()
@@ -50,7 +49,7 @@ struct QuotesListView: View {
           }
         }
         .padding()
-        .background(backgroundColor)
+        .background(backgroundColor.gradient)
         .contentShape(Rectangle())
         .cornerRadius(10)
         .padding(.vertical, -2)
@@ -65,7 +64,7 @@ struct QuotesListView: View {
               Spacer()
             }
             .padding()
-            .background(backgroundColor)
+            .background(backgroundColor.gradient)
             .contentShape(Rectangle())
             .cornerRadius(10)
             .padding(.vertical, -2)

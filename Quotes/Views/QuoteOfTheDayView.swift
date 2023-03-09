@@ -21,7 +21,8 @@ struct QuoteOfTheDayView: View {
   
   var body: some View {
     ZStack {
-      backgroundColor.edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
+      backgroundColor
+        .edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
       VStack {
         Text(model.quoteOfTheDay)
           .padding(5)
