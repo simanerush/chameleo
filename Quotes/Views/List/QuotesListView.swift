@@ -17,8 +17,8 @@ struct QuotesListView: View {
   @State private var alertIsPresented = false
   @State private var editMode: EditMode = .inactive
   
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = AppColors.backgroundColor
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = AppColors.textColor
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
+  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
   
   @FetchRequest(
     sortDescriptors:
@@ -34,9 +34,9 @@ struct QuotesListView: View {
         HStack {
           TextField("", text: $textField)
             .foregroundColor(fontColor)
-            .font(.custom("FiraMono-Medium", size: 20))
+            .font(ChameleoUI.listedQuoteFont)
             .tint(fontColor)
-            .placeholder("new quote", when: textField.isEmpty, foregroundColor: fontColor)
+            .placeholder("new quote ", when: textField.isEmpty, foregroundColor: fontColor)
             .padding(5)
             .onSubmit {
               addQuote()
@@ -57,8 +57,8 @@ struct QuotesListView: View {
         ForEach(items) { item in
           ZStack {
             HStack {
-              Text(item.title!)
-                .font(.custom("FiraMono-Medium", size: 20))
+              Text(item.title! + " ")
+                .font(ChameleoUI.listedQuoteFont)
                 .padding(5)
                 .foregroundColor(fontColor)
               Spacer()

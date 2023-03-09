@@ -25,8 +25,8 @@ struct QuoteDetailView: View {
   
   @ObservedObject var item: Item
   
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = AppColors.backgroundColor
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = AppColors.textColor
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
+  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
   
   @State private var alertIsPresented = false
   
@@ -34,7 +34,7 @@ struct QuoteDetailView: View {
     VStack(alignment: .leading) {
       HStack {
         TextField("edit the quote", text: Binding($item.title)!)
-          .font(.custom("FiraMono-Medium", size: 20))
+          .font(ChameleoUI.listedQuoteFont)
           .padding(5)
           .foregroundColor(fontColor)
           .onChange(of: item.title!) { _ in
@@ -54,7 +54,7 @@ struct QuoteDetailView: View {
         }
       }
       .padding()
-      .background(backgroundColor)
+      .background(backgroundColor.gradient)
       .contentShape(Rectangle())
       .cornerRadius(10)
       Button {
@@ -67,7 +67,7 @@ struct QuoteDetailView: View {
         }
       }
       .buttonStyle(.bordered)
-      .tint(AppColors.backgroundColor)
+      .tint(ChameleoUI.backgroundColor)
       Spacer()
     }
     .padding()

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ThemeSettingView: View {
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = AppColors.backgroundColor
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
   
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = AppColors.textColor
+  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
   
   var body: some View {
     Form {
@@ -20,8 +20,8 @@ struct ThemeSettingView: View {
       }
       Section {
         Button {
-          backgroundColor = AppColors.backgroundColor
-          fontColor = AppColors.textColor
+          backgroundColor = ChameleoUI.backgroundColor
+          fontColor = ChameleoUI.textColor
         } label: {
           Text("reset settings")
             .foregroundColor(.blue)
