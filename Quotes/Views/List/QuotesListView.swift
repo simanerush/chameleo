@@ -71,7 +71,7 @@ struct QuotesListView: View {
             .padding(.vertical, -2)
             .padding(.horizontal, -10)
             
-            NavigationLink(destination: QuoteDetailView(item: item).navigationBarTitleDisplayMode(.inline)) {
+            NavigationLink(destination: QuoteDetailView(model: model, item: item).navigationBarTitleDisplayMode(.inline)) {
               EmptyView()
             }
             .opacity(0)
@@ -119,11 +119,16 @@ struct QuotesListView: View {
   
   private func addQuote() {
     if !textField.isEmpty {
+      var isTheFirstEntry = false
+      if items.isEmpty {
+        isTheFirstEntry = true
+      }
       let newQuote = Item(context: viewContext)
       newQuote.timestamp = Date()
       newQuote.title = textField
       addItem(newItem: newQuote)
       textField = ""
+      if isTheFirstEntry { model.setQuoteOfTheDay() }
     }
   }
   
@@ -132,7 +137,9 @@ struct QuotesListView: View {
       var revisedItems: [Item] = items.map { $0 }
       revisedItems.move(fromOffsets: source, toOffset: destination)
       
-      for reverseIndex in stride(from: revisedItems.count - 1, through: 0, by: -1) {
+      for reverseIndex in stride(from: revisedItems.count - 1,
+                                 through: 0,
+                                 by: -1) {
         revisedItems[reverseIndex].userOrder = Int16(reverseIndex)
       }
       
@@ -154,5 +161,6 @@ struct QuotesListView: View {
         alertIsPresented.toggle()
       }
     }
+    model.setQuoteOfTheDay()
   }
 }

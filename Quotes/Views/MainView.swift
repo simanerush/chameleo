@@ -12,7 +12,7 @@ struct MainView: View {
   
   var body: some View {
     TabView {
-      RandomQuoteView(model: model)
+      QuoteOfTheDayView(model: model)
         .tabItem {
           Label("", systemImage: "star.fill")
         }
@@ -24,6 +24,9 @@ struct MainView: View {
         .tabItem {
           Label("", systemImage: "wand.and.stars")
         }
+    }
+    .onAppear {
+      model.setQuoteOfTheDay()
     }
   }
 }

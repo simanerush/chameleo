@@ -1,5 +1,5 @@
 //
-//  RandomQuoteView.swift
+//  QuoteOfTheDayView.swift
 //  Quotes
 //
 //  Created by Sima Nerush on 9/2/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RandomQuoteView: View {
+struct QuoteOfTheDayView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @ObservedObject var model: QuoteModel
   
@@ -23,7 +23,7 @@ struct RandomQuoteView: View {
     ZStack {
       backgroundColor.edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
       VStack {
-        Text(model.getTodayQuote())
+        Text(model.quoteOfTheDay)
           .padding(5)
           .font(.custom("DelaGothicOne-Regular", size: 50))
           .foregroundColor(fontColor)

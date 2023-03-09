@@ -11,12 +11,14 @@ class QuoteModel: ObservableObject {
   let persistenceController: PersistenceController
   let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
   
+  @Published private(set) var quoteOfTheDay: String = ""
+  
   init(persistenceController: PersistenceController) {
     self.persistenceController = persistenceController
   }
   
-  /// fetch today's quote
-  func getTodayQuote() -> String {
+  func setQuoteOfTheDay() {
+    
     if let storedQuote = defaults.array(forKey: "todaysQuote") {
       // if the date of the stored quote is different from the current date,
       // recompute the quote
@@ -30,14 +32,17 @@ class QuoteModel: ObservableObject {
     }
     
     if let quote = defaults.array(forKey: "todaysQuote") {
-      // finally, return quote of the day
-      return quote[1] as! String
+      if quotesIsEmpty() {
+        // nil the defaults if the user deleted all quotes
+        quoteOfTheDay = "you don't have any quotes!"
+        defaults.set(nil, forKey: "todaysQuote")
+      } else { quoteOfTheDay = quote[1] as! String }
     } else {
-      return "you don't have any quotes!"
+      quoteOfTheDay = "you don't have any quotes!"
     }
   }
   
-  func computeRandomQuote() {
+  private func fetchAllQuotes() -> [String] {
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Quote")
     var fetchedQuotes = [String]()
     
@@ -54,8 +59,23 @@ class QuoteModel: ObservableObject {
       fatalError("🚨failed to fetch data")
     }
     
+    return fetchedQuotes
+  }
+  
+  private func computeRandomQuote() {
+    let fetchedQuotes = fetchAllQuotes()
     if !fetchedQuotes.isEmpty {
       defaults.set([Date(), fetchedQuotes.randomElement() as Any], forKey: "todaysQuote")
     }
+  }
+  
+  private func quotesIsEmpty() -> Bool {
+    return fetchAllQuotes().isEmpty
+  }
+  
+  func makeTodayQuote(item: Item) {
+    guard let title = item.title else { fatalError("quote has a nil title") }
+    defaults.set([Date(), title], forKey: "todaysQuote")
+    quoteOfTheDay = title
   }
 }

@@ -12,6 +12,8 @@ struct QuoteDetailView: View {
   
   @Environment(\.managedObjectContext) private var viewContext
   
+  @ObservedObject var model: QuoteModel
+  
   @FetchRequest(
     sortDescriptors:
       [
@@ -30,7 +32,6 @@ struct QuoteDetailView: View {
   
   var body: some View {
     VStack(alignment: .leading) {
-      Text("📝edit this quote")
       HStack {
         TextField("edit the quote", text: Binding($item.title)!)
           .font(.custom("FiraMono-Medium", size: 20))
@@ -56,8 +57,17 @@ struct QuoteDetailView: View {
       .background(backgroundColor)
       .contentShape(Rectangle())
       .cornerRadius(10)
-      .padding(.vertical, -2)
-      .padding(.horizontal, -10)
+      Button {
+        model.makeTodayQuote(item: item)
+      } label: {
+        HStack {
+          Text("💭 make quote of the day")
+            .bold()
+          Spacer()
+        }
+      }
+      .buttonStyle(.bordered)
+      .tint(AppColors.backgroundColor)
       Spacer()
     }
     .padding()
