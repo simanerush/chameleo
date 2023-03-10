@@ -33,10 +33,11 @@ struct QuoteDetailView: View {
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
-        TextEditor(text: Binding($item.title)!)
+        TextField("", text: Binding($item.title)!, axis: .vertical)
+          .lineLimit(item.title!.count)
+          .foregroundColor(fontColor)
           .font(ChameleoUI.listedQuoteFont)
-          .padding(5)
-          .background(.clear)
+          .tint(fontColor)
           .onChange(of: item.title!) { _ in
             do {
               try viewContext.save()
@@ -45,29 +46,13 @@ struct QuoteDetailView: View {
             }
           }
         Spacer()
-        ShareLink(item: item.title!) {
-          Image(systemSymbol: .squareAndArrowUp)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 20)
-            .foregroundColor(.white)
-        }
+        shareButton
       }
       .padding()
       .background(backgroundColor.gradient)
       .contentShape(Rectangle())
       .cornerRadius(10)
-      Button {
-        model.makeTodayQuote(item: item)
-      } label: {
-        HStack {
-          Text("💭 make quote of the day")
-            .bold()
-          Spacer()
-        }
-      }
-      .buttonStyle(.bordered)
-      .tint(ChameleoUI.backgroundColor)
+      makeTodayQuoteButton
       Spacer()
     }
     .padding()
@@ -75,6 +60,28 @@ struct QuoteDetailView: View {
       Button("ok", role: .cancel) {}
     }
   }
+  
+  var makeTodayQuoteButton: some View {
+    Button {
+      model.makeTodayQuote(item: item)
+    } label: {
+      HStack {
+        Text("💭 make quote of the day")
+          .bold()
+        Spacer()
+      }
+    }
+    .buttonStyle(.bordered)
+    .tint(ChameleoUI.backgroundColor)
+  }
+  
+  var shareButton: some View {
+    ShareLink(item: item.title!) {
+      Image(systemSymbol: .squareAndArrowUp)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(width: 20)
+        .foregroundColor(.white)
+    }
+  }
 }
-
-

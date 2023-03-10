@@ -37,7 +37,6 @@ struct QuotesListView: View {
             .font(ChameleoUI.listedQuoteFont)
             .tint(fontColor)
             .placeholder("new quote ", when: textField.isEmpty, foregroundColor: fontColor)
-            .padding(5)
             .onSubmit {
               addQuote()
             }
