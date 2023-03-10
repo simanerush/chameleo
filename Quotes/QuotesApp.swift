@@ -10,6 +10,8 @@ import WidgetKit
 
 @main
 struct QuotesApp: App {
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
+  
   let persistenceController = PersistenceController.shared
   let model: QuoteModel
   
@@ -22,17 +24,7 @@ struct QuotesApp: App {
     WindowGroup {
       MainView(model: model)
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        .onAppear {
-          for family in UIFont.familyNames {
-
-            let sName: String = family as String
-            print("family: \(sName)")
-                      
-            for name in UIFont.fontNames(forFamilyName: sName) {
-              print("name: \(name as String)")
-            }
-          }
-        }
+        .accentColor(backgroundColor)
     }
   }
 }

@@ -33,10 +33,10 @@ struct QuoteDetailView: View {
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
-        TextField("edit the quote", text: Binding($item.title)!)
+        TextEditor(text: Binding($item.title)!)
           .font(ChameleoUI.listedQuoteFont)
           .padding(5)
-          .foregroundColor(fontColor)
+          .background(.clear)
           .onChange(of: item.title!) { _ in
             do {
               try viewContext.save()

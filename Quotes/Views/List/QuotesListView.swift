@@ -32,7 +32,7 @@ struct QuotesListView: View {
     NavigationView {
       List {
         HStack {
-          TextField("", text: $textField)
+          TextEditor(text: $textField)
             .foregroundColor(fontColor)
             .font(ChameleoUI.listedQuoteFont)
             .tint(fontColor)
