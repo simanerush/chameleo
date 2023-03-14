@@ -68,11 +68,12 @@ struct QuoteDetailView: View {
       HStack {
         Text("💭 make quote of the day")
           .bold()
+          .foregroundColor(backgroundColor)
         Spacer()
       }
     }
     .buttonStyle(.bordered)
-    .tint(ChameleoUI.backgroundColor)
+    .tint(backgroundColor)
   }
   
   var shareButton: some View {

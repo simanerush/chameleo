@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuoteOfTheDayView: View {
   @Environment(\.managedObjectContext) private var viewContext
+  @Environment(\.colorScheme) var colorScheme
   @ObservedObject var model: QuoteModel
   
   @State private var showTabBar = true
@@ -21,7 +22,7 @@ struct QuoteOfTheDayView: View {
   
   var body: some View {
     ZStack {
-      backgroundColor
+      RadialGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]), center: .center, startRadius: 2, endRadius: 650)
         .edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
       VStack {
         Text(model.quoteOfTheDay)
@@ -33,7 +34,7 @@ struct QuoteOfTheDayView: View {
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
     }
     .onTapGesture {
-      withAnimation(.easeInOut) {
+      withAnimation {
         showTabBar.toggle()
       }
     }
