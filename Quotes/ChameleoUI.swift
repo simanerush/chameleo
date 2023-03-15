@@ -11,4 +11,5 @@ struct ChameleoUI {
   public static var backgroundColor: Color = Color(red: 0.90, green: 0.49, blue: 0.13)
   public static var textColor: Color = .white
   public static var listedQuoteFont = Font.custom("Caveat", size: 30)
+  public static var quoteOfTheDayFont = Font.custom("DelaGothicOne-Regular", size: 50)
 }

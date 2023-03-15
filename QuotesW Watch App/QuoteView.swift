@@ -10,22 +10,25 @@ import SwiftUI
 struct QuoteView: View {
   @ObservedObject var model: QuoteModel
   
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) var backgroundColor = AppColors.backgroundColor
+  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) var backgroundColor = ChameleoUI.backgroundColor
   
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) var fontColor: Color = AppColors.textColor
+  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) var fontColor: Color = ChameleoUI.textColor
   
   var body: some View {
     ZStack {
-      backgroundColor
+      RadialGradient(gradient: Gradient(colors: [backgroundColor, .black]), center: .center, startRadius: 2, endRadius: 170)
         .ignoresSafeArea()
       VStack {
-        Text(model.getTodayQuote())
+        Text(model.quoteOfTheDay)
           .padding(5)
-          .font(.custom("DelaGothicOne-Regular", size: 50))
+          .font(ChameleoUI.quoteOfTheDayFont)
           .foregroundColor(fontColor)
           .minimumScaleFactor(0.01)
       }
-      .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
+    }
+    .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
+    .onAppear {
+      model.setQuoteOfTheDay()
     }
   }
 }

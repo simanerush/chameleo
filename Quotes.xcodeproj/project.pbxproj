@@ -783,6 +783,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "QuotesW-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.Quotes;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -815,6 +816,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "QuotesW-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.Quotes;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -28,6 +28,7 @@ struct QuotesTimelineProvider: TimelineProvider {
   }
   
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    model.setQuoteOfTheDay()
     let title: String = model.quoteOfTheDay
     // we know that the quote's date must be today
     let creationDate = Date()
@@ -51,6 +52,7 @@ struct Entry: TimelineEntry {
 }
 
 struct QuotesWidgetEntryView: View {
+  @Environment(\.colorScheme) var colorScheme
   
   var entry: QuotesTimelineProvider.Entry
   @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
@@ -59,7 +61,7 @@ struct QuotesWidgetEntryView: View {
   
   var body: some View {
     ZStack {
-      backgroundColor.ignoresSafeArea()
+      RadialGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]), center: .center, startRadius: 2, endRadius: 220).ignoresSafeArea()
       Text(entry.title)
         .padding(5)
         .font(.custom("DelaGothicOne-Regular", size: 50))

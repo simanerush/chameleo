@@ -27,7 +27,7 @@ struct QuoteOfTheDayView: View {
       VStack {
         Text(model.quoteOfTheDay)
           .padding(5)
-          .font(.custom("DelaGothicOne-Regular", size: 50))
+          .font(ChameleoUI.quoteOfTheDayFont)
           .foregroundColor(fontColor)
           .minimumScaleFactor(0.01)
       }
