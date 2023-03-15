@@ -13,6 +13,7 @@
 		230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A2297A698300D4CD67 /* WidgetSettingView.swift */; };
 		230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
 		230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
+		231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */ = {isa = PBXBuildFile; productRef = 231173EF29C2446C00AC03CB /* SPSettingsIcons */; };
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
 		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
@@ -134,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
+				231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +336,7 @@
 			name = Quotes;
 			packageProductDependencies = (
 				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
+				231173EF29C2446C00AC03CB /* SPSettingsIcons */,
 			);
 			productName = Quotes;
 			productReference = 2335B6BE28C331F800D8024F /* Quotes.app */;
@@ -405,6 +408,7 @@
 			mainGroup = 2335B6B528C331F800D8024F;
 			packageReferences = (
 				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+				231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */,
 			);
 			productRefGroup = 2335B6BF28C331F800D8024F /* Products */;
 			projectDirPath = "";
@@ -877,6 +881,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SPSettingsIcons";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
@@ -888,6 +900,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		231173EF29C2446C00AC03CB /* SPSettingsIcons */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */;
+			productName = SPSettingsIcons;
+		};
 		234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;

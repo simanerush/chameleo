@@ -8,6 +8,15 @@
         "revision" : "7cca2d60925876b5953a2cf7341cd80fbeac983c",
         "version" : "4.1.1"
       }
+    },
+    {
+      "identity" : "spsettingsicons",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/SPSettingsIcons",
+      "state" : {
+        "revision" : "1a2bd5439aabba3474408fbca86eaad344c3fce9",
+        "version" : "1.0.1"
+      }
     }
   ],
   "version" : 2
