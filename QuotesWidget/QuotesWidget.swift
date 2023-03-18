@@ -72,8 +72,6 @@ struct QuotesWidgetEntryView: View {
 struct QuotesWidget: Widget {
   let kind: String = "QuotesWidget"
   
-  let persistenceController = PersistenceController.shared
-  
   var body: some WidgetConfiguration {
     StaticConfiguration(
       kind: "com.simanerush.Quotes.QuotesWidget",

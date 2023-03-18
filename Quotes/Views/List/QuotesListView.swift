@@ -43,10 +43,13 @@ struct QuotesListView: View {
               addQuote()
             }
             .focused($isFocusedInEditing, equals: true)
+            .onTapGesture {
+              isFocusedInEditing.toggle()
+            }
           Button {
             addQuote()
           } label: {
-            Image(systemName: "plus")
+            Image(systemSymbol: .plus)
               .foregroundColor(fontColor)
           }
         }
@@ -91,9 +94,6 @@ struct QuotesListView: View {
       .environment(\.editMode, $editMode)
       .toolbar {
         editButton
-      }
-      .onTapGesture {
-        isFocusedInEditing.toggle()
       }
     }
   }
