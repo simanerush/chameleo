@@ -28,7 +28,6 @@ struct QuotesTimelineProvider: TimelineProvider {
   }
   
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    model.setQuoteOfTheDay()
     let title: String = model.quoteOfTheDay
     // we know that the quote's date must be today
     let creationDate = Date()

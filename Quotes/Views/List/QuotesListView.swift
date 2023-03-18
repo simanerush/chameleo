@@ -28,6 +28,8 @@ struct QuotesListView: View {
     animation: .default)
   private var items: FetchedResults<Item>
   
+  @FocusState private var isFocusedInEditing: Bool
+  
   var body: some View {
     NavigationView {
       List {
@@ -40,6 +42,7 @@ struct QuotesListView: View {
             .onSubmit {
               addQuote()
             }
+            .focused($isFocusedInEditing, equals: true)
           Button {
             addQuote()
           } label: {
@@ -88,6 +91,9 @@ struct QuotesListView: View {
       .environment(\.editMode, $editMode)
       .toolbar {
         editButton
+      }
+      .onTapGesture {
+        isFocusedInEditing.toggle()
       }
     }
   }
