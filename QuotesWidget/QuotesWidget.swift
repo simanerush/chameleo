@@ -13,12 +13,6 @@ struct QuotesTimelineProvider: TimelineProvider {
   
   @AppStorage("widgetUpdateFrequency", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var widgetUpdateFrequency = WidgetUpdateFrequency.daily
   
-  let model: QuoteModel
-  
-  init(model: QuoteModel) {
-    self.model = model
-  }
-  
   func placeholder(in context: Context) -> Entry {
     return Entry(date: Date(), title: "⏳quotes are loading")
   }
@@ -28,7 +22,11 @@ struct QuotesTimelineProvider: TimelineProvider {
   }
   
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    let title: String = model.quoteOfTheDay
+    var title: String = "you don't have any quotes!"
+    let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
+    if let storedQuotes = defaults.array(forKey: "todaysQuote") {
+      title = storedQuotes[1] as! String
+    }
     // we know that the quote's date must be today
     let creationDate = Date()
     // schedule the next update to next day depending on user's preference
@@ -79,7 +77,7 @@ struct QuotesWidget: Widget {
   var body: some WidgetConfiguration {
     StaticConfiguration(
       kind: "com.simanerush.Quotes.QuotesWidget",
-      provider: QuotesTimelineProvider(model: QuoteModel(persistenceController: persistenceController))) { entry in
+      provider: QuotesTimelineProvider()) { entry in
         QuotesWidgetEntryView(entry: entry)
       }
       .configurationDisplayName("quotes")

@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import WidgetKit
 
 class QuoteModel: ObservableObject {
   let persistenceController: PersistenceController
@@ -18,6 +19,8 @@ class QuoteModel: ObservableObject {
   }
   
   func setQuoteOfTheDay() {
+    
+    WidgetCenter.shared.reloadAllTimelines()
     
     if let storedQuote = defaults.array(forKey: "todaysQuote") {
       // if the date of the stored quote is different from the current date,
