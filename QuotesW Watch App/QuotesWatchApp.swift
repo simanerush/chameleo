@@ -10,18 +10,14 @@ import WidgetKit
 
 @main
 struct QuotesWatchApp: App {
-  let persistenceController = PersistenceController.shared
-  let model: QuoteModel
   
   init() {
-    self.model = QuoteModel(persistenceController: persistenceController)
     WidgetCenter.shared.reloadAllTimelines()
   }
   
   var body: some Scene {
     WindowGroup {
-      QuoteView(model: model)
-        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+      QuoteView(model: QuoteModel.shared)
     }
   }
 }

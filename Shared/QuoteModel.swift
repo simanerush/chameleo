@@ -6,16 +6,35 @@
 //
 
 import CoreData
+import Combine
 import WidgetKit
+import WatchConnectivity
 
 class QuoteModel: ObservableObject {
-  let persistenceController: PersistenceController
+  
+  static let shared = QuoteModel()
+  
   let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
+  let persistenceController: PersistenceController
   
   @Published private(set) var quoteOfTheDay: String = ""
   
-  init(persistenceController: PersistenceController) {
-    self.persistenceController = persistenceController
+  // Apple Watch Connectivity
+  var session: WCSession
+  let delegate: WCSessionDelegate
+  let subject = PassthroughSubject<String, Never>()
+  
+  init(session: WCSession = .default) {
+    self.persistenceController = PersistenceController.shared
+    
+    self.delegate = WatchConnectivityManager(quoteSubject: subject)
+    self.session = session
+    self.session.delegate = self.delegate
+    self.session.activate()
+    
+    subject
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$quoteOfTheDay)
   }
   
   func setQuoteOfTheDay() {
@@ -38,10 +57,15 @@ class QuoteModel: ObservableObject {
       if quotesIsEmpty() {
         // nil the defaults if the user deleted all quotes
         quoteOfTheDay = "you don't have any quotes!"
+        sendToWatch(newQuote: quoteOfTheDay)
         defaults.set(nil, forKey: "todaysQuote")
-      } else { quoteOfTheDay = quote[1] as! String }
+      } else {
+        quoteOfTheDay = quote[1] as! String
+        sendToWatch(newQuote: quoteOfTheDay)
+      }
     } else {
       quoteOfTheDay = "you don't have any quotes!"
+      sendToWatch(newQuote: quoteOfTheDay)
     }
   }
   
@@ -80,5 +104,11 @@ class QuoteModel: ObservableObject {
     guard let title = item.title else { fatalError("quote has a nil title") }
     defaults.set([Date(), title], forKey: "todaysQuote")
     quoteOfTheDay = title
+  }
+  
+  private func sendToWatch(newQuote: String) {
+    session.sendMessage(["quote": newQuote], replyHandler: nil) { error in
+      print(error.localizedDescription)
+    }
   }
 }
