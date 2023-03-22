@@ -15,6 +15,7 @@ struct QuoteOfTheDayView: View {
   @State private var showTabBar = true
   @State private var showQuotes = false
   @State private var showSettings = false
+  @State private var startAnimation = false
   
   @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
   
@@ -22,8 +23,13 @@ struct QuoteOfTheDayView: View {
   
   var body: some View {
     ZStack {
-      RadialGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]), center: .center, startRadius: 2, endRadius: 650)
+      LinearGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]), startPoint: startAnimation ? .topLeading : .topTrailing, endPoint: startAnimation ? .bottomTrailing : .bottomLeading)
         .edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
+        .onAppear {
+          withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {
+            startAnimation.toggle()
+          }
+        }
       VStack {
         Text(model.quoteOfTheDay)
           .padding(5)
