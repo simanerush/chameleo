@@ -22,6 +22,10 @@
 		2335B6CE28C331F900D8024F /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
 		2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */; };
 		2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
+		233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E129CE486C004E1D9B /* GPTCaller.swift */; };
+		233A60E529CE488F004E1D9B /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 233A60E429CE488F004E1D9B /* OpenAISwift */; };
+		233A60E729CE56B9004E1D9B /* GeneratedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */; };
+		233A60E929D03728004E1D9B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E829D03728004E1D9B /* Constants.swift */; };
 		234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */; };
 		2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
 		2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
@@ -122,6 +126,9 @@
 		2335B6CD28C331F900D8024F /* Quotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quotes.xcdatamodel; sourceTree = "<group>"; };
 		2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDayView.swift; sourceTree = "<group>"; };
 		2335B6D628C3C30000D8024F /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
+		233A60E129CE486C004E1D9B /* GPTCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTCaller.swift; sourceTree = "<group>"; };
+		233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedQuotesListView.swift; sourceTree = "<group>"; };
+		233A60E829D03728004E1D9B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2355354E28FE1DC500BF9798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/QuotesWidget.intentdefinition; sourceTree = "<group>"; };
 		2355355128FE1DCB00BF9798 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QuotesWidget.strings; sourceTree = "<group>"; };
 		2358857E28CADADD006ED60C /* QuotesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuotesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
+				233A60E529CE488F004E1D9B /* OpenAISwift in Frameworks */,
 				231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +240,7 @@
 				237C1DCE28ECE35A003FC21C /* Views */,
 				237C1DCB28ECE166003FC21C /* Extensions */,
 				2335B6C528C331F900D8024F /* Assets.xcassets */,
+				233A60E029CE4845004E1D9B /* Models */,
 				237C1DD128EE8927003FC21C /* Fonts */,
 				2335B6C728C331F900D8024F /* Preview Content */,
 			);
@@ -244,6 +253,15 @@
 				2335B6C828C331F900D8024F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		233A60E029CE4845004E1D9B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				233A60E129CE486C004E1D9B /* GPTCaller.swift */,
+				233A60E829D03728004E1D9B /* Constants.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2358857F28CADADD006ED60C /* Frameworks */ = {
@@ -283,6 +301,7 @@
 				2305779A2978775C00D4CD67 /* Settings */,
 				2305779829766E0000D4CD67 /* MainView.swift */,
 				2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */,
+				233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +378,7 @@
 			packageProductDependencies = (
 				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
 				231173EF29C2446C00AC03CB /* SPSettingsIcons */,
+				233A60E429CE488F004E1D9B /* OpenAISwift */,
 			);
 			productName = Quotes;
 			productReference = 2335B6BE28C331F800D8024F /* Quotes.app */;
@@ -431,6 +451,7 @@
 			packageReferences = (
 				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */,
+				233A60E329CE488F004E1D9B /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 2335B6BF28C331F800D8024F /* Products */;
 			projectDirPath = "";
@@ -484,7 +505,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */,
+				233A60E929D03728004E1D9B /* Constants.swift in Sources */,
 				2305779929766E0000D4CD67 /* MainView.swift in Sources */,
+				233A60E729CE56B9004E1D9B /* GeneratedQuotesListView.swift in Sources */,
 				230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */,
 				2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */,
 				2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */,
@@ -495,6 +518,7 @@
 				23B5E7DF29B91AB4001E0310 /* ChameleoUI.swift in Sources */,
 				2398673F29393976006A86DD /* View+Placeholder.swift in Sources */,
 				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
+				233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
 				23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */,
 				230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */,
@@ -919,6 +943,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		233A60E329CE488F004E1D9B /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
@@ -934,6 +966,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */;
 			productName = SPSettingsIcons;
+		};
+		233A60E429CE488F004E1D9B /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 233A60E329CE488F004E1D9B /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
 		};
 		234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;

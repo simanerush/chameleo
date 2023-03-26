@@ -14,6 +14,7 @@ struct QuotesApp: App {
   
   init() {
     WidgetCenter.shared.reloadAllTimelines()
+    GPTCaller.shared.setup()
   }
   
   var body: some Scene {

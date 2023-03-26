@@ -55,7 +55,13 @@ struct QuotesListView: View {
       .navigationTitle("my quotes")
       .environment(\.editMode, $editMode)
       .toolbar {
-        editButton
+        ToolbarItem(placement: .navigationBarLeading) {
+          generateWithAiButton
+        }
+        
+        ToolbarItem(placement: .navigationBarTrailing) {
+          editButton
+        }
       }
     }
   }
@@ -80,6 +86,15 @@ struct QuotesListView: View {
         Image(systemSymbol: .plus)
           .foregroundColor(fontColor)
       }
+    }
+  }
+  
+  private var generateWithAiButton: some View {
+    NavigationLink {
+      GeneratedQuotesListView()
+    } label: {
+      Label("generate with AI", systemSymbol: .lightbulbFill)
+        .labelStyle(.titleAndIcon)
     }
   }
   
