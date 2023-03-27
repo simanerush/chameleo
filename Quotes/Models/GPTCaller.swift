@@ -19,19 +19,12 @@ final class GPTCaller {
     self.client = OpenAISwift(authToken: Constants.key)
   }
   
-  public func getResponse(input: String,
-                          completion: @escaping (Result<String, Error>) -> Void) {
-    client?.sendCompletion(with: input,
-                           maxTokens: 50,
-                           completionHandler: { result in
-      switch result {
-      case .success(let model):
-        // here, model gives an array of choices!
-        let output = model.choices.first!.text
-        completion(.success(output))
-      case .failure(let error):
-        completion(.failure(error))
-      }
-    })
+  public func getResponse(input: String) async -> Result<String, Error> {
+    do {
+      let result = try await client!.sendCompletion(with: input, model: .gpt3(.davinci), maxTokens: 50)
+      return .success(result.choices.first!.text)
+    } catch {
+      return .failure(error)
+    }
   }
 }

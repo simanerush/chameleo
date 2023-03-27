@@ -12,6 +12,7 @@ struct GeneratedQuotesListView: View {
   
   @State private var selectedQuoteType = "motivational"
   @State private var output = ""
+  @State private var isLoading = false
   
   var body: some View {
     NavigationView {
@@ -24,17 +25,21 @@ struct GeneratedQuotesListView: View {
             }
           }
           Text("quote")
-          
         }
         // for picker to stop truncating
         .padding(-20)
         Button {
-          GPTCaller.shared.getResponse(input: "Give me a \(selectedQuoteType) quote") { result in
+          Task {
+            isLoading = true
+            let result =
+            await GPTCaller.shared.getResponse(
+              input: "Give me a \(selectedQuoteType) quote")
             switch result {
             case .success(let output):
               self.output = output
-            case .failure:
-              print("GPT error")
+              self.isLoading = false
+            case .failure(let error):
+              print("GPT error \(error)")
             }
           }
         } label: {
@@ -42,7 +47,11 @@ struct GeneratedQuotesListView: View {
         }
         .buttonStyle(.borderedProminent)
         .padding(10)
-        Text(output)
+        if isLoading {
+          ProgressView()
+        } else {
+          Text(output)
+        }
       }
       
     }
