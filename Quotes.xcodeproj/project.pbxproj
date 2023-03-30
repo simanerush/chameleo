@@ -24,7 +24,7 @@
 		2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
 		233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E129CE486C004E1D9B /* GPTCaller.swift */; };
 		233A60E529CE488F004E1D9B /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 233A60E429CE488F004E1D9B /* OpenAISwift */; };
-		233A60E729CE56B9004E1D9B /* GeneratedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */; };
+		233A60E729CE56B9004E1D9B /* GeneratedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */; };
 		233A60E929D03728004E1D9B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E829D03728004E1D9B /* Constants.swift */; };
 		234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */; };
 		2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
@@ -127,7 +127,7 @@
 		2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDayView.swift; sourceTree = "<group>"; };
 		2335B6D628C3C30000D8024F /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		233A60E129CE486C004E1D9B /* GPTCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTCaller.swift; sourceTree = "<group>"; };
-		233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedQuotesListView.swift; sourceTree = "<group>"; };
+		233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedQuoteView.swift; sourceTree = "<group>"; };
 		233A60E829D03728004E1D9B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2355354E28FE1DC500BF9798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/QuotesWidget.intentdefinition; sourceTree = "<group>"; };
 		2355355128FE1DCB00BF9798 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QuotesWidget.strings; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 				2305779A2978775C00D4CD67 /* Settings */,
 				2305779829766E0000D4CD67 /* MainView.swift */,
 				2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */,
-				233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */,
+				233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 				23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */,
 				233A60E929D03728004E1D9B /* Constants.swift in Sources */,
 				2305779929766E0000D4CD67 /* MainView.swift in Sources */,
-				233A60E729CE56B9004E1D9B /* GeneratedQuotesListView.swift in Sources */,
+				233A60E729CE56B9004E1D9B /* GeneratedQuoteView.swift in Sources */,
 				230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */,
 				2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */,
 				2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */,
