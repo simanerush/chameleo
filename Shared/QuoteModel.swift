@@ -102,7 +102,7 @@ class QuoteModel: ObservableObject {
   
   func makeTodayQuote(item: Item) {
     guard let title = item.title else { fatalError("quote has a nil title") }
-    defaults.set([Date(), title], forKey: "todaysQuote")
+    defaults.set([Date(), title] as [Any], forKey: "todaysQuote")
     quoteOfTheDay = title
   }
   
