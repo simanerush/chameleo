@@ -104,6 +104,7 @@ class QuoteModel: ObservableObject {
     guard let title = item.title else { fatalError("quote has a nil title") }
     defaults.set([Date(), title] as [Any], forKey: "todaysQuote")
     quoteOfTheDay = title
+    WidgetCenter.shared.reloadAllTimelines()
   }
   
   private func sendToWatch(newQuote: String) {

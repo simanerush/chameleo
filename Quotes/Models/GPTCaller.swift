@@ -22,7 +22,7 @@ final class GPTCaller {
   public func getResponse(input: String) async -> Result<String, Error> {
     do {
       let result = try await client!.sendCompletion(with: input, model: .gpt3(.davinci), maxTokens: 50)
-      return .success(result.choices.first!.text)
+      return .success(result.choices!.first!.text)
     } catch {
       return .failure(error)
     }

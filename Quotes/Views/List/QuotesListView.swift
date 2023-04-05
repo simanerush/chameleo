@@ -33,16 +33,16 @@ struct QuotesListView: View {
   var body: some View {
     NavigationView {
       List {
-        newQuoteTextField
-        .padding()
-        .background(backgroundColor.gradient)
-        .contentShape(Rectangle())
-        .cornerRadius(10)
-        .padding(.vertical, -2)
-        .padding(.horizontal, -10)
+        newQuoteTextEditor
+          .padding()
+          .background(backgroundColor.gradient)
+          .contentShape(Rectangle())
+          .cornerRadius(10)
+          .padding(.vertical, -2)
+          .padding(.horizontal, -10)
         ForEach(items) { item in
           QuoteListCell(model: model, item: item)
-          .listRowSeparator(.hidden)
+            .listRowSeparator(.hidden)
         }
         .onDelete(perform: deleteItems)
         .onMove(perform: moveItems)
@@ -66,13 +66,14 @@ struct QuotesListView: View {
     }
   }
   
-  private var newQuoteTextField: some View {
+  private var newQuoteTextEditor: some View {
     HStack {
       TextEditor(text: $textField)
+        .scrollContentBackground(.hidden)
         .foregroundColor(fontColor)
         .font(ChameleoUI.listedQuoteFont)
         .tint(fontColor)
-        .placeholder("new quote ", when: textField.isEmpty, foregroundColor: fontColor)
+        .placeholder("new quote... ", when: textField.isEmpty, foregroundColor: fontColor)
         .onSubmit {
           addQuote()
         }
@@ -91,7 +92,7 @@ struct QuotesListView: View {
   
   private var generateWithAiButton: some View {
     NavigationLink {
-      GeneratedQuotesListView()
+      GeneratedQuoteView(model: model)
     } label: {
       Label("generate with AI", systemSymbol: .lightbulbFill)
         .labelStyle(.titleAndIcon)

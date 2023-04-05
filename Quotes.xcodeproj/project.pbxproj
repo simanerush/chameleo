@@ -14,6 +14,8 @@
 		230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
 		230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
 		231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */ = {isa = PBXBuildFile; productRef = 231173EF29C2446C00AC03CB /* SPSettingsIcons */; };
+		231C063929DDFB120089C183 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 231C063829DDFB120089C183 /* OpenAISwift */; };
+		231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C063C29DE109F0089C183 /* View+Placeholder.swift */; };
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
 		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
@@ -23,7 +25,6 @@
 		2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */; };
 		2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
 		233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E129CE486C004E1D9B /* GPTCaller.swift */; };
-		233A60E529CE488F004E1D9B /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 233A60E429CE488F004E1D9B /* OpenAISwift */; };
 		233A60E729CE56B9004E1D9B /* GeneratedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E629CE56B9004E1D9B /* GeneratedQuotesListView.swift */; };
 		233A60E929D03728004E1D9B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E829D03728004E1D9B /* Constants.swift */; };
 		234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */; };
@@ -41,13 +42,11 @@
 		237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
 		237C1DD328EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
 		237C1DD428EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
-		2398673F29393976006A86DD /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398673E29393976006A86DD /* View+Placeholder.swift */; };
 		239C16CD29A5919C00CC6553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239C16CC29A5919C00CC6553 /* Assets.xcassets */; };
 		239C16D029A5919C00CC6553 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */; };
 		239C16D529A591D800CC6553 /* QuotesWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */; };
 		239C16D629A591D800CC6553 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C16B229A58C0800CC6553 /* QuoteView.swift */; };
 		239C16D729A591E400CC6553 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
-		239C16D829A591E700CC6553 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398673E29393976006A86DD /* View+Placeholder.swift */; };
 		239C16D929A591E700CC6553 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 		239C16DA29A591E700CC6553 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
 		239C16DB29A591F700CC6553 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
@@ -117,6 +116,7 @@
 		230577A0297A68D000D4CD67 /* RootSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSettingView.swift; sourceTree = "<group>"; };
 		230577A2297A698300D4CD67 /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
 		230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateFrequency.swift; sourceTree = "<group>"; };
+		231C063C29DE109F0089C183 /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
 		2335B6BE28C331F800D8024F /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2335B6C128C331F800D8024F /* QuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesApp.swift; sourceTree = "<group>"; };
 		2335B6C328C331F800D8024F /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -140,7 +140,6 @@
 		237C1DCC28ECE182003FC21C /* Date+Compare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Compare.swift"; sourceTree = "<group>"; };
 		237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
 		237C1DD528EE8B12003FC21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		2398673E29393976006A86DD /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
 		239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesWatchApp.swift; sourceTree = "<group>"; };
 		239C16B229A58C0800CC6553 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		239C16C629A5919C00CC6553 /* chameleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chameleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
-				233A60E529CE488F004E1D9B /* OpenAISwift in Frameworks */,
+				231C063929DDFB120089C183 /* OpenAISwift in Frameworks */,
 				231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +288,7 @@
 			children = (
 				237C1DCC28ECE182003FC21C /* Date+Compare.swift */,
 				23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */,
-				2398673E29393976006A86DD /* View+Placeholder.swift */,
+				231C063C29DE109F0089C183 /* View+Placeholder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,7 +377,7 @@
 			packageProductDependencies = (
 				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
 				231173EF29C2446C00AC03CB /* SPSettingsIcons */,
-				233A60E429CE488F004E1D9B /* OpenAISwift */,
+				231C063829DDFB120089C183 /* OpenAISwift */,
 			);
 			productName = Quotes;
 			productReference = 2335B6BE28C331F800D8024F /* Quotes.app */;
@@ -451,7 +450,7 @@
 			packageReferences = (
 				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */,
-				233A60E329CE488F004E1D9B /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 2335B6BF28C331F800D8024F /* Products */;
 			projectDirPath = "";
@@ -516,11 +515,11 @@
 				23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */,
 				2305779C2978777400D4CD67 /* ThemeSettingView.swift in Sources */,
 				23B5E7DF29B91AB4001E0310 /* ChameleoUI.swift in Sources */,
-				2398673F29393976006A86DD /* View+Placeholder.swift in Sources */,
 				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
 				233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
 				23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */,
+				231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */,
 				230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
@@ -557,7 +556,6 @@
 				23FC370D29C8102800B8437D /* WatchConnectivityManager.swift in Sources */,
 				239C16DB29A591F700CC6553 /* Persistence.swift in Sources */,
 				239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */,
-				239C16D829A591E700CC6553 /* View+Placeholder.swift in Sources */,
 				239C16D629A591D800CC6553 /* QuoteView.swift in Sources */,
 				239C16DA29A591E700CC6553 /* Date+Compare.swift in Sources */,
 			);
@@ -641,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -695,7 +693,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -943,12 +941,12 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		233A60E329CE488F004E1D9B /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+		231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.3.0;
 			};
 		};
 		234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
@@ -967,9 +965,9 @@
 			package = 231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */;
 			productName = SPSettingsIcons;
 		};
-		233A60E429CE488F004E1D9B /* OpenAISwift */ = {
+		231C063829DDFB120089C183 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 233A60E329CE488F004E1D9B /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			package = 231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
 			productName = OpenAISwift;
 		};
 		234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */ = {
