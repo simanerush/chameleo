@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
   @ObservedObject var model: QuoteModel
-  
+
   var body: some View {
     TabView {
       QuoteOfTheDayView(model: model)

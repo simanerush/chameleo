@@ -9,27 +9,32 @@ import SwiftUI
 import SFSafeSymbols
 
 struct QuoteDetailView: View {
-  
+
   @Environment(\.managedObjectContext) private var viewContext
-  
+
   @ObservedObject var model: QuoteModel
-  
+
   @FetchRequest(
     sortDescriptors:
       [
         NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)
       ],
     animation: .default)
-  
+
   private var items: FetchedResults<Item>
-  
+
   @ObservedObject var item: Item
-  
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
-  
+
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
+  @AppStorage("fontColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var fontColor: Color = ChameleoUI.textColor
+
   @State private var alertIsPresented = false
-  
+
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
@@ -60,7 +65,7 @@ struct QuoteDetailView: View {
       Button("ok", role: .cancel) {}
     }
   }
-  
+
   var makeTodayQuoteButton: some View {
     Button {
       model.makeTodayQuote(item: item)
@@ -75,7 +80,7 @@ struct QuoteDetailView: View {
     .buttonStyle(.bordered)
     .tint(backgroundColor)
   }
-  
+
   var shareButton: some View {
     ShareLink(item: item.title!) {
       Image(systemSymbol: .squareAndArrowUp)

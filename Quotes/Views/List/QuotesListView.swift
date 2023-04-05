@@ -11,15 +11,20 @@ import CoreData
 struct QuotesListView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-  
+
   @ObservedObject var model: QuoteModel
   @State private var textField = ""
   @State private var alertIsPresented = false
   @State private var editMode: EditMode = .inactive
-  
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
-  
+
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
+  @AppStorage("fontColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var fontColor: Color = ChameleoUI.textColor
+
   @FetchRequest(
     sortDescriptors:
       [
@@ -27,9 +32,9 @@ struct QuotesListView: View {
       ],
     animation: .default)
   private var items: FetchedResults<Item>
-  
+
   @FocusState private var isFocusedInEditing: Bool
-  
+
   var body: some View {
     NavigationView {
       List {
@@ -58,14 +63,14 @@ struct QuotesListView: View {
         ToolbarItem(placement: .navigationBarLeading) {
           generateWithAiButton
         }
-        
+
         ToolbarItem(placement: .navigationBarTrailing) {
           editButton
         }
       }
     }
   }
-  
+
   private var newQuoteTextEditor: some View {
     HStack {
       TextEditor(text: $textField)
@@ -89,7 +94,7 @@ struct QuotesListView: View {
       }
     }
   }
-  
+
   private var generateWithAiButton: some View {
     NavigationLink {
       GeneratedQuoteView(model: model)
@@ -98,7 +103,7 @@ struct QuotesListView: View {
         .labelStyle(.titleAndIcon)
     }
   }
-  
+
   private var editButton: some View {
     Button {
       withAnimation {
@@ -113,7 +118,7 @@ struct QuotesListView: View {
       Text(editMode.isEditing ? "done" : "edit")
     }
   }
-  
+
   private func addItem(newItem: Item) {
     do {
       try viewContext.save()
@@ -121,7 +126,7 @@ struct QuotesListView: View {
       alertIsPresented.toggle()
     }
   }
-  
+
   private func addQuote() {
     if !textField.isEmpty {
       var isTheFirstEntry = false
@@ -136,18 +141,18 @@ struct QuotesListView: View {
       if isTheFirstEntry { model.setQuoteOfTheDay() }
     }
   }
-  
+
   private func moveItems(from source: IndexSet, to destination: Int) {
     withAnimation {
       var revisedItems: [Item] = items.map { $0 }
       revisedItems.move(fromOffsets: source, toOffset: destination)
-      
+
       for reverseIndex in stride(from: revisedItems.count - 1,
                                  through: 0,
                                  by: -1) {
         revisedItems[reverseIndex].userOrder = Int16(reverseIndex)
       }
-      
+
       do {
         try viewContext.save()
       } catch {
@@ -155,11 +160,11 @@ struct QuotesListView: View {
       }
     }
   }
-  
+
   private func deleteItems(offsets: IndexSet) {
     withAnimation {
       offsets.map { items[$0] }.forEach(viewContext.delete)
-      
+
       do {
         try viewContext.save()
       } catch {
@@ -171,12 +176,18 @@ struct QuotesListView: View {
 }
 
 struct QuoteListCell: View {
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
+  @AppStorage("fontColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var fontColor: Color = ChameleoUI.textColor
+
   @ObservedObject var model: QuoteModel
-  
+
   var item: Item
-  
+
   var body: some View {
     ZStack {
       HStack {
@@ -192,7 +203,7 @@ struct QuoteListCell: View {
       .cornerRadius(10)
       .padding(.vertical, -2)
       .padding(.horizontal, -10)
-      
+
       NavigationLink(destination: QuoteDetailView(model: model, item: item).navigationBarTitleDisplayMode(.inline)) {
         EmptyView()
       }

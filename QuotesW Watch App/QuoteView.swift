@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct QuoteView: View {
-  
-  // TODO: Sync background and text colors. App Groups are not supported
-  
+
   @ObservedObject var model: QuoteModel
-  
+
   var body: some View {
     ZStack {
-      RadialGradient(gradient: Gradient(colors: [ChameleoUI.backgroundColor, .black]), center: .center, startRadius: 2, endRadius: 170)
+      RadialGradient(gradient:
+                      Gradient(
+                        colors: [ChameleoUI.backgroundColor, .black]),
+                        center: .center, startRadius: 2, endRadius: 170)
         .ignoresSafeArea()
       VStack {
         Text(model.quoteOfTheDay)

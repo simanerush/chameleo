@@ -10,13 +10,15 @@ import WidgetKit
 
 @main
 struct QuotesApp: App {
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
-  
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
   init() {
     WidgetCenter.shared.reloadAllTimelines()
     GPTCaller.shared.setup()
   }
-  
+
   var body: some Scene {
     WindowGroup {
       MainView(model: QuoteModel.shared)

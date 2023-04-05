@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct WidgetSettingView: View {
-  
-  @AppStorage("widgetUpdateFrequency", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var widgetUpdateFrequency = WidgetUpdateFrequency.daily
-  
+
+  @AppStorage("widgetUpdateFrequency", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var widgetUpdateFrequency = WidgetUpdateFrequency.daily
+
     var body: some View {
       Form {
         Picker("frequency of widget updates", selection: $widgetUpdateFrequency) {

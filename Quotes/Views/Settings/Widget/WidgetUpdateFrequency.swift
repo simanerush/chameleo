@@ -9,13 +9,13 @@ import Foundation
 
 enum WidgetUpdateFrequency: String {
   typealias RawValue = String
-  
+
   case daily
   case hourly
 }
 
 extension WidgetUpdateFrequency: RawRepresentable {
-  
+
   init?(rawValue: Int) {
     switch rawValue {
     case 0:
@@ -29,9 +29,9 @@ extension WidgetUpdateFrequency: RawRepresentable {
 }
 
 extension WidgetUpdateFrequency: CaseIterable {
-  
+
   func stringValue() -> String {
-    switch(self) {
+    switch self {
     case .daily:
       return "daily"
     case .hourly:

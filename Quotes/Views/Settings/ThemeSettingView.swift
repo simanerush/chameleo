@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ThemeSettingView: View {
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
-  
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
-  
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
+  @AppStorage("fontColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var fontColor: Color = ChameleoUI.textColor
+
   var body: some View {
     Form {
       Section("theme") {

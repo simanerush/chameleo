@@ -8,17 +8,17 @@ import SwiftUI
 
 struct GeneratedQuoteView: View {
   @ObservedObject var model: QuoteModel
-  
+
   private let quoteTypes: [String] = [
     "motivational", "inspirational", "eclectic", "esteemed", "spicy"
   ]
-  
+
   @State private var selectedQuoteType = "motivational"
   @State private var output = ""
   @State private var isLoading = false
-  
+
   @State private var alertIsPresented = false
-  
+
   var body: some View {
     NavigationView {
       VStack {
@@ -49,25 +49,25 @@ struct GeneratedQuoteView: View {
           QuoteTextField(model: model, text: $output, alertIsPresented: $alertIsPresented)
         }
       }
-      
+
     }
     .alert("🚨failed to generate the quote!", isPresented: $alertIsPresented) {
       Button("ok", role: .cancel) {}
     }
     .navigationTitle("AI quote generator🤖")
   }
-  
+
   private func parseQuote() {
     guard let openingQuoteIndex = output.firstIndex(of: "\""),
           let closingQuoteIndex = output.lastIndex(of: "\"") else {
       alertIsPresented = true
       return
     }
-    
+
     let range = output.index(after: openingQuoteIndex)..<closingQuoteIndex
     output = String(output[range])
   }
-  
+
   private func generateQuote() async {
     isLoading = true
     let result =
@@ -86,20 +86,25 @@ struct GeneratedQuoteView: View {
 private struct QuoteTextField: View {
   @Environment(\.managedObjectContext) private var viewContext
   @ObservedObject var model: QuoteModel
-  
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = ChameleoUI.backgroundColor
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = ChameleoUI.textColor
-  
+
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
+  @AppStorage("fontColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var fontColor: Color = ChameleoUI.textColor
+
   @FetchRequest(
     sortDescriptors:
       [
         NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
       ])
   private var items: FetchedResults<Item>
-  
+
   @Binding var text: String
   @Binding var alertIsPresented: Bool
-  
+
   var body: some View {
     HStack {
       Text(text)
@@ -119,7 +124,7 @@ private struct QuoteTextField: View {
     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
     .padding(.horizontal, 20)
   }
-  
+
   private func addQuote() {
     let newQuote = Item(context: viewContext)
     newQuote.timestamp = Date()
@@ -127,7 +132,7 @@ private struct QuoteTextField: View {
     addItem(newItem: newQuote)
     if items.isEmpty { model.setQuoteOfTheDay() }
   }
-  
+
   private func addItem(newItem: Item) {
     do {
       try viewContext.save()
