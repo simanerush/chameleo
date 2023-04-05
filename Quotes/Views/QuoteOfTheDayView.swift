@@ -23,7 +23,7 @@ struct QuoteOfTheDayView: View {
   
   var body: some View {
     ZStack {
-      LinearGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : backgroundColor.opacity(0.3)]), startPoint: startAnimation ? .topLeading : .topTrailing, endPoint: startAnimation ? .bottomTrailing : .bottomLeading)
+      LinearGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]), startPoint: startAnimation ? .topLeading : .topTrailing, endPoint: startAnimation ? .bottomTrailing : .bottomLeading)
         .edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
         .onAppear {
           withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {
