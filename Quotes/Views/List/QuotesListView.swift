@@ -135,7 +135,8 @@ struct QuotesListView: View {
       }
       let newQuote = Item(context: viewContext)
       newQuote.timestamp = Date()
-      newQuote.title = textField
+      newQuote.title = textField.trimmingCharacters(in: .whitespacesAndNewlines)
+      newQuote.author = ""
       addItem(newItem: newQuote)
       textField = ""
       if isTheFirstEntry { model.setQuoteOfTheDay() }

@@ -57,6 +57,7 @@ struct QuoteDetailView: View {
       .background(backgroundColor.gradient)
       .contentShape(Rectangle())
       .cornerRadius(10)
+      byAuthorTextField
       makeTodayQuoteButton
       Spacer()
     }
@@ -79,6 +80,25 @@ struct QuoteDetailView: View {
     }
     .buttonStyle(.bordered)
     .tint(backgroundColor)
+  }
+
+  var byAuthorTextField: some View {
+    HStack {
+      Text("by")
+        .font(.subheadline)
+        .foregroundColor(backgroundColor)
+      TextField(text: Binding($item.author)!, label: {
+        Text("name of the author")
+      })
+      .textFieldStyle(.roundedBorder)
+      .onChange(of: item.author!) { _ in
+        do {
+          try viewContext.save()
+        } catch {
+          alertIsPresented.toggle()
+        }
+      }
+    }
   }
 
   var shareButton: some View {

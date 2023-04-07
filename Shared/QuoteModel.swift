@@ -70,16 +70,18 @@ class QuoteModel: ObservableObject {
     }
   }
 
-  private func fetchAllQuotes() -> [String] {
+  private func fetchAllQuotes() -> [(String, String)] {
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Quote")
-    var fetchedQuotes = [String]()
+    var fetchedQuotes = [(String, String)]()
 
     // fetch all quotes first
     do {
       if let results = try persistenceController.container.viewContext.fetch(fetchRequest) as? [NSManagedObject] {
         for result in results {
           if let title = result.value(forKey: "title") as? String {
-            fetchedQuotes.append(title)
+            if let author = result.value(forKey: "author") as? String {
+              fetchedQuotes.append((title, author))
+            }
           }
         }
       }
@@ -93,7 +95,8 @@ class QuoteModel: ObservableObject {
   private func computeRandomQuote() {
     let fetchedQuotes = fetchAllQuotes()
     if !fetchedQuotes.isEmpty {
-      defaults.set([Date(), fetchedQuotes.randomElement() as Any], forKey: "todaysQuote")
+      guard let quote: (String, String) = fetchedQuotes.randomElement() else { fatalError("cannot fetch all quotes") }
+      defaults.set([Date(), quote.0] as [Any], forKey: "todaysQuote")
     }
   }
 
