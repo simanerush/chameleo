@@ -19,12 +19,13 @@ struct GeneratedQuoteView: View {
 
   var body: some View {
     NavigationView {
-      VStack {
-        Text("use AI to expand your quote collection")
+      VStack(alignment: .leading) {
+        Text("Use AI to expand your quote collection")
           .font(.largeTitle)
           .bold()
+          .padding(15)
         HStack {
-          Text("get a")
+          Text("Get a")
           ZStack {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
               .fill(Color(.systemGray6))
@@ -52,9 +53,13 @@ struct GeneratedQuoteView: View {
           Text("quote")
         }
         .padding(.vertical, 15)
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 15)
         if isLoading {
-          ProgressView()
+          HStack {
+            Spacer()
+            ProgressView()
+            Spacer()
+          }
         } else if !quoteOutput.isEmpty {
           VStack {
             QuoteTextField(model: model,
@@ -67,8 +72,8 @@ struct GeneratedQuoteView: View {
       }
 
     }
-    .alert("🚨failed to get the quote!", isPresented: $alertIsPresented) {
-      Button("ok", role: .cancel) {}
+    .alert("🚨Failed to get the quote!", isPresented: $alertIsPresented) {
+      Button("Ok", role: .cancel) {}
     }
     .navigationBarTitleDisplayMode(.inline)
   }
@@ -79,7 +84,6 @@ struct GeneratedQuoteView: View {
   }
 
   private func parseQuote() {
-    print(quoteOutput)
     guard let openingQuoteIndex = quoteOutput.firstIndex(of: "\""),
           let closingQuoteIndex = quoteOutput.lastIndex(of: "\"")
       else {

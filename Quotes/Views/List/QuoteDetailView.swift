@@ -62,7 +62,7 @@ struct QuoteDetailView: View {
       Spacer()
     }
     .padding()
-    .alert("🚨failed to edit the quote!", isPresented: $alertIsPresented) {
+    .alert("🚨Failed to edit the quote!", isPresented: $alertIsPresented) {
       Button("ok", role: .cancel) {}
     }
   }

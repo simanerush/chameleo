@@ -27,7 +27,7 @@ struct SettingsView: View {
           }
         }
       }
-      .navigationTitle("settings")
+      .navigationTitle("Settings")
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
     }
   }

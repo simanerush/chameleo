@@ -45,6 +45,7 @@ struct QuotesListView: View {
           .cornerRadius(10)
           .padding(.vertical, -2)
           .padding(.horizontal, -10)
+          .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
         ForEach(items) { item in
           ZStack {
             HStack {
@@ -60,6 +61,7 @@ struct QuotesListView: View {
             .cornerRadius(10)
             .padding(.vertical, -2)
             .padding(.horizontal, -10)
+            .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
 
             NavigationLink(destination: QuoteDetailView(model: model, item: item)
               .navigationBarTitleDisplayMode(.inline)) {
@@ -73,11 +75,11 @@ struct QuotesListView: View {
         .onMove(perform: moveItems)
       }
       .listStyle(.plain)
-      .alert("🚨failed to add the quote!", isPresented: $alertIsPresented) {
+      .alert("🚨Failed to add the quote!", isPresented: $alertIsPresented) {
         Button("ok", role: .cancel) {}
       }
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
-      .navigationTitle("my quotes")
+      .navigationTitle("My quotes")
       .environment(\.editMode, $editMode)
       .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
