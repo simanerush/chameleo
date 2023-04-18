@@ -11,32 +11,37 @@ import Intents
 
 struct QuotesTimelineProvider: TimelineProvider {
 
-  let model: QuoteModel
-  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")
+  @AppStorage("widgetUpdateFrequency", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var widgetUpdateFrequency = WidgetUpdateFrequency.daily
 
-  init(model: QuoteModel) {
-    self.model = model
-  }
-
-  // Provides a timeline entry representing a placeholder version of the widget.
   func placeholder(in context: Context) -> Entry {
     return Entry(date: Date(), title: "⏳quotes are loading")
   }
 
-  // Provides a timeline entry that represents the current time and state of a widget.
   func getSnapshot(in context: Context, completion: @escaping (Entry) -> Void) {
     completion(Entry(date: Date(), title: "⏳quotes are loading"))
   }
 
-  // Provides an array of timeline entries for the current time and, optionally, any future times to update a widget.
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    let title: String = model.getTodayQuote()
+    var title: String? = "you don't have any quotes!"
+    let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
+    if let storedQuotes = defaults.array(forKey: "todaysQuote") {
+      title = storedQuotes[1] as? String
+    }
+    // we know that the quote's date must be today
     let creationDate = Date()
-    let nextUpdate = Calendar.autoupdatingCurrent.date(byAdding: .day, value: 1, to: Calendar.autoupdatingCurrent.startOfDay(for: creationDate))!
+    // schedule the next update to next day depending on user's preference
+    let nextUpdate = Calendar
+      .autoupdatingCurrent
+      .date(byAdding: widgetUpdateFrequency == .daily ? .day : .hour,
+            value: 1,
+            to: Calendar.autoupdatingCurrent.startOfDay(for: creationDate))!
+
+    guard let title else { fatalError("could not convert title to string") }
     let entry = Entry(date: creationDate, title: title)
     let timeline = Timeline(entries: [entry],
-                            policy:
-        .after(nextUpdate))
+                            policy: .after(nextUpdate))
     completion(timeline)
   }
 }
@@ -46,16 +51,23 @@ struct Entry: TimelineEntry {
   let title: String
 }
 
-struct QuotesWidgetEntryView : View {
+struct QuotesWidgetEntryView: View {
+  @Environment(\.colorScheme) var colorScheme
 
   var entry: QuotesTimelineProvider.Entry
-  @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var backgroundColor = Color(UIColor(red: 0.99, green: 0.80, blue: 0.43, alpha: 1.00))
-  
-  @AppStorage("fontColor", store: UserDefaults(suiteName: "group.com.simanerush.Quotes")) private var fontColor: Color = .white
-  
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
+
+  @AppStorage("fontColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var fontColor: Color = ChameleoUI.textColor
+
   var body: some View {
     ZStack {
-      backgroundColor.ignoresSafeArea()
+      RadialGradient(gradient:
+                      Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]),
+                              center: .center, startRadius: 2, endRadius: 220).ignoresSafeArea()
       Text(entry.title)
         .padding(5)
         .font(.custom("DelaGothicOne-Regular", size: 50))
@@ -69,13 +81,10 @@ struct QuotesWidgetEntryView : View {
 struct QuotesWidget: Widget {
   let kind: String = "QuotesWidget"
 
-  let persistenceController = PersistenceController.shared
-  let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")
-
   var body: some WidgetConfiguration {
     StaticConfiguration(
       kind: "com.simanerush.Quotes.QuotesWidget",
-      provider: QuotesTimelineProvider(model: QuoteModel(persistenceController: persistenceController))) { entry in
+      provider: QuotesTimelineProvider()) { entry in
         QuotesWidgetEntryView(entry: entry)
       }
       .configurationDisplayName("quotes")

@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2305779929766E0000D4CD67 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305779829766E0000D4CD67 /* MainView.swift */; };
+		2305779C2978777400D4CD67 /* ThemeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305779B2978777400D4CD67 /* ThemeSettingView.swift */; };
+		230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A0297A68D000D4CD67 /* RootSettingView.swift */; };
+		230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230577A2297A698300D4CD67 /* WidgetSettingView.swift */; };
+		23065C8E29ED1340009CF61D /* QuoteTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23065C8D29ED1340009CF61D /* QuoteTypes.swift */; };
+		230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
+		230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
+		231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */ = {isa = PBXBuildFile; productRef = 231173EF29C2446C00AC03CB /* SPSettingsIcons */; };
+		231C063929DDFB120089C183 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 231C063829DDFB120089C183 /* OpenAISwift */; };
+		231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C063C29DE109F0089C183 /* View+Placeholder.swift */; };
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
 		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
 		2335B6C928C331F900D8024F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C828C331F900D8024F /* Preview Assets.xcassets */; };
 		2335B6CB28C331F900D8024F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
 		2335B6CE28C331F900D8024F /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
-		2335B6D528C3329600D8024F /* RandomQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D428C3329600D8024F /* RandomQuoteView.swift */; };
+		2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */; };
 		2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
+		233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E129CE486C004E1D9B /* GPTCaller.swift */; };
+		233A60E729CE56B9004E1D9B /* GeneratedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */; };
+		233A60E929D03728004E1D9B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E829D03728004E1D9B /* Constants.swift */; };
+		234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */; };
 		2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
 		2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
 		2358858128CADADD006ED60C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2358858028CADADD006ED60C /* WidgetKit.framework */; };
@@ -29,14 +43,27 @@
 		237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
 		237C1DD328EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
 		237C1DD428EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
-		237C1DDA28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */; };
-		237C1DDB28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */; };
-		2398673F29393976006A86DD /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398673E29393976006A86DD /* View+Placeholder.swift */; };
+		239C16CD29A5919C00CC6553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239C16CC29A5919C00CC6553 /* Assets.xcassets */; };
+		239C16D029A5919C00CC6553 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */; };
+		239C16D529A591D800CC6553 /* QuotesWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */; };
+		239C16D629A591D800CC6553 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C16B229A58C0800CC6553 /* QuoteView.swift */; };
+		239C16D729A591E400CC6553 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6D628C3C30000D8024F /* QuoteModel.swift */; };
+		239C16D929A591E700CC6553 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
+		239C16DA29A591E700CC6553 /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
+		239C16DB29A591F700CC6553 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
+		239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
+		239C16DD29A595E200CC6553 /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
+		23B5E7DF29B91AB4001E0310 /* ChameleoUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */; };
+		23B5E7E229B91C18001E0310 /* ChameleoUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */; };
+		23B5E7E329B91C18001E0310 /* ChameleoUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */; };
+		23C63EF029C819D100B8D574 /* chameleo.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 239C16C629A5919C00CC6553 /* chameleo.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69D2936E2B7002C36D7 /* SettingsView.swift */; };
 		23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
 		23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */; };
-		23EDD6A329372EBC002C36D7 /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */; };
-		23EDD6A429372ED2002C36D7 /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */; };
+		23FC370C29C8102800B8437D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC370B29C8102800B8437D /* WatchConnectivityManager.swift */; };
+		23FC370D29C8102800B8437D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC370B29C8102800B8437D /* WatchConnectivityManager.swift */; };
+		23FC370E29C8128200B8437D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC370B29C8102800B8437D /* WatchConnectivityManager.swift */; };
+		23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FE3390297F11C80086AC39 /* QuoteDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +73,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2358857D28CADADD006ED60C;
 			remoteInfo = QuotesWidgetExtension;
+		};
+		23C63EF129C819D100B8D574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2335B6B628C331F800D8024F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 239C16C529A5919C00CC6553;
+			remoteInfo = "QuotesW Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -61,9 +95,27 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23C63EF329C819D100B8D574 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				23C63EF029C819D100B8D574 /* chameleo.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2305779829766E0000D4CD67 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2305779B2978777400D4CD67 /* ThemeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingView.swift; sourceTree = "<group>"; };
+		230577A0297A68D000D4CD67 /* RootSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSettingView.swift; sourceTree = "<group>"; };
+		230577A2297A698300D4CD67 /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
+		23065C8D29ED1340009CF61D /* QuoteTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTypes.swift; sourceTree = "<group>"; };
+		230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateFrequency.swift; sourceTree = "<group>"; };
+		231C063C29DE109F0089C183 /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
 		2335B6BE28C331F800D8024F /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2335B6C128C331F800D8024F /* QuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesApp.swift; sourceTree = "<group>"; };
 		2335B6C328C331F800D8024F /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -71,8 +123,11 @@
 		2335B6C828C331F900D8024F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2335B6CA28C331F900D8024F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2335B6CD28C331F900D8024F /* Quotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quotes.xcdatamodel; sourceTree = "<group>"; };
-		2335B6D428C3329600D8024F /* RandomQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuoteView.swift; sourceTree = "<group>"; };
+		2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDayView.swift; sourceTree = "<group>"; };
 		2335B6D628C3C30000D8024F /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
+		233A60E129CE486C004E1D9B /* GPTCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTCaller.swift; sourceTree = "<group>"; };
+		233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedQuoteView.swift; sourceTree = "<group>"; };
+		233A60E829D03728004E1D9B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2355354E28FE1DC500BF9798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/QuotesWidget.intentdefinition; sourceTree = "<group>"; };
 		2355355128FE1DCB00BF9798 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QuotesWidget.strings; sourceTree = "<group>"; };
 		2358857E28CADADD006ED60C /* QuotesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuotesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,13 +139,19 @@
 		237C1DCC28ECE182003FC21C /* Date+Compare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Compare.swift"; sourceTree = "<group>"; };
 		237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
 		237C1DD528EE8B12003FC21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraMono-Medium.ttf"; sourceTree = "<group>"; };
-		2398673E29393976006A86DD /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
+		239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesWatchApp.swift; sourceTree = "<group>"; };
+		239C16B229A58C0800CC6553 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		239C16C629A5919C00CC6553 /* chameleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chameleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		239C16CC29A5919C00CC6553 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		239C16DE29A5962F00CC6553 /* QuotesW-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "QuotesW-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChameleoUI.swift; path = Quotes/ChameleoUI.swift; sourceTree = SOURCE_ROOT; };
 		23DB8DB028E262B3005DB6CA /* Quotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quotes.entitlements; sourceTree = "<group>"; };
 		23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesWidgetExtension.entitlements; sourceTree = "<group>"; };
 		23EDD69D2936E2B7002C36D7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
-		23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
+		23FC370B29C8102800B8437D /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		23FE3390297F11C80086AC39 /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +159,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
+				231C063929DDFB120089C183 /* OpenAISwift in Frameworks */,
+				231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,15 +174,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		239C16C329A5919C00CC6553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2305779A2978775C00D4CD67 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				23EDD69D2936E2B7002C36D7 /* SettingsView.swift */,
+				230577A0297A68D000D4CD67 /* RootSettingView.swift */,
+				2305779B2978777400D4CD67 /* ThemeSettingView.swift */,
+				230C29B9299EC7C300C41E0A /* Widget */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		230C29B9299EC7C300C41E0A /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				230577A2297A698300D4CD67 /* WidgetSettingView.swift */,
+				230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		2335B6B528C331F800D8024F = {
 			isa = PBXGroup;
 			children = (
 				23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */,
+				237C1DCF28ECE37B003FC21C /* Shared */,
 				2335B6C028C331F800D8024F /* Quotes */,
 				2358858428CADADD006ED60C /* QuotesWidget */,
+				239C16C729A5919C00CC6553 /* QuotesW Watch App */,
 				2358857F28CADADD006ED60C /* Frameworks */,
 				2335B6BF28C331F800D8024F /* Products */,
 			);
@@ -129,6 +222,7 @@
 			children = (
 				2335B6BE28C331F800D8024F /* Quotes.app */,
 				2358857E28CADADD006ED60C /* QuotesWidgetExtension.appex */,
+				239C16C629A5919C00CC6553 /* chameleo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,10 +233,11 @@
 				237C1DD528EE8B12003FC21C /* Info.plist */,
 				23DB8DB028E262B3005DB6CA /* Quotes.entitlements */,
 				2335B6C128C331F800D8024F /* QuotesApp.swift */,
+				23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */,
 				237C1DCE28ECE35A003FC21C /* Views */,
 				237C1DCB28ECE166003FC21C /* Extensions */,
-				237C1DCF28ECE37B003FC21C /* Model */,
 				2335B6C528C331F900D8024F /* Assets.xcassets */,
+				233A60E029CE4845004E1D9B /* Models */,
 				237C1DD128EE8927003FC21C /* Fonts */,
 				2335B6C728C331F900D8024F /* Preview Content */,
 			);
@@ -155,6 +250,16 @@
 				2335B6C828C331F900D8024F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		233A60E029CE4845004E1D9B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				233A60E129CE486C004E1D9B /* GPTCaller.swift */,
+				233A60E829D03728004E1D9B /* Constants.swift */,
+				23065C8D29ED1340009CF61D /* QuoteTypes.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2358857F28CADADD006ED60C /* Frameworks */ = {
@@ -170,9 +275,9 @@
 			isa = PBXGroup;
 			children = (
 				2358858528CADADD006ED60C /* QuotesWidget.swift */,
-				2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */,
 				2358858828CADADD006ED60C /* Assets.xcassets */,
 				2358858A28CADADD006ED60C /* Info.plist */,
+				2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */,
 			);
 			path = QuotesWidget;
 			sourceTree = "<group>";
@@ -180,10 +285,9 @@
 		237C1DCB28ECE166003FC21C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				23EDD6A229372EBC002C36D7 /* Date+Tomorrow.swift */,
 				237C1DCC28ECE182003FC21C /* Date+Compare.swift */,
 				23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */,
-				2398673E29393976006A86DD /* View+Placeholder.swift */,
+				231C063C29DE109F0089C183 /* View+Placeholder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,30 +295,61 @@
 		237C1DCE28ECE35A003FC21C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2335B6D428C3329600D8024F /* RandomQuoteView.swift */,
-				2335B6C328C331F800D8024F /* QuotesListView.swift */,
-				23EDD69D2936E2B7002C36D7 /* SettingsView.swift */,
+				23FE338F297F11B30086AC39 /* List */,
+				2305779A2978775C00D4CD67 /* Settings */,
+				2305779829766E0000D4CD67 /* MainView.swift */,
+				2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */,
+				233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		237C1DCF28ECE37B003FC21C /* Model */ = {
+		237C1DCF28ECE37B003FC21C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */,
 				2335B6D628C3C30000D8024F /* QuoteModel.swift */,
 				2335B6CA28C331F900D8024F /* Persistence.swift */,
+				23FC370B29C8102800B8437D /* WatchConnectivityManager.swift */,
 			);
-			path = Model;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		237C1DD128EE8927003FC21C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				237C1DD928F396A7003FC21C /* FiraMono-Medium.ttf */,
 				237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		239C16C729A5919C00CC6553 /* QuotesW Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				239C16DE29A5962F00CC6553 /* QuotesW-Watch-App-Info.plist */,
+				239C16B029A58C0800CC6553 /* QuotesWatchApp.swift */,
+				239C16B229A58C0800CC6553 /* QuoteView.swift */,
+				239C16CC29A5919C00CC6553 /* Assets.xcassets */,
+				239C16CE29A5919C00CC6553 /* Preview Content */,
+			);
+			path = "QuotesW Watch App";
+			sourceTree = "<group>";
+		};
+		239C16CE29A5919C00CC6553 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		23FE338F297F11B30086AC39 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2335B6C328C331F800D8024F /* QuotesListView.swift */,
+				23FE3390297F11C80086AC39 /* QuoteDetailView.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,13 +363,21 @@
 				2335B6BB28C331F800D8024F /* Frameworks */,
 				2335B6BC28C331F800D8024F /* Resources */,
 				2358859028CADADD006ED60C /* Embed Foundation Extensions */,
+				23C63EF329C819D100B8D574 /* Embed Watch Content */,
+				235316B129DE1E4600741D33 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				2358858E28CADADD006ED60C /* PBXTargetDependency */,
+				23C63EF229C819D100B8D574 /* PBXTargetDependency */,
 			);
 			name = Quotes;
+			packageProductDependencies = (
+				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
+				231173EF29C2446C00AC03CB /* SPSettingsIcons */,
+				231C063829DDFB120089C183 /* OpenAISwift */,
+			);
 			productName = Quotes;
 			productReference = 2335B6BE28C331F800D8024F /* Quotes.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +389,7 @@
 				2358857A28CADADD006ED60C /* Sources */,
 				2358857B28CADADD006ED60C /* Frameworks */,
 				2358857C28CADADD006ED60C /* Resources */,
+				235316B329DE1E6D00741D33 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -256,6 +400,24 @@
 			productReference = 2358857E28CADADD006ED60C /* QuotesWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		239C16C529A5919C00CC6553 /* QuotesW Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 239C16D129A5919C00CC6553 /* Build configuration list for PBXNativeTarget "QuotesW Watch App" */;
+			buildPhases = (
+				239C16C229A5919C00CC6553 /* Sources */,
+				239C16C329A5919C00CC6553 /* Frameworks */,
+				239C16C429A5919C00CC6553 /* Resources */,
+				235316B229DE1E6700741D33 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuotesW Watch App";
+			productName = "QuotesW Watch App";
+			productReference = 239C16C629A5919C00CC6553 /* chameleo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -263,7 +425,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					2335B6BD28C331F800D8024F = {
@@ -271,6 +433,9 @@
 					};
 					2358857D28CADADD006ED60C = {
 						CreatedOnToolsVersion = 13.4;
+					};
+					239C16C529A5919C00CC6553 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -283,11 +448,17 @@
 				Base,
 			);
 			mainGroup = 2335B6B528C331F800D8024F;
+			packageReferences = (
+				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+				231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */,
+				231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = 2335B6BF28C331F800D8024F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				2335B6BD28C331F800D8024F /* Quotes */,
+				239C16C529A5919C00CC6553 /* QuotesW Watch App */,
 				2358857D28CADADD006ED60C /* QuotesWidgetExtension */,
 			);
 		};
@@ -298,7 +469,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				237C1DDA28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */,
 				2335B6C928C331F900D8024F /* Preview Assets.xcassets in Resources */,
 				2335B6C628C331F900D8024F /* Assets.xcassets in Resources */,
 				237C1DD328EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */,
@@ -311,11 +481,77 @@
 			files = (
 				237C1DD428EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */,
 				2358858928CADADD006ED60C /* Assets.xcassets in Resources */,
-				237C1DDB28F396A7003FC21C /* FiraMono-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		239C16C429A5919C00CC6553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				239C16D029A5919C00CC6553 /* Preview Assets.xcassets in Resources */,
+				239C16CD29A5919C00CC6553 /* Assets.xcassets in Resources */,
+				239C16DD29A595E200CC6553 /* DelaGothicOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		235316B129DE1E4600741D33 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		235316B229DE1E6700741D33 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		235316B329DE1E6D00741D33 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2335B6BA28C331F800D8024F /* Sources */ = {
@@ -323,16 +559,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EDD6A02936E919002C36D7 /* Color+RawRepresentable.swift in Sources */,
+				233A60E929D03728004E1D9B /* Constants.swift in Sources */,
+				2305779929766E0000D4CD67 /* MainView.swift in Sources */,
+				233A60E729CE56B9004E1D9B /* GeneratedQuoteView.swift in Sources */,
+				230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */,
 				2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */,
-				2335B6D528C3329600D8024F /* RandomQuoteView.swift in Sources */,
+				2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */,
 				2335B6CE28C331F900D8024F /* Quotes.xcdatamodeld in Sources */,
 				2335B6CB28C331F900D8024F /* Persistence.swift in Sources */,
 				23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */,
-				2398673F29393976006A86DD /* View+Placeholder.swift in Sources */,
+				2305779C2978777400D4CD67 /* ThemeSettingView.swift in Sources */,
+				23065C8E29ED1340009CF61D /* QuoteTypes.swift in Sources */,
+				23B5E7DF29B91AB4001E0310 /* ChameleoUI.swift in Sources */,
+				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
+				233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
+				23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */,
+				231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */,
+				230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
-				23EDD6A329372EBC002C36D7 /* Date+Tomorrow.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
+				23FC370C29C8102800B8437D /* WatchConnectivityManager.swift in Sources */,
 				2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,14 +588,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23EDD6A429372ED2002C36D7 /* Date+Tomorrow.swift in Sources */,
+				23B5E7E329B91C18001E0310 /* ChameleoUI.swift in Sources */,
 				2358859428CAE071006ED60C /* QuoteModel.swift in Sources */,
 				2358859628CAE0F2006ED60C /* Quotes.xcdatamodeld in Sources */,
 				237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */,
+				23FC370E29C8128200B8437D /* WatchConnectivityManager.swift in Sources */,
 				2358859528CAE0E3006ED60C /* Persistence.swift in Sources */,
 				2358858628CADADD006ED60C /* QuotesWidget.swift in Sources */,
 				2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				23EDD6A1293710BA002C36D7 /* Color+RawRepresentable.swift in Sources */,
+				230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		239C16C229A5919C00CC6553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23B5E7E229B91C18001E0310 /* ChameleoUI.swift in Sources */,
+				239C16D929A591E700CC6553 /* Color+RawRepresentable.swift in Sources */,
+				239C16D729A591E400CC6553 /* QuoteModel.swift in Sources */,
+				239C16D529A591D800CC6553 /* QuotesWatchApp.swift in Sources */,
+				23FC370D29C8102800B8437D /* WatchConnectivityManager.swift in Sources */,
+				239C16DB29A591F700CC6553 /* Persistence.swift in Sources */,
+				239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */,
+				239C16D629A591D800CC6553 /* QuoteView.swift in Sources */,
+				239C16DA29A591E700CC6553 /* Date+Compare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +624,11 @@
 			isa = PBXTargetDependency;
 			target = 2358857D28CADADD006ED60C /* QuotesWidgetExtension */;
 			targetProxy = 2358858D28CADADD006ED60C /* PBXContainerItemProxy */;
+		};
+		23C63EF229C819D100B8D574 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 239C16C529A5919C00CC6553 /* QuotesW Watch App */;
+			targetProxy = 23C63EF129C819D100B8D574 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -425,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -479,7 +749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -503,13 +773,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quotes/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "💭my quotes";
+				INFOPLIST_KEY_CFBundleDisplayName = Chameleo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,13 +806,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quotes/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "💭my quotes";
+				INFOPLIST_KEY_CFBundleDisplayName = Chameleo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -613,6 +881,72 @@
 			};
 			name = Release;
 		};
+		239C16D229A5919C00CC6553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QuotesW Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = QJZL455652;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuotesW-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.Quotes;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Quotes.watchkitapp;
+				PRODUCT_NAME = chameleo;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		239C16D329A5919C00CC6553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QuotesW Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = QJZL455652;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuotesW-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = chameleo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.Quotes;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Quotes.watchkitapp;
+				PRODUCT_NAME = chameleo;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -643,7 +977,61 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		239C16D129A5919C00CC6553 /* Build configuration list for PBXNativeTarget "QuotesW Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				239C16D229A5919C00CC6553 /* Debug */,
+				239C16D329A5919C00CC6553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SPSettingsIcons";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		231173EF29C2446C00AC03CB /* SPSettingsIcons */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */;
+			productName = SPSettingsIcons;
+		};
+		231C063829DDFB120089C183 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+		234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */ = {

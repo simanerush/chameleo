@@ -10,18 +10,20 @@ import WidgetKit
 
 @main
 struct QuotesApp: App {
-  let persistenceController = PersistenceController.shared
-  let model: QuoteModel
+  @AppStorage("backgroundColor", store:
+                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
+  private var backgroundColor = ChameleoUI.backgroundColor
 
   init() {
-    self.model = QuoteModel(persistenceController: persistenceController)
     WidgetCenter.shared.reloadAllTimelines()
+    GPTCaller.shared.setup()
   }
 
   var body: some Scene {
     WindowGroup {
-      RandomQuoteView(model: model)
-        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+      MainView(model: QuoteModel.shared)
+        .environment(\.managedObjectContext, QuoteModel.shared.persistenceController.container.viewContext)
+        .accentColor(backgroundColor)
     }
   }
 }
