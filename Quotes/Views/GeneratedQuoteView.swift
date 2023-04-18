@@ -177,12 +177,16 @@ private struct QuoteTextField: View {
   }
 
   private func addQuote() {
+    var isTheFirstEntry = false
+    if items.isEmpty {
+      isTheFirstEntry = true
+    }
     let newQuote = Item(context: viewContext)
     newQuote.timestamp = Date()
     newQuote.title = text
     newQuote.author = author
     addItem(newItem: newQuote)
-    if items.isEmpty { model.setQuoteOfTheDay() }
+    if isTheFirstEntry { model.setQuoteOfTheDay() }
   }
 
   private func addItem(newItem: Item) {
