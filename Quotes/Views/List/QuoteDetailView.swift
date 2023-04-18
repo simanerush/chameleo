@@ -85,7 +85,7 @@ struct QuoteDetailView: View {
   var byAuthorTextField: some View {
     HStack {
       Text("by")
-        .font(.subheadline)
+        .font(.headline)
         .foregroundColor(backgroundColor)
       TextField(text: Binding($item.author)!, label: {
         Text("name of the author")

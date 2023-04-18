@@ -46,8 +46,28 @@ struct QuotesListView: View {
           .padding(.vertical, -2)
           .padding(.horizontal, -10)
         ForEach(items) { item in
-          QuoteListCell(model: model, item: item)
-            .listRowSeparator(.hidden)
+          ZStack {
+            HStack {
+              Text(item.title! + " ")
+                .font(ChameleoUI.listedQuoteFont)
+                .padding(5)
+                .foregroundColor(fontColor)
+              Spacer()
+            }
+            .padding()
+            .background(backgroundColor.gradient)
+            .contentShape(Rectangle())
+            .cornerRadius(10)
+            .padding(.vertical, -2)
+            .padding(.horizontal, -10)
+
+            NavigationLink(destination: QuoteDetailView(model: model, item: item)
+              .navigationBarTitleDisplayMode(.inline)) {
+              EmptyView()
+            }
+            .opacity(0)
+          }
+          .listRowSeparator(.hidden)
         }
         .onDelete(perform: deleteItems)
         .onMove(perform: moveItems)
@@ -99,7 +119,7 @@ struct QuotesListView: View {
     NavigationLink {
       GeneratedQuoteView(model: model)
     } label: {
-      Label("generate with AI", systemSymbol: .lightbulbFill)
+      Label("get inspired with AI", systemSymbol: .sparkles)
         .labelStyle(.titleAndIcon)
     }
   }
@@ -173,42 +193,5 @@ struct QuotesListView: View {
       }
     }
     model.setQuoteOfTheDay()
-  }
-}
-
-struct QuoteListCell: View {
-  @AppStorage("backgroundColor", store:
-                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
-  private var backgroundColor = ChameleoUI.backgroundColor
-
-  @AppStorage("fontColor", store:
-                UserDefaults(suiteName: "group.com.simanerush.Quotes"))
-  private var fontColor: Color = ChameleoUI.textColor
-
-  @ObservedObject var model: QuoteModel
-
-  var item: Item
-
-  var body: some View {
-    ZStack {
-      HStack {
-        Text(item.title! + " ")
-          .font(ChameleoUI.listedQuoteFont)
-          .padding(5)
-          .foregroundColor(fontColor)
-        Spacer()
-      }
-      .padding()
-      .background(backgroundColor.gradient)
-      .contentShape(Rectangle())
-      .cornerRadius(10)
-      .padding(.vertical, -2)
-      .padding(.horizontal, -10)
-
-      NavigationLink(destination: QuoteDetailView(model: model, item: item).navigationBarTitleDisplayMode(.inline)) {
-        EmptyView()
-      }
-      .opacity(0)
-    }
   }
 }
