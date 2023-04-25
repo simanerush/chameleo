@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "purchases-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RevenueCat/purchases-ios",
+      "state" : {
+        "revision" : "952f18f2c9238f056b68a29432b5e2f687763b44",
+        "version" : "4.17.10"
+      }
+    },
+    {
       "identity" : "sfsafesymbols",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SFSafeSymbols/SFSafeSymbols",

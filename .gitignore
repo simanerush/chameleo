@@ -90,3 +90,6 @@ fastlane/test_output
 iOSInjectionProject/
 
 Quotes/Models/Constants.swift
+
+Config.storekit
+StoreKitTestCertificate.cer

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SFSafeSymbols
 
 struct SettingsView: View {
 
   let settings: [Setting] = [
-    Setting(title: "theme", color: .red, imageName: "heart.square.fill"),
-    Setting(title: "widget", color: .yellow, imageName: "star.square.fill")
+    Setting(title: "theme", color: .red, image: .heartSquareFill),
+    Setting(title: "widget", color: .yellow, image: .starSquareFill),
+    Setting(title: "manage subscription", color: .green, image: .dollarsignSquareFill)
   ]
 
   var body: some View {
@@ -21,7 +23,7 @@ struct SettingsView: View {
           NavigationLink(destination:
                           RootSettingView(viewToDisplay: setting.title).navigationBarTitleDisplayMode(.inline)) {
             HStack {
-              SectionImage(color: setting.color, imageName: setting.imageName)
+              SectionImage(color: setting.color, symbol: setting.image)
               Text(setting.title)
             }
           }
@@ -36,15 +38,15 @@ struct SettingsView: View {
 struct Setting: Hashable {
   let title: String
   let color: Color
-  let imageName: String
+  let image: SFSymbol
 }
 
 struct SectionImage: View {
   let color: Color
-  let imageName: String
+  let symbol: SFSymbol
 
   var body: some View {
-    Image(systemName: imageName)
+    Image(systemSymbol: symbol)
       .resizable()
       .foregroundStyle(color)
       .frame(width: 25, height: 25)

@@ -17,6 +17,14 @@
 		231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */ = {isa = PBXBuildFile; productRef = 231173EF29C2446C00AC03CB /* SPSettingsIcons */; };
 		231C063929DDFB120089C183 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 231C063829DDFB120089C183 /* OpenAISwift */; };
 		231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C063C29DE109F0089C183 /* View+Placeholder.swift */; };
+		231FA5B529F0575100547C28 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 231FA5B429F0575100547C28 /* RevenueCat */; };
+		231FA5B729F0616E00547C28 /* PurchasesDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231FA5B629F0616E00547C28 /* PurchasesDelegateHandler.swift */; };
+		231FA5B929F063D100547C28 /* SubscriptionSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231FA5B829F063D100547C28 /* SubscriptionSettingView.swift */; };
+		231FA5BB29F0659900547C28 /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231FA5BA29F0659900547C28 /* SubscriptionModel.swift */; };
+		231FA5BD29F067BC00547C28 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231FA5BC29F067BC00547C28 /* PaywallView.swift */; };
+		231FA5BF29F0680100547C28 /* Package+Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231FA5BE29F0680100547C28 /* Package+Terms.swift */; };
+		231FA5C129F06B5300547C28 /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 231FA5C029F06B5300547C28 /* Config.storekit */; };
+		231FA5C329F06BB200547C28 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 231FA5C229F06BB100547C28 /* StoreKitTestCertificate.cer */; };
 		2335B6C228C331F800D8024F /* QuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C128C331F800D8024F /* QuotesApp.swift */; };
 		2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6C328C331F800D8024F /* QuotesListView.swift */; };
 		2335B6C628C331F900D8024F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2335B6C528C331F900D8024F /* Assets.xcassets */; };
@@ -116,6 +124,13 @@
 		23065C8D29ED1340009CF61D /* QuoteTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTypes.swift; sourceTree = "<group>"; };
 		230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateFrequency.swift; sourceTree = "<group>"; };
 		231C063C29DE109F0089C183 /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
+		231FA5B629F0616E00547C28 /* PurchasesDelegateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesDelegateHandler.swift; sourceTree = "<group>"; };
+		231FA5B829F063D100547C28 /* SubscriptionSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSettingView.swift; sourceTree = "<group>"; };
+		231FA5BA29F0659900547C28 /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
+		231FA5BC29F067BC00547C28 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		231FA5BE29F0680100547C28 /* Package+Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package+Terms.swift"; sourceTree = "<group>"; };
+		231FA5C029F06B5300547C28 /* Config.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.storekit; sourceTree = SOURCE_ROOT; };
+		231FA5C229F06BB100547C28 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		2335B6BE28C331F800D8024F /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2335B6C128C331F800D8024F /* QuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesApp.swift; sourceTree = "<group>"; };
 		2335B6C328C331F800D8024F /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -159,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231FA5B529F0575100547C28 /* RevenueCat in Frameworks */,
 				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
 				231C063929DDFB120089C183 /* OpenAISwift in Frameworks */,
 				231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */,
@@ -191,6 +207,7 @@
 				230577A0297A68D000D4CD67 /* RootSettingView.swift */,
 				2305779B2978777400D4CD67 /* ThemeSettingView.swift */,
 				230C29B9299EC7C300C41E0A /* Widget */,
+				231FA5B829F063D100547C28 /* SubscriptionSettingView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -208,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */,
+				231FA5C229F06BB100547C28 /* StoreKitTestCertificate.cer */,
+				231FA5C029F06B5300547C28 /* Config.storekit */,
 				237C1DCF28ECE37B003FC21C /* Shared */,
 				2335B6C028C331F800D8024F /* Quotes */,
 				2358858428CADADD006ED60C /* QuotesWidget */,
@@ -233,6 +252,7 @@
 				237C1DD528EE8B12003FC21C /* Info.plist */,
 				23DB8DB028E262B3005DB6CA /* Quotes.entitlements */,
 				2335B6C128C331F800D8024F /* QuotesApp.swift */,
+				231FA5B629F0616E00547C28 /* PurchasesDelegateHandler.swift */,
 				23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */,
 				237C1DCE28ECE35A003FC21C /* Views */,
 				237C1DCB28ECE166003FC21C /* Extensions */,
@@ -258,6 +278,7 @@
 				233A60E129CE486C004E1D9B /* GPTCaller.swift */,
 				233A60E829D03728004E1D9B /* Constants.swift */,
 				23065C8D29ED1340009CF61D /* QuoteTypes.swift */,
+				231FA5BA29F0659900547C28 /* SubscriptionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +309,7 @@
 				237C1DCC28ECE182003FC21C /* Date+Compare.swift */,
 				23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */,
 				231C063C29DE109F0089C183 /* View+Placeholder.swift */,
+				231FA5BE29F0680100547C28 /* Package+Terms.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -300,6 +322,7 @@
 				2305779829766E0000D4CD67 /* MainView.swift */,
 				2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */,
 				233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */,
+				231FA5BC29F067BC00547C28 /* PaywallView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -377,6 +400,7 @@
 				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
 				231173EF29C2446C00AC03CB /* SPSettingsIcons */,
 				231C063829DDFB120089C183 /* OpenAISwift */,
+				231FA5B429F0575100547C28 /* RevenueCat */,
 			);
 			productName = Quotes;
 			productReference = 2335B6BE28C331F800D8024F /* Quotes.app */;
@@ -452,6 +476,7 @@
 				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */,
 				231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				231FA5B329F0575100547C28 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 2335B6BF28C331F800D8024F /* Products */;
 			projectDirPath = "";
@@ -469,8 +494,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231FA5C329F06BB200547C28 /* StoreKitTestCertificate.cer in Resources */,
 				2335B6C928C331F900D8024F /* Preview Assets.xcassets in Resources */,
 				2335B6C628C331F900D8024F /* Assets.xcassets in Resources */,
+				231FA5C129F06B5300547C28 /* Config.storekit in Resources */,
 				237C1DD328EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,15 +595,20 @@
 				2335B6CE28C331F900D8024F /* Quotes.xcdatamodeld in Sources */,
 				2335B6CB28C331F900D8024F /* Persistence.swift in Sources */,
 				23EDD69E2936E2B7002C36D7 /* SettingsView.swift in Sources */,
+				231FA5BD29F067BC00547C28 /* PaywallView.swift in Sources */,
 				2305779C2978777400D4CD67 /* ThemeSettingView.swift in Sources */,
 				23065C8E29ED1340009CF61D /* QuoteTypes.swift in Sources */,
+				231FA5BB29F0659900547C28 /* SubscriptionModel.swift in Sources */,
 				23B5E7DF29B91AB4001E0310 /* ChameleoUI.swift in Sources */,
 				230577A1297A68D000D4CD67 /* RootSettingView.swift in Sources */,
 				233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */,
 				237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */,
+				231FA5B729F0616E00547C28 /* PurchasesDelegateHandler.swift in Sources */,
 				23FE3391297F11C80086AC39 /* QuoteDetailView.swift in Sources */,
+				231FA5BF29F0680100547C28 /* Package+Terms.swift in Sources */,
 				231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */,
 				230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */,
+				231FA5B929F063D100547C28 /* SubscriptionSettingView.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				23FC370C29C8102800B8437D /* WatchConnectivityManager.swift in Sources */,
@@ -1005,6 +1037,14 @@
 				minimumVersion = 1.3.0;
 			};
 		};
+		231FA5B329F0575100547C28 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
@@ -1025,6 +1065,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
 			productName = OpenAISwift;
+		};
+		231FA5B429F0575100547C28 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 231FA5B329F0575100547C28 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
 		};
 		234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;

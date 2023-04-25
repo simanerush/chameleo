@@ -13,9 +13,13 @@ struct QuotesListView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
   @ObservedObject var model: QuoteModel
+  @ObservedObject private var subscriptionModel = SubscriptionModel.shared
+
   @State private var textField = ""
   @State private var alertIsPresented = false
   @State private var editMode: EditMode = .inactive
+
+  @State private var paywallIsPresented = false
 
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
@@ -90,6 +94,14 @@ struct QuotesListView: View {
           editButton
         }
       }
+      .onAppear {
+        if !self.subscriptionModel.subscriptionActive {
+          paywallIsPresented = true
+        }
+      }
+      .sheet(isPresented: $paywallIsPresented, content: {
+          PaywallView(isPresented: $paywallIsPresented)
+      })
     }
   }
 

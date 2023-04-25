@@ -16,7 +16,7 @@ final class GPTCaller {
   private init () {}
 
   public func setup() {
-    self.client = OpenAISwift(authToken: Constants.key)
+    self.client = OpenAISwift(authToken: Constants.openAiKey)
   }
 
   public func getResponse(input: String) async -> Result<String, Error> {

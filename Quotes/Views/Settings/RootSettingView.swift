@@ -15,6 +15,8 @@ struct RootSettingView: View {
       ThemeSettingView()
     case "widget":
       WidgetSettingView()
+    case "manage subscription":
+      SubscriptionSettingView()
     default:
       RootSettingView(viewToDisplay: "")
     }
