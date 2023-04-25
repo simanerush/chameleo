@@ -56,7 +56,7 @@ class QuoteModel: ObservableObject {
     if let quote = defaults.array(forKey: "todaysQuote") {
       if quotesIsEmpty() {
         // nil the defaults if the user deleted all quotes
-        quoteOfTheDay = "you don't have any quotes!"
+        quoteOfTheDay = "You don't have any quotes!"
         sendToWatch(newQuote: quoteOfTheDay)
         defaults.set(nil, forKey: "todaysQuote")
       } else {
@@ -65,7 +65,7 @@ class QuoteModel: ObservableObject {
         sendToWatch(newQuote: quoteOfTheDay)
       }
     } else {
-      quoteOfTheDay = "you don't have any quotes!"
+      quoteOfTheDay = "You don't have any quotes!"
       sendToWatch(newQuote: quoteOfTheDay)
     }
   }

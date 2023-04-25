@@ -24,7 +24,7 @@ struct QuotesTimelineProvider: TimelineProvider {
   }
 
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    var title: String? = "you don't have any quotes!"
+    var title: String? = "You don't have any quotes!"
     let defaults = UserDefaults(suiteName: "group.com.simanerush.Quotes")!
     if let storedQuotes = defaults.array(forKey: "todaysQuote") {
       title = storedQuotes[1] as? String

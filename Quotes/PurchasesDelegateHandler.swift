@@ -20,7 +20,6 @@ extension PurchasesDelegateHandler: PurchasesDelegate {
     SubscriptionModel.shared.customerInfo = customerInfo
   }
 
-  /// This can be tested by opening a link like: itms-services://?action=purchaseIntent&bundleId=<BUNDLE_ID>&productIdentifier=<SKPRODUCT_ID>
   func purchases(_ purchases: Purchases,
                  readyForPromotedProduct product: StoreProduct,
                  purchase startPurchase: @escaping StartPurchaseBlock) {

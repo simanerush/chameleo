@@ -15,13 +15,6 @@ struct SubscriptionSettingView: View {
 
     var body: some View {
         VStack {
-            Text("Current User Identifier")
-                .font(.headline)
-                .padding(.bottom, 8.0)
-                .padding(.top, 16.0)
-
-            Text(Purchases.shared.appUserID)
-
             Text("Subscription Status")
                 .font(.headline)
                 .padding([.top, .bottom], 8.0)

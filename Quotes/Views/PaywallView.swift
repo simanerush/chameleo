@@ -21,7 +21,11 @@ struct PaywallView: View {
     subscriptionModel.offerings?.current
   }
 
-  private let footerText = "Don't forget to add your subscription terms and conditions. Read more about this here: https://www.revenuecat.com/blog/schedule-2-section-3-8-b"
+  private let footerText = """
+  Secured with iTunes. Cancel anytime.
+  For more information, see our [Terms of Service](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/)
+  and [Privacy Policy](https://www.simanerush.com/apps/chameleo-privacy).
+  """
 
   @State private var error: NSError?
   @State private var displayError: Bool = false
@@ -35,34 +39,43 @@ struct PaywallView: View {
           Image("chameleo")
             .resizable()
             .scaledToFit()
-            .padding(.horizontal, 100)
+            .padding(.horizontal, 80)
+            .padding(.top, 50)
           FeaturesOverview()
-            .padding(.vertical, 70)
-          HStack {
-            ForEach(offering?.availablePackages ?? []) { package in
-              PackageCellView(package: package) { _ in
-                isPurchasing = true
+            .padding(.vertical, 35)
+          VStack {
+            HStack {
+              ForEach(offering?.availablePackages ?? []) { package in
+                PackageCellView(package: package) { _ in
+                  isPurchasing = true
+                  do {
+                    let result = try await Purchases.shared.purchase(package: package)
 
-                do {
-                  let result = try await Purchases.shared.purchase(package: package)
+                    self.isPurchasing = false
 
-                  self.isPurchasing = false
-
-                  if !result.userCancelled {
-                    self.isPresented = false
+                    if !result.userCancelled {
+                      self.isPresented = false
+                    }
+                  } catch {
+                    self.isPurchasing = false
+                    self.error = error as NSError
+                    self.displayError = true
                   }
-                } catch {
-                  self.isPurchasing = false
-                  self.error = error as NSError
-                  self.displayError = true
                 }
               }
             }
+            .padding(.horizontal, 35)
+            Text(.init(footerText))
+              .foregroundColor(.gray)
+              .font(.caption2)
+              .tint(ChameleoUI.backgroundColor)
+              .multilineTextAlignment(.center)
+              .padding(.horizontal, 35)
           }
+          .padding(.bottom, 50)
         }
         .navigationBarTitle("Chameleo Plus")
         .navigationBarTitleDisplayMode(.inline)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.bottom)
 
         /// - Display an overlay during a purchase
@@ -91,7 +104,15 @@ struct FeaturesOverview: View {
   var body: some View {
     VStack(alignment: .leading) {
       Label {
-        Text("Ask AI for suggestions more than 5 times")
+        Text("Upgrade to Chameleo Plus and support a college student and the only developer of Chameleo!")
+          .bold()
+      } icon: {
+        Image(systemSymbol: .heartCircleFill)
+          .foregroundColor(.red)
+      }.padding(.bottom, 10)
+
+      Label {
+        Text("Ask AI for suggestions unlimited number of times")
       } icon: {
         Image(systemSymbol: .checkmarkCircleFill)
           .foregroundColor(.green)
@@ -103,7 +124,7 @@ struct FeaturesOverview: View {
           .foregroundColor(.green)
       }
     }
-    .padding(.horizontal, 50)
+    .padding(.horizontal, 35)
   }
 }
 
@@ -123,32 +144,41 @@ struct PackageCellView: View {
       self.buttonLabel
     }
     .buttonStyle(.bordered)
+    .tint(ChameleoUI.backgroundColor)
   }
 
   private var buttonLabel: some View {
-    VStack {
-      Text(packageDuration)
-        .font(.title3)
-        .bold()
-
-      HStack {
-        if package.packageType == .annual {
-          Text("$12.99")
-            .strikethrough()
-        }
-        Text(package.localizedPriceString)
-          .font(.title3)
+    GeometryReader { proxy in
+      VStack {
+        Text(packageDuration)
+          .font(.title2)
           .bold()
+          .padding(.horizontal, 15)
+          .padding(.top, 5)
+
+        Divider()
+          .frame(maxWidth: proxy.size.width)
+
+        HStack {
+          if package.packageType == .annual {
+            Text("$12.99")
+              .strikethrough()
+          }
+          Text(package.localizedPriceString)
+            .font(.title3)
+            .bold()
+        }
+        .padding(.top, 20)
       }
-    }
-    .contentShape(Rectangle()) // Make the whole cell tappable
-    .onAppear {
-      switch package.packageType {
-      case .monthly:
-        self.packageDuration = "Monthly"
-      case .annual:
-        self.packageDuration = "Annual"
-      default: break
+      .contentShape(Rectangle()) // Make the whole cell tappable
+      .onAppear {
+        switch package.packageType {
+        case .monthly:
+          self.packageDuration = "Monthly"
+        case .annual:
+          self.packageDuration = "Annual"
+        default: break
+        }
       }
     }
   }
