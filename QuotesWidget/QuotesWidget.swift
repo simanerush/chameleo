@@ -52,9 +52,38 @@ struct Entry: TimelineEntry {
 }
 
 struct QuotesWidgetEntryView: View {
+  @Environment(\.widgetFamily) var family
+
+  var entry: QuotesTimelineProvider.Entry
+
+  var body: some View {
+#warning("Widgets should look slightly different for each size because of the gradient")
+    switch family {
+    case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
+      HomeScreenWidgetView(entry: entry)
+    case .accessoryRectangular:
+      Text(entry.title)
+        .padding(5)
+        .font(.custom("DelaGothicOne-Regular", size: 50))
+        .minimumScaleFactor(0.01)
+    case .accessoryInline:
+      Text(verbatim: entry.title)
+        .bold()
+    case .accessoryCircular:
+      Image("ashotik")
+        .resizable()
+        .scaledToFit()
+    default:
+      EmptyView()
+    }
+  }
+}
+
+struct HomeScreenWidgetView: View {
   @Environment(\.colorScheme) var colorScheme
 
   var entry: QuotesTimelineProvider.Entry
+
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
   private var backgroundColor = ChameleoUI.backgroundColor
@@ -67,7 +96,7 @@ struct QuotesWidgetEntryView: View {
     ZStack {
       RadialGradient(gradient:
                       Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]),
-                              center: .center, startRadius: 2, endRadius: 220).ignoresSafeArea()
+                     center: .center, startRadius: 2, endRadius: 220).ignoresSafeArea()
       Text(entry.title)
         .padding(5)
         .font(.custom("DelaGothicOne-Regular", size: 50))
@@ -87,6 +116,17 @@ struct QuotesWidget: Widget {
       provider: QuotesTimelineProvider()) { entry in
         QuotesWidgetEntryView(entry: entry)
       }
-      .configurationDisplayName("quotes")
+      .configurationDisplayName("Quote of the day💭")
+      .supportedFamilies(
+        [
+          .systemSmall,
+          .systemMedium,
+          .systemLarge,
+          .systemExtraLarge,
+          .accessoryInline,
+          .accessoryCircular,
+          .accessoryRectangular
+        ]
+      )
   }
 }

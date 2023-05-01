@@ -88,7 +88,7 @@ struct GeneratedQuoteView: View {
       Button("Ok", role: .cancel) {}
     }
     .sheet(isPresented: $paywallIsPresented) {
-        PaywallView(isPresented: $paywallIsPresented)
+      PaywallView(isPresented: $paywallIsPresented)
     }
     .navigationBarTitleDisplayMode(.inline)
   }
@@ -116,7 +116,7 @@ struct GeneratedQuoteView: View {
   private func parseQuote() {
     guard let openingQuoteIndex = quoteOutput.firstIndex(of: "\""),
           let closingQuoteIndex = quoteOutput.lastIndex(of: "\"")
-      else {
+    else {
       alertIsPresented = true
       return
     }
@@ -168,6 +168,8 @@ private struct QuoteTextField: View {
   @Binding var author: String
   @Binding var alertIsPresented: Bool
 
+  @State var didAddQuote = false
+
   var body: some View {
     VStack {
       HStack {
@@ -176,12 +178,21 @@ private struct QuoteTextField: View {
           .padding(15)
           .foregroundColor(fontColor)
         Spacer()
-        Button {
-          addQuote()
-        } label: {
-          Image(systemSymbol: .plus)
-            .foregroundColor(.white)
-            .padding(8)
+        if didAddQuote {
+          withAnimation {
+            Image(systemSymbol: .checkmark)
+              .foregroundColor(.white)
+              .padding(8)
+          }
+
+        } else {
+          Button {
+            addQuote()
+          } label: {
+            Image(systemSymbol: .plus)
+              .foregroundColor(.white)
+              .padding(8)
+          }
         }
       }
       .background(backgroundColor.gradient)
@@ -217,6 +228,7 @@ private struct QuoteTextField: View {
     newQuote.author = author
     addItem(newItem: newQuote)
     if isTheFirstEntry { model.setQuoteOfTheDay() }
+    didAddQuote = true
   }
 
   private func addItem(newItem: Item) {
