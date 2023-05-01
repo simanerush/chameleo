@@ -10,7 +10,5 @@ import Foundation
 enum QuoteType: String, CaseIterable {
   case motivational
   case inspirational
-  case eclectic
-  case esteemed
-  case spicy
+  case random
 }
