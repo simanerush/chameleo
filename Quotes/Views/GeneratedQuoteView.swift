@@ -8,6 +8,8 @@ import SwiftUI
 
 struct GeneratedQuoteView: View {
   @ObservedObject var model: QuoteModel
+  @ObservedObject var keyValueStore = KeyValueStore.shared
+  @ObservedObject var subscriptionModel = SubscriptionModel.shared
 
   @State private var selectedQuoteType: QuoteType?
   @State private var quoteOutput = ""
@@ -16,6 +18,7 @@ struct GeneratedQuoteView: View {
   @State private var didGenerateOnce = false
 
   @State private var alertIsPresented = false
+  @State private var paywallIsPresented = false
 
   var body: some View {
     NavigationView {
@@ -42,11 +45,15 @@ struct GeneratedQuoteView: View {
             }
             .onChange(of: selectedQuoteType) { quoteType in
               guard let quoteType else { return }
-              Task {
-                isLoading = true
-                await displayGeneratedQuote(withType: quoteType)
-                isLoading = false
-                didGenerateOnce = true
+              if userCanAskMore {
+                Task {
+                  isLoading = true
+                  await displayGeneratedQuote(withType: quoteType)
+                  isLoading = false
+                  didGenerateOnce = true
+                }
+              } else {
+                paywallIsPresented = true
               }
             }
           }
@@ -72,10 +79,33 @@ struct GeneratedQuoteView: View {
       }
 
     }
+    .onAppear {
+      if !userCanAskMore {
+        paywallIsPresented = true
+      }
+    }
     .alert("🚨Failed to get the quote!", isPresented: $alertIsPresented) {
       Button("Ok", role: .cancel) {}
     }
+    .sheet(isPresented: $paywallIsPresented) {
+        PaywallView(isPresented: $paywallIsPresented)
+    }
     .navigationBarTitleDisplayMode(.inline)
+  }
+
+  private var userCanAskMore: Bool {
+    if let numberOfGenerations = keyValueStore.retrieveInt(forKey: "gen") {
+      // If stored number of generations exceed 10, user is not allowed to ask
+      // for more quotes unless they have an active subscription
+      if numberOfGenerations > 10 && !subscriptionModel.subscriptionActive {
+        return false
+      }
+      keyValueStore.save(value: numberOfGenerations + 1, forKey: "gen")
+    } else {
+      // This is the first generation
+      keyValueStore.save(value: 1, forKey: "gen")
+    }
+    return true
   }
 
   private func displayGeneratedQuote(withType type: QuoteType) async {

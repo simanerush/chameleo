@@ -16,7 +16,7 @@ struct SubscriptionSettingView: View {
   var body: some View {
     Form {
       HStack {
-        Text("Subscription Status")
+        Text("Chameleo Plus Subscription")
         Spacer()
         Text(model.subscriptionActive ? "Active" : "Not Active")
           .bold()

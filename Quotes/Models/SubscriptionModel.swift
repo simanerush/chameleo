@@ -9,7 +9,6 @@ import Foundation
 import RevenueCat
 import SwiftUI
 
-/* Static shared model for UserView */
 class SubscriptionModel: ObservableObject {
   static let shared = SubscriptionModel()
 

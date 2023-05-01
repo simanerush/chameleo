@@ -94,11 +94,6 @@ struct QuotesListView: View {
           editButton
         }
       }
-      .onAppear {
-        if !self.subscriptionModel.subscriptionActive {
-          paywallIsPresented = true
-        }
-      }
       .sheet(isPresented: $paywallIsPresented, content: {
           PaywallView(isPresented: $paywallIsPresented)
       })
@@ -121,7 +116,11 @@ struct QuotesListView: View {
           isFocusedInEditing.toggle()
         }
       Button {
-        addQuote()
+        if items.count < 10 || subscriptionModel.subscriptionActive {
+          addQuote()
+        } else {
+          paywallIsPresented = true
+        }
       } label: {
         Image(systemSymbol: .plus)
           .foregroundColor(fontColor)
