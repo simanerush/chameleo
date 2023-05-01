@@ -38,18 +38,20 @@ struct QuoteDetailView: View {
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
-        TextField("", text: Binding($item.title)!, axis: .vertical)
-          .lineLimit(item.title!.count)
-          .foregroundColor(fontColor)
-          .font(ChameleoUI.listedQuoteFont)
-          .tint(fontColor)
-          .onChange(of: item.title!) { _ in
-            do {
-              try viewContext.save()
-            } catch {
-              alertIsPresented.toggle()
+        if let title = Binding($item.title) {
+          TextField("", text: title, axis: .vertical)
+            .lineLimit(item.title!.count)
+            .foregroundColor(fontColor)
+            .font(ChameleoUI.listedQuoteFont)
+            .tint(fontColor)
+            .onChange(of: item.title!) { _ in
+              do {
+                try viewContext.save()
+              } catch {
+                alertIsPresented.toggle()
+              }
             }
-          }
+        }
         Spacer()
         shareButton
       }
@@ -102,7 +104,7 @@ struct QuoteDetailView: View {
   }
 
   var shareButton: some View {
-    ShareLink(item: item.title!) {
+    ShareLink(item: item.title ?? "No title") {
       Image(systemSymbol: .squareAndArrowUp)
         .resizable()
         .aspectRatio(contentMode: .fit)

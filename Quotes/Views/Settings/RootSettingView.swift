@@ -17,8 +17,12 @@ struct RootSettingView: View {
       WidgetSettingView()
     case "manage subscription":
       SubscriptionSettingView()
+    case "other":
+      OtherSettingView()
+    case "about me":
+      AboutMeSettingView()
     default:
-      RootSettingView(viewToDisplay: "")
+      EmptyView()
     }
   }
 }

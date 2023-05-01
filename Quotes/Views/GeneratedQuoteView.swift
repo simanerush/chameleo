@@ -72,7 +72,8 @@ struct GeneratedQuoteView: View {
             QuoteTextField(model: model,
                            text: $quoteOutput,
                            author: $authorOutput,
-                           alertIsPresented: $alertIsPresented)
+                           alertIsPresented: $alertIsPresented,
+                           paywallIsPresented: $paywallIsPresented)
           }
         }
         Spacer()
@@ -148,6 +149,7 @@ struct GeneratedQuoteView: View {
 private struct QuoteTextField: View {
   @Environment(\.managedObjectContext) private var viewContext
   @ObservedObject var model: QuoteModel
+  @ObservedObject var subscriptionModel = SubscriptionModel.shared
 
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
@@ -167,6 +169,7 @@ private struct QuoteTextField: View {
   @Binding var text: String
   @Binding var author: String
   @Binding var alertIsPresented: Bool
+  @Binding var paywallIsPresented: Bool
 
   @State var didAddQuote = false
 
@@ -218,17 +221,21 @@ private struct QuoteTextField: View {
   }
 
   private func addQuote() {
-    var isTheFirstEntry = false
-    if items.isEmpty {
-      isTheFirstEntry = true
+    if items.count < 10 || subscriptionModel.subscriptionActive {
+      var isTheFirstEntry = false
+      if items.isEmpty {
+        isTheFirstEntry = true
+      }
+      let newQuote = Item(context: viewContext)
+      newQuote.timestamp = Date()
+      newQuote.title = text
+      newQuote.author = author
+      addItem(newItem: newQuote)
+      if isTheFirstEntry { model.setQuoteOfTheDay() }
+      didAddQuote = true
+    } else {
+      paywallIsPresented = true
     }
-    let newQuote = Item(context: viewContext)
-    newQuote.timestamp = Date()
-    newQuote.title = text
-    newQuote.author = author
-    addItem(newItem: newQuote)
-    if isTheFirstEntry { model.setQuoteOfTheDay() }
-    didAddQuote = true
   }
 
   private func addItem(newItem: Item) {
