@@ -16,7 +16,11 @@ struct QuotesApp: App {
   private var backgroundColor = ChameleoUI.backgroundColor
 
   init() {
+
+    #if DEBUG
     Purchases.logLevel = .debug
+    #endif
+
     Purchases.configure(
         with: Configuration.Builder(withAPIKey: Constants.purchasesKey)
             .with(usesStoreKit2IfAvailable: true)
