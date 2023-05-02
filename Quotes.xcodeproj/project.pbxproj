@@ -14,7 +14,6 @@
 		23065C8E29ED1340009CF61D /* QuoteTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23065C8D29ED1340009CF61D /* QuoteTypes.swift */; };
 		230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
 		230C29BC299EE81100C41E0A /* WidgetUpdateFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C29BA299EC7DE00C41E0A /* WidgetUpdateFrequency.swift */; };
-		231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */ = {isa = PBXBuildFile; productRef = 231173EF29C2446C00AC03CB /* SPSettingsIcons */; };
 		231C063929DDFB120089C183 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 231C063829DDFB120089C183 /* OpenAISwift */; };
 		231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C063C29DE109F0089C183 /* View+Placeholder.swift */; };
 		231FA5B529F0575100547C28 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 231FA5B429F0575100547C28 /* RevenueCat */; };
@@ -183,7 +182,6 @@
 				231FA5B529F0575100547C28 /* RevenueCat in Frameworks */,
 				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
 				231C063929DDFB120089C183 /* OpenAISwift in Frameworks */,
-				231173F029C2446C00AC03CB /* SPSettingsIcons in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,12 +324,12 @@
 		237C1DCE28ECE35A003FC21C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				23FE338F297F11B30086AC39 /* List */,
-				2305779A2978775C00D4CD67 /* Settings */,
 				2305779829766E0000D4CD67 /* MainView.swift */,
+				231FA5BC29F067BC00547C28 /* PaywallView.swift */,
 				2335B6D428C3329600D8024F /* QuoteOfTheDayView.swift */,
 				233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */,
-				231FA5BC29F067BC00547C28 /* PaywallView.swift */,
+				23FE338F297F11B30086AC39 /* List */,
+				2305779A2978775C00D4CD67 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,7 +405,6 @@
 			name = Quotes;
 			packageProductDependencies = (
 				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
-				231173EF29C2446C00AC03CB /* SPSettingsIcons */,
 				231C063829DDFB120089C183 /* OpenAISwift */,
 				231FA5B429F0575100547C28 /* RevenueCat */,
 			);
@@ -483,7 +480,6 @@
 			mainGroup = 2335B6B528C331F800D8024F;
 			packageReferences = (
 				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
-				231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */,
 				231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				231FA5B329F0575100547C28 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
@@ -1033,14 +1029,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparrowcode/SPSettingsIcons";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
@@ -1068,11 +1056,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		231173EF29C2446C00AC03CB /* SPSettingsIcons */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 231173EE29C2446C00AC03CB /* XCRemoteSwiftPackageReference "SPSettingsIcons" */;
-			productName = SPSettingsIcons;
-		};
 		231C063829DDFB120089C183 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
