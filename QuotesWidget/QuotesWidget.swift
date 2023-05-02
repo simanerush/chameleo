@@ -16,11 +16,11 @@ struct QuotesTimelineProvider: TimelineProvider {
   private var widgetUpdateFrequency = WidgetUpdateFrequency.daily
 
   func placeholder(in context: Context) -> Entry {
-    return Entry(date: Date(), title: "⏳quotes are loading")
+    return Entry(date: Date(), title: "Quotes are loading⏳")
   }
 
   func getSnapshot(in context: Context, completion: @escaping (Entry) -> Void) {
-    completion(Entry(date: Date(), title: "⏳quotes are loading"))
+    completion(Entry(date: Date(), title: "Quotes are loading⏳"))
   }
 
   func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
@@ -57,22 +57,24 @@ struct QuotesWidgetEntryView: View {
   var entry: QuotesTimelineProvider.Entry
 
   var body: some View {
-#warning("Widgets should look slightly different for each size because of the gradient")
+    #warning("Widgets should look slightly different for each size because of the gradient")
     switch family {
     case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
       HomeScreenWidgetView(entry: entry)
     case .accessoryRectangular:
       Text(entry.title)
-        .padding(5)
-        .font(.custom("DelaGothicOne-Regular", size: 50))
+        .font(ChameleoUI.listedQuoteFont)
         .minimumScaleFactor(0.01)
     case .accessoryInline:
-      Text(verbatim: entry.title)
+      Text(entry.title)
         .bold()
     case .accessoryCircular:
-      Image("ashotik")
-        .resizable()
-        .scaledToFit()
+      ZStack {
+        Color.white.opacity(0.1)
+        Image("ashotik")
+          .resizable()
+          .scaledToFit()
+      }
     default:
       EmptyView()
     }

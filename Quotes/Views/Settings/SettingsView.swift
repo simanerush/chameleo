@@ -11,11 +11,11 @@ import SFSafeSymbols
 struct SettingsView: View {
 
   let settings: [Setting] = [
-    Setting(title: "theme", color: .red, image: .heartSquareFill),
-    Setting(title: "widget", color: .yellow, image: .starSquareFill),
-    Setting(title: "manage subscription", color: .green, image: .dollarsignSquareFill),
-    Setting(title: "other", color: .blue, image: .commandSquareFill),
-    Setting(title: "about me", color: .gray, image: .infoSquareFill)
+    Setting(title: "Theme", color: .red, image: .heartSquareFill),
+    Setting(title: "Widget", color: .yellow, image: .starSquareFill),
+    Setting(title: "Manage subscription", color: .green, image: .dollarsignSquareFill),
+    Setting(title: "Other", color: .blue, image: .commandSquareFill),
+    Setting(title: "About me", color: .gray, image: .infoSquareFill)
   ]
 
   var body: some View {

@@ -11,15 +11,15 @@ struct RootSettingView: View {
   let viewToDisplay: String
   var body: some View {
     switch viewToDisplay {
-    case "theme":
+    case "Theme":
       ThemeSettingView()
-    case "widget":
+    case "Widget":
       WidgetSettingView()
-    case "manage subscription":
+    case "Manage subscription":
       SubscriptionSettingView()
-    case "other":
+    case "Other":
       OtherSettingView()
-    case "about me":
+    case "About me":
       AboutMeSettingView()
     default:
       EmptyView()
