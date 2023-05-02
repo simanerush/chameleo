@@ -72,9 +72,9 @@ struct QuotesListView: View {
             }
             .opacity(0)
           }
-          .listRowSeparator(.hidden)
         }
         .onDelete(perform: deleteItems)
+        .listRowSeparator(.hidden)
       }
       .listStyle(.plain)
       .scrollIndicators(.hidden)
@@ -115,6 +115,7 @@ struct QuotesListView: View {
           .foregroundColor(fontColor)
       }
     }
+    .listRowSeparator(.hidden)
   }
 
   private func addItem(newItem: Item) {

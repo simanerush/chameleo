@@ -181,7 +181,7 @@ private struct QuoteTextField: View {
           .padding(15)
           .foregroundColor(fontColor)
         Spacer()
-        if didAddQuote {
+        if didAddQuote && items.count != 0 {
           withAnimation {
             Image(systemSymbol: .checkmark)
               .foregroundColor(.white)
