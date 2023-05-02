@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ThemeSettingView: View {
+  @EnvironmentObject var context: NavigationContext
+  @Environment(\.presentationMode) private var presentationMode
+
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
   private var backgroundColor = ChameleoUI.backgroundColor
@@ -31,6 +34,9 @@ struct ThemeSettingView: View {
             .foregroundColor(.blue)
         }
       }
+    }
+    .onChange(of: context.navToHome) { _ in
+      presentationMode.wrappedValue.dismiss()
     }
   }
 }

@@ -8,22 +8,35 @@
 import SwiftUI
 
 struct MainView: View {
+  @EnvironmentObject var context: NavigationContext
+
   @ObservedObject var model: QuoteModel
 
   var body: some View {
-    TabView {
+    TabView(selection: $context.selectedTab) {
       QuoteOfTheDayView(model: model)
         .tabItem {
-          Label("", systemImage: "star.fill")
+          Label("", systemSymbol: .starFill)
         }
+        .tag("QuoteOfTheDay")
       QuotesListView(model: model)
         .tabItem {
-          Label("", systemImage: "list.bullet.rectangle.portrait")
+          Label("", systemSymbol: .listBulletRectanglePortrait)
         }
+        .tag("QuotesList")
+      GeneratedQuoteView(model: model)
+        .tabItem {
+          Label("", systemSymbol: .wandAndStars)
+        }
+        .tag("GeneratedQuote")
       SettingsView()
         .tabItem {
-          Label("", systemImage: "wand.and.stars")
+          Label("", systemSymbol: .gear)
         }
+        .tag("Settings")
+    }
+    .onReceive(context.$selectedTab) { _ in
+      context.navToHome.toggle()
     }
     .onAppear {
       model.setQuoteOfTheDay()

@@ -17,7 +17,6 @@ struct QuotesListView: View {
 
   @State private var textField = ""
   @State private var alertIsPresented = false
-  @State private var editMode: EditMode = .inactive
 
   @State private var paywallIsPresented = false
 
@@ -32,7 +31,7 @@ struct QuotesListView: View {
   @FetchRequest(
     sortDescriptors:
       [
-        NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
+        NSSortDescriptor(keyPath: \Item.timestamp, ascending: false)
       ],
     animation: .default)
   private var items: FetchedResults<Item>
@@ -76,24 +75,14 @@ struct QuotesListView: View {
           .listRowSeparator(.hidden)
         }
         .onDelete(perform: deleteItems)
-        .onMove(perform: moveItems)
       }
       .listStyle(.plain)
+      .scrollIndicators(.hidden)
       .alert("🚨Failed to add the quote!", isPresented: $alertIsPresented) {
         Button("ok", role: .cancel) {}
       }
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
       .navigationTitle("My quotes")
-      .environment(\.editMode, $editMode)
-      .toolbar {
-        ToolbarItem(placement: .navigationBarLeading) {
-          generateWithAiButton
-        }
-
-        ToolbarItem(placement: .navigationBarTrailing) {
-          editButton
-        }
-      }
       .sheet(isPresented: $paywallIsPresented, content: {
           PaywallView(isPresented: $paywallIsPresented)
       })
@@ -107,7 +96,7 @@ struct QuotesListView: View {
         .foregroundColor(fontColor)
         .font(ChameleoUI.listedQuoteFont)
         .tint(fontColor)
-        .placeholder("new quote... ", when: textField.isEmpty, foregroundColor: fontColor)
+        .placeholder("New quote... ", when: textField.isEmpty && !isFocusedInEditing, foregroundColor: fontColor)
         .onSubmit {
           addQuote()
         }
@@ -125,30 +114,6 @@ struct QuotesListView: View {
         Image(systemSymbol: .plus)
           .foregroundColor(fontColor)
       }
-    }
-  }
-
-  private var generateWithAiButton: some View {
-    NavigationLink {
-      GeneratedQuoteView(model: model)
-    } label: {
-      Label("get inspired with AI", systemSymbol: .sparkles)
-        .labelStyle(.titleAndIcon)
-    }
-  }
-
-  private var editButton: some View {
-    Button {
-      withAnimation {
-        switch editMode {
-        case .inactive:
-          editMode = .active
-        default:
-          editMode = .inactive
-        }
-      }
-    } label: {
-      Text(editMode.isEditing ? "done" : "edit")
     }
   }
 
@@ -173,25 +138,6 @@ struct QuotesListView: View {
       addItem(newItem: newQuote)
       textField = ""
       if isTheFirstEntry { model.setQuoteOfTheDay() }
-    }
-  }
-
-  private func moveItems(from source: IndexSet, to destination: Int) {
-    withAnimation {
-      var revisedItems: [Item] = items.map { $0 }
-      revisedItems.move(fromOffsets: source, toOffset: destination)
-
-      for reverseIndex in stride(from: revisedItems.count - 1,
-                                 through: 0,
-                                 by: -1) {
-        revisedItems[reverseIndex].userOrder = Int16(reverseIndex)
-      }
-
-      do {
-        try viewContext.save()
-      } catch {
-        alertIsPresented.toggle()
-      }
     }
   }
 

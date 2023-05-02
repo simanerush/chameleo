@@ -162,7 +162,7 @@ private struct QuoteTextField: View {
   @FetchRequest(
     sortDescriptors:
       [
-        NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
+        NSSortDescriptor(keyPath: \Item.timestamp, ascending: false)
       ])
   private var items: FetchedResults<Item>
 
@@ -233,9 +233,15 @@ private struct QuoteTextField: View {
       addItem(newItem: newQuote)
       if isTheFirstEntry { model.setQuoteOfTheDay() }
       didAddQuote = true
+      success()
     } else {
       paywallIsPresented = true
     }
+  }
+
+  private func success() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.success)
   }
 
   private func addItem(newItem: Item) {

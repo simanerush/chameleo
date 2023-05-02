@@ -11,6 +11,9 @@ import SFSafeSymbols
 struct QuoteDetailView: View {
 
   @Environment(\.managedObjectContext) private var viewContext
+  @Environment(\.presentationMode) private var presentationMode
+
+  @EnvironmentObject var context: NavigationContext
 
   @ObservedObject var model: QuoteModel
 
@@ -34,6 +37,7 @@ struct QuoteDetailView: View {
   private var fontColor: Color = ChameleoUI.textColor
 
   @State private var alertIsPresented = false
+  @State var makeQuoteOfTheDayButtonTapped = false
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -65,16 +69,24 @@ struct QuoteDetailView: View {
     }
     .padding()
     .alert("🚨Failed to edit the quote!", isPresented: $alertIsPresented) {
-      Button("ok", role: .cancel) {}
+      Button("Ok", role: .cancel) {}
+    }
+    .onChange(of: context.navToHome) { _ in
+      presentationMode.wrappedValue.dismiss()
     }
   }
 
   var makeTodayQuoteButton: some View {
     Button {
       model.makeTodayQuote(item: item)
+      let generator = UINotificationFeedbackGenerator()
+      generator.notificationOccurred(.success)
+      withAnimation {
+        makeQuoteOfTheDayButtonTapped = true
+      }
     } label: {
       HStack {
-        Text("💭 make quote of the day")
+        Text("Make it quote of the day💭")
           .bold()
           .foregroundColor(backgroundColor)
         Spacer()
@@ -82,6 +94,7 @@ struct QuoteDetailView: View {
     }
     .buttonStyle(.bordered)
     .tint(backgroundColor)
+    .opacity(makeQuoteOfTheDayButtonTapped ? 0 : 1)
   }
 
   var byAuthorTextField: some View {

@@ -49,6 +49,7 @@
 		235CD89429FF83B100F494FC /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CD89329FF83B100F494FC /* KeyValueStore.swift */; };
 		235CD8962A003A4500F494FC /* OtherSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CD8952A003A4500F494FC /* OtherSettingView.swift */; };
 		235CD8982A003A4D00F494FC /* AboutMeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CD8972A003A4D00F494FC /* AboutMeSettingView.swift */; };
+		235CD89B2A008E5600F494FC /* NavigationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CD89A2A008E5600F494FC /* NavigationContext.swift */; };
 		237C1DCD28ECE182003FC21C /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
 		237C1DD028ED2557003FC21C /* Date+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C1DCC28ECE182003FC21C /* Date+Compare.swift */; };
 		237C1DD328EE8ABE003FC21C /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
@@ -156,6 +157,7 @@
 		235CD89329FF83B100F494FC /* KeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStore.swift; sourceTree = "<group>"; };
 		235CD8952A003A4500F494FC /* OtherSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingView.swift; sourceTree = "<group>"; };
 		235CD8972A003A4D00F494FC /* AboutMeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeSettingView.swift; sourceTree = "<group>"; };
+		235CD89A2A008E5600F494FC /* NavigationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContext.swift; sourceTree = "<group>"; };
 		237C1DCC28ECE182003FC21C /* Date+Compare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Compare.swift"; sourceTree = "<group>"; };
 		237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
 		237C1DD528EE8B12003FC21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		233A60E029CE4845004E1D9B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				235CD89A2A008E5600F494FC /* NavigationContext.swift */,
 				233A60E129CE486C004E1D9B /* GPTCaller.swift */,
 				233A60E829D03728004E1D9B /* Constants.swift */,
 				23065C8D29ED1340009CF61D /* QuoteTypes.swift */,
@@ -597,6 +600,7 @@
 				233A60E729CE56B9004E1D9B /* GeneratedQuoteView.swift in Sources */,
 				230577A3297A698300D4CD67 /* WidgetSettingView.swift in Sources */,
 				2335B6D728C3C30000D8024F /* QuoteModel.swift in Sources */,
+				235CD89B2A008E5600F494FC /* NavigationContext.swift in Sources */,
 				2335B6D528C3329600D8024F /* QuoteOfTheDayView.swift in Sources */,
 				2335B6CE28C331F900D8024F /* Quotes.xcdatamodeld in Sources */,
 				2335B6CB28C331F900D8024F /* Persistence.swift in Sources */,

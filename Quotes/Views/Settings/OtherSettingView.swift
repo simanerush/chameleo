@@ -9,13 +9,15 @@ import SwiftUI
 
 struct OtherSettingView: View {
   @Environment(\.managedObjectContext) private var viewContext
+  @EnvironmentObject var context: NavigationContext
+  @Environment(\.presentationMode) private var presentationMode
 
   @State private var showAlert = false
 
   @FetchRequest(
     sortDescriptors:
       [
-        NSSortDescriptor(keyPath: \Item.userOrder, ascending: true)
+        NSSortDescriptor(keyPath: \Item.timestamp, ascending: false)
       ],
     animation: .default)
   private var items: FetchedResults<Item>
@@ -38,6 +40,9 @@ struct OtherSettingView: View {
                 secondaryButton: .cancel(Text("No")))
         }
       }
+    }
+    .onChange(of: context.navToHome) { _ in
+      presentationMode.wrappedValue.dismiss()
     }
   }
 }

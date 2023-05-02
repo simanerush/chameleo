@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WidgetSettingView: View {
+  @EnvironmentObject var context: NavigationContext
+  @Environment(\.presentationMode) private var presentationMode
 
   @AppStorage("widgetUpdateFrequency", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
@@ -20,6 +22,9 @@ struct WidgetSettingView: View {
             Text("\(frequency.stringValue())").tag(frequency)
           }
         }
+      }
+      .onChange(of: context.navToHome) { _ in
+        presentationMode.wrappedValue.dismiss()
       }
     }
 }

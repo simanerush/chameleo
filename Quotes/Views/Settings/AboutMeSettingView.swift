@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct AboutMeSettingView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  @EnvironmentObject var context: NavigationContext
+  @Environment(\.presentationMode) private var presentationMode
+
+  var body: some View {
+    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      .onChange(of: context.navToHome) { _ in
+        presentationMode.wrappedValue.dismiss()
+      }
+  }
 }
 
 struct AboutMeSettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutMeSettingView()
-    }
+  static var previews: some View {
+    AboutMeSettingView()
+  }
 }

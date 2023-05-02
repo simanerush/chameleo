@@ -9,6 +9,9 @@ import SwiftUI
 import RevenueCat
 
 struct SubscriptionSettingView: View {
+  @EnvironmentObject var context: NavigationContext
+  @Environment(\.presentationMode) private var presentationMode
+
   @ObservedObject var model = SubscriptionModel.shared
 
   @State var newUserId: String = ""
@@ -27,6 +30,9 @@ struct SubscriptionSettingView: View {
           try? await Purchases.shared.restorePurchases()
         }
       }
+    }
+    .onChange(of: context.navToHome) { _ in
+      presentationMode.wrappedValue.dismiss()
     }
   }
 }

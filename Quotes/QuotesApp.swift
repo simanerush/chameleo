@@ -36,6 +36,7 @@ struct QuotesApp: App {
     WindowGroup {
       MainView(model: QuoteModel.shared)
         .environment(\.managedObjectContext, QuoteModel.shared.persistenceController.container.viewContext)
+        .environmentObject(NavigationContext())
         .accentColor(backgroundColor)
         .task {
             do {
