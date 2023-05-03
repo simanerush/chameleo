@@ -104,15 +104,17 @@ struct QuotesListView: View {
         .onTapGesture {
           isFocusedInEditing.toggle()
         }
-      Button {
-        if items.count < 10 || subscriptionModel.subscriptionActive {
-          addQuote()
-        } else {
-          paywallIsPresented = true
+      if !textField.isEmpty {
+        Button {
+          if items.count < 10 || subscriptionModel.subscriptionActive {
+            addQuote()
+          } else {
+            paywallIsPresented = true
+          }
+        } label: {
+          Image(systemSymbol: .plus)
+            .foregroundColor(fontColor)
         }
-      } label: {
-        Image(systemSymbol: .plus)
-          .foregroundColor(fontColor)
       }
     }
     .listRowSeparator(.hidden)

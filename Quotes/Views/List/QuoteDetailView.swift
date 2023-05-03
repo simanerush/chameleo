@@ -102,15 +102,17 @@ struct QuoteDetailView: View {
       Text("by")
         .font(.headline)
         .foregroundColor(backgroundColor)
-      TextField(text: Binding($item.author)!, label: {
-        Text("name of the author")
-      })
-      .textFieldStyle(.roundedBorder)
-      .onChange(of: item.author!) { _ in
-        do {
-          try viewContext.save()
-        } catch {
-          alertIsPresented.toggle()
+      if let author = Binding($item.author) {
+        TextField(text: author, label: {
+          Text("name of the author")
+        })
+        .textFieldStyle(.roundedBorder)
+        .onChange(of: item.author!) { _ in
+          do {
+            try viewContext.save()
+          } catch {
+            alertIsPresented.toggle()
+          }
         }
       }
     }
