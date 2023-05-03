@@ -12,4 +12,5 @@ struct ChameleoUI {
   public static var textColor: Color = .white
   public static var listedQuoteFont = Font.system(.title2, design: .serif).weight(.medium)
   public static var quoteOfTheDayFont = Font.custom("DelaGothicOne-Regular", size: 50)
+  public static var navigationFont = UIFont(name: "DelaGothicOne-Regular", size: 40)!
 }

@@ -66,6 +66,8 @@
 		239C16DB29A591F700CC6553 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CA28C331F900D8024F /* Persistence.swift */; };
 		239C16DC29A5947900CC6553 /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2335B6CC28C331F900D8024F /* Quotes.xcdatamodeld */; };
 		239C16DD29A595E200CC6553 /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237C1DD228EE8ABE003FC21C /* DelaGothicOne-Regular.ttf */; };
+		239D904A2A023F8A00E88D8F /* NavBar+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D90492A023F8A00E88D8F /* NavBar+Font.swift */; };
+		239D904C2A02431300E88D8F /* Navigation+BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D904B2A02431300E88D8F /* Navigation+BackButton.swift */; };
 		23B5E7DF29B91AB4001E0310 /* ChameleoUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */; };
 		23B5E7E229B91C18001E0310 /* ChameleoUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */; };
 		23B5E7E329B91C18001E0310 /* ChameleoUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */; };
@@ -178,6 +180,8 @@
 		239C16CC29A5919C00CC6553 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		239C16CF29A5919C00CC6553 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		239C16DE29A5962F00CC6553 /* QuotesW-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "QuotesW-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		239D90492A023F8A00E88D8F /* NavBar+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBar+Font.swift"; sourceTree = "<group>"; };
+		239D904B2A02431300E88D8F /* Navigation+BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+BackButton.swift"; sourceTree = "<group>"; };
 		23B5E7DE29B91AB4001E0310 /* ChameleoUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChameleoUI.swift; path = Quotes/ChameleoUI.swift; sourceTree = SOURCE_ROOT; };
 		23DB8DB028E262B3005DB6CA /* Quotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quotes.entitlements; sourceTree = "<group>"; };
 		23DB8DB128E26318005DB6CA /* QuotesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				23EDD69F2936E919002C36D7 /* Color+RawRepresentable.swift */,
 				231C063C29DE109F0089C183 /* View+Placeholder.swift */,
 				231FA5BE29F0680100547C28 /* Package+Terms.swift */,
+				239D90492A023F8A00E88D8F /* NavBar+Font.swift */,
+				239D904B2A02431300E88D8F /* Navigation+BackButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -634,8 +640,10 @@
 				231FA5BF29F0680100547C28 /* Package+Terms.swift in Sources */,
 				231C063D29DE109F0089C183 /* View+Placeholder.swift in Sources */,
 				230C29BB299EC7DE00C41E0A /* WidgetUpdateFrequency.swift in Sources */,
+				239D904C2A02431300E88D8F /* Navigation+BackButton.swift in Sources */,
 				231FA5B929F063D100547C28 /* SubscriptionSettingView.swift in Sources */,
 				2335B6C428C331F800D8024F /* QuotesListView.swift in Sources */,
+				239D904A2A023F8A00E88D8F /* NavBar+Font.swift in Sources */,
 				2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */,
 				23FC370C29C8102800B8437D /* WatchConnectivityManager.swift in Sources */,
 				235CD8962A003A4500F494FC /* OtherSettingView.swift in Sources */,

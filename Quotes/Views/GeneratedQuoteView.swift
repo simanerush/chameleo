@@ -21,12 +21,12 @@ struct GeneratedQuoteView: View {
   @State private var paywallIsPresented = false
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       VStack(alignment: .leading) {
         Text("Use AI to expand your quote collection")
-          .font(.largeTitle)
+          .font(.system(.body, design: .rounded))
           .bold()
-          .padding(15)
+          .padding(.bottom, 30)
         HStack {
           Text("Get a")
           ZStack {
@@ -59,8 +59,6 @@ struct GeneratedQuoteView: View {
           }
           Text("quote")
         }
-        .padding(.vertical, 15)
-        .padding(.horizontal, 15)
         if isLoading {
           HStack {
             Spacer()
@@ -78,7 +76,9 @@ struct GeneratedQuoteView: View {
         }
         Spacer()
       }
-
+      .padding(15)
+      .navigationTitle("Chameleo AI")
+      .chameleoNavBar()
     }
     .onAppear {
       if !userCanAskMore {
@@ -91,7 +91,6 @@ struct GeneratedQuoteView: View {
     .sheet(isPresented: $paywallIsPresented) {
       PaywallView(isPresented: $paywallIsPresented)
     }
-    .navigationBarTitleDisplayMode(.inline)
   }
 
   private var userCanAskMore: Bool {

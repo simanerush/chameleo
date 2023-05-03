@@ -100,6 +100,7 @@ struct QuotesListView: View {
       }
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
       .navigationTitle("My quotes")
+      .chameleoNavBar()
       .sheet(isPresented: $paywallIsPresented, content: {
           PaywallView(isPresented: $paywallIsPresented)
       })

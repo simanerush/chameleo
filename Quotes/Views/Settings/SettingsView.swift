@@ -32,6 +32,7 @@ struct SettingsView: View {
         }
       }
       .navigationTitle("Settings")
+      .chameleoNavBar()
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
     }
   }
