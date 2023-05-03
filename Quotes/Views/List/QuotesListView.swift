@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import SwipeActions
 
 struct QuotesListView: View {
   @Environment(\.managedObjectContext) private var viewContext
@@ -46,34 +47,50 @@ struct QuotesListView: View {
           .background(backgroundColor.gradient)
           .contentShape(Rectangle())
           .cornerRadius(10)
-          .padding(.vertical, -2)
-          .padding(.horizontal, -10)
           .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
         ForEach(items) { item in
-          ZStack {
-            HStack {
-              Text(item.title! + " ")
-                .font(ChameleoUI.listedQuoteFont)
-                .padding(5)
-                .foregroundColor(fontColor)
-              Spacer()
-            }
-            .padding()
-            .background(backgroundColor.gradient)
-            .contentShape(Rectangle())
-            .cornerRadius(10)
-            .padding(.vertical, -2)
-            .padding(.horizontal, -10)
-            .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
+          SwipeView {
+            ZStack {
+              HStack {
+                Text(item.title! + " ")
+                  .font(ChameleoUI.listedQuoteFont)
+                  .padding(5)
+                  .foregroundColor(fontColor)
+                Spacer()
+              }
+              .padding()
+              .background(backgroundColor.gradient)
+              .contentShape(Rectangle())
+              .cornerRadius(10)
+              .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
 
-            NavigationLink(destination: QuoteDetailView(model: model, item: item)
-              .navigationBarTitleDisplayMode(.inline)) {
-              EmptyView()
+              NavigationLink(destination: QuoteDetailView(model: model, item: item)
+                .navigationBarTitleDisplayMode(.inline)) {
+                EmptyView()
+              }
+              .opacity(0)
             }
-            .opacity(0)
+          } trailingActions: { _ in
+            SwipeAction {
+              viewContext.delete(item)
+              do {
+                try viewContext.save()
+              } catch {
+                alertIsPresented.toggle()
+              }
+              model.setQuoteOfTheDay()
+            } label: { _ in
+              Text("Delete")
+                .bold()
+                .foregroundColor(.white)
+            } background: { _ in
+              Color.red
+            }
+            .allowSwipeToTrigger()
           }
+          .swipeActionCornerRadius(10)
+          .swipeActionsMaskCornerRadius(0)
         }
-        .onDelete(perform: deleteItems)
         .listRowSeparator(.hidden)
       }
       .listStyle(.plain)
@@ -142,18 +159,5 @@ struct QuotesListView: View {
       textField = ""
       if isTheFirstEntry { model.setQuoteOfTheDay() }
     }
-  }
-
-  private func deleteItems(offsets: IndexSet) {
-    withAnimation {
-      offsets.map { items[$0] }.forEach(viewContext.delete)
-
-      do {
-        try viewContext.save()
-      } catch {
-        alertIsPresented.toggle()
-      }
-    }
-    model.setQuoteOfTheDay()
   }
 }

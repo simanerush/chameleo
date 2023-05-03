@@ -37,6 +37,7 @@
 		233A60E229CE486C004E1D9B /* GPTCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E129CE486C004E1D9B /* GPTCaller.swift */; };
 		233A60E729CE56B9004E1D9B /* GeneratedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E629CE56B9004E1D9B /* GeneratedQuoteView.swift */; };
 		233A60E929D03728004E1D9B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A60E829D03728004E1D9B /* Constants.swift */; };
+		234A3B2D2A022858007D5E72 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 234A3B2C2A022858007D5E72 /* SwipeActions */; };
 		234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */; };
 		2355354C28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
 		2355354D28FE1DC500BF9798 /* QuotesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2355354F28FE1DC500BF9798 /* QuotesWidget.intentdefinition */; };
@@ -192,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				231FA5B529F0575100547C28 /* RevenueCat in Frameworks */,
+				234A3B2D2A022858007D5E72 /* SwipeActions in Frameworks */,
 				234DA37029B5CCD600C8F1CD /* SFSafeSymbols in Frameworks */,
 				231C063929DDFB120089C183 /* OpenAISwift in Frameworks */,
 			);
@@ -420,6 +422,7 @@
 				234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */,
 				231C063829DDFB120089C183 /* OpenAISwift */,
 				231FA5B429F0575100547C28 /* RevenueCat */,
+				234A3B2C2A022858007D5E72 /* SwipeActions */,
 			);
 			productName = Quotes;
 			productReference = 2335B6BE28C331F800D8024F /* Quotes.app */;
@@ -496,6 +499,7 @@
 				234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				231C063729DDFB120089C183 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				231FA5B329F0575100547C28 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				234A3B2B2A022858007D5E72 /* XCRemoteSwiftPackageReference "SwipeActions" */,
 			);
 			productRefGroup = 2335B6BF28C331F800D8024F /* Products */;
 			projectDirPath = "";
@@ -1062,6 +1066,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		234A3B2B2A022858007D5E72 /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/SwipeActions";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		234DA36E29B5CCD600C8F1CD /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
@@ -1082,6 +1094,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 231FA5B329F0575100547C28 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCat;
+		};
+		234A3B2C2A022858007D5E72 /* SwipeActions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 234A3B2B2A022858007D5E72 /* XCRemoteSwiftPackageReference "SwipeActions" */;
+			productName = SwipeActions;
 		};
 		234DA36F29B5CCD600C8F1CD /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
