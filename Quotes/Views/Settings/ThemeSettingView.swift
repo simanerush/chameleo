@@ -21,16 +21,16 @@ struct ThemeSettingView: View {
 
   var body: some View {
     Form {
-      Section("theme") {
-        ColorPicker("background color", selection: $backgroundColor)
-        ColorPicker("font color", selection: $fontColor)
+      Section("Theme") {
+        ColorPicker("Background color", selection: $backgroundColor)
+        ColorPicker("Font color", selection: $fontColor)
       }
       Section {
         Button {
           backgroundColor = ChameleoUI.backgroundColor
           fontColor = ChameleoUI.textColor
         } label: {
-          Text("reset settings")
+          Text("Reset settings")
             .foregroundColor(.blue)
         }
       }

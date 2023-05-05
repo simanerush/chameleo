@@ -59,11 +59,14 @@ struct QuoteDetailView: View {
         Spacer()
         shareButton
       }
-      .padding()
+      .padding(.horizontal)
+      .padding(.bottom, 10)
       .background(backgroundColor.gradient)
       .contentShape(Rectangle())
       .cornerRadius(10)
+      .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
       byAuthorTextField
+        .padding(.bottom, 10)
       makeTodayQuoteButton
       Spacer()
     }
@@ -100,7 +103,6 @@ struct QuoteDetailView: View {
   var byAuthorTextField: some View {
     HStack {
       Text("by")
-        .font(.headline)
         .foregroundColor(backgroundColor)
       if let author = Binding($item.author) {
         TextField(text: author, label: {

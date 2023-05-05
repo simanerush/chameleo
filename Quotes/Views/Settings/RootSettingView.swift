@@ -19,8 +19,6 @@ struct RootSettingView: View {
       SubscriptionSettingView()
     case "Other":
       OtherSettingView()
-    case "About me":
-      AboutMeSettingView()
     default:
       EmptyView()
     }

@@ -24,11 +24,12 @@ struct GeneratedQuoteView: View {
     NavigationStack {
       VStack(alignment: .leading) {
         Text("Use AI to expand your quote collection")
-          .font(.system(.body, design: .rounded))
+          .font(.system(.title2, weight: .bold))
           .bold()
           .padding(.bottom, 30)
         HStack {
           Text("Get a")
+            .bold()
           ZStack {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
               .fill(Color(.systemGray6))
@@ -58,6 +59,7 @@ struct GeneratedQuoteView: View {
             }
           }
           Text("quote")
+            .bold()
         }
         if isLoading {
           HStack {
@@ -199,7 +201,7 @@ private struct QuoteTextField: View {
       }
       .background(backgroundColor.gradient)
       .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-      .padding(.horizontal, 20)
+      .shadow(color: .gray.opacity(0.6), radius: 3.0, x: 0, y: 0)
 
       if !author.isEmpty {
         authorView
@@ -216,7 +218,6 @@ private struct QuoteTextField: View {
     }
     .background(Color.gray.gradient.opacity(0.3))
     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-    .padding(.horizontal, 20)
   }
 
   private func addQuote() {
