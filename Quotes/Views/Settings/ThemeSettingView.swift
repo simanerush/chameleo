@@ -19,22 +19,29 @@ struct ThemeSettingView: View {
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
   private var fontColor: Color = ChameleoUI.textColor
 
-  private var presets = [
+  @State private var presets = [
     Preset(backgroundColor: Color(uiColor: UIColor(red: 0.42, green: 0.69, blue: 0.30, alpha: 1.00)),
            fontColor: Color(uiColor: UIColor(red: 0.87, green: 0.98, blue: 0.98, alpha: 1.00))),
     Preset(backgroundColor: Color(uiColor: UIColor(red: 0.97, green: 0.56, blue: 0.70, alpha: 1.00)),
            fontColor: Color(uiColor: UIColor(red: 0.34, green: 0.29, blue: 0.56, alpha: 1.00))),
     Preset(backgroundColor: Color(uiColor: UIColor(red: 0.44, green: 0.63, blue: 1.00, alpha: 1.00)),
-           fontColor: .white),
+           fontColor: Color(uiColor: UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00))),
     Preset(backgroundColor: Color(uiColor: UIColor(red: 0.18, green: 0.21, blue: 0.26, alpha: 1.00)),
            fontColor: Color(uiColor: UIColor(red: 0.87, green: 0.89, blue: 0.92, alpha: 1.00)))
   ]
+
+  @State private var changedFromPresets = false
 
   var body: some View {
     Form {
       Section("Edit Theme") {
         ColorPicker("Background color", selection: $backgroundColor)
         ColorPicker("Font color", selection: $fontColor)
+      }
+      Button {
+        changedFromPresets ? deleteFromPresets() : saveToPresets()
+      } label: {
+        changedFromPresets ?  Text("Delete from presets") : Text("Save to presets")
       }
       Section("Preview") {
         ZStack {
@@ -68,13 +75,52 @@ struct ThemeSettingView: View {
       .listRowBackground(Color.clear)
       Section {
         Button {
+          presets = [
+            Preset(backgroundColor: Color(uiColor: UIColor(red: 0.42, green: 0.69, blue: 0.30, alpha: 1.00)),
+                   fontColor: Color(uiColor: UIColor(red: 0.87, green: 0.98, blue: 0.98, alpha: 1.00))),
+            Preset(backgroundColor: Color(uiColor: UIColor(red: 0.97, green: 0.56, blue: 0.70, alpha: 1.00)),
+                   fontColor: Color(uiColor: UIColor(red: 0.34, green: 0.29, blue: 0.56, alpha: 1.00))),
+            Preset(backgroundColor: Color(uiColor: UIColor(red: 0.44, green: 0.63, blue: 1.00, alpha: 1.00)),
+                   fontColor: .white),
+            Preset(backgroundColor: Color(uiColor: UIColor(red: 0.18, green: 0.21, blue: 0.26, alpha: 1.00)),
+                   fontColor: Color(uiColor: UIColor(red: 0.87, green: 0.89, blue: 0.92, alpha: 1.00)))
+          ]
           backgroundColor = ChameleoUI.backgroundColor
           fontColor = ChameleoUI.textColor
         } label: {
-          Text("Reset settings")
+          Text("Reset default presets and theme")
         }
       }
     }
+    .onChange(of: backgroundColor) { _ in
+      if !presets.contains(Preset(backgroundColor: backgroundColor, fontColor: fontColor)) {
+        changedFromPresets = false
+      } else {
+        changedFromPresets = true
+      }
+    }
+    .onChange(of: fontColor) { _ in
+      if !presets.contains(Preset(backgroundColor: backgroundColor, fontColor: fontColor)) {
+        changedFromPresets = false
+      } else {
+        changedFromPresets = true
+      }
+    }
+    .onAppear {
+      if presets.contains(Preset(backgroundColor: backgroundColor, fontColor: fontColor)) {
+        changedFromPresets = true
+      }
+    }
+  }
+
+  private func saveToPresets() {
+    presets.append(Preset(backgroundColor: backgroundColor, fontColor: fontColor))
+    changedFromPresets = true
+  }
+
+  private func deleteFromPresets() {
+    presets = presets.filter { $0 != Preset(backgroundColor: backgroundColor, fontColor: fontColor) }
+    changedFromPresets = false
   }
 }
 
