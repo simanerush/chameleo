@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ThemeSettingView: View {
 
+  @Environment(\.colorScheme) var colorScheme
+
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
   private var backgroundColor = ChameleoUI.backgroundColor
@@ -17,48 +19,68 @@ struct ThemeSettingView: View {
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
   private var fontColor: Color = ChameleoUI.textColor
 
-  @State private var preset1BackgroundColor = Color.pink
-  @State private var preset1FontColor = Color.white
-
-  @State private var preset2BackgroundColor = Color.pink
-  @State private var preset2FontColor = Color.white
-
-  @State private var preset3BackgroundColor = Color.pink
-  @State private var preset3FontColor = Color.white
-
-  @State private var preset4BackgroundColor = Color.pink
-  @State private var preset4FontColor = Color.white
-
-  @State private var preset5BackgroundColor = Color.pink
-  @State private var preset5FontColor = Color.white
+  private var presets = [
+    Preset(backgroundColor: Color(uiColor: UIColor(red: 0.42, green: 0.69, blue: 0.30, alpha: 1.00)),
+           fontColor: Color(uiColor: UIColor(red: 0.87, green: 0.98, blue: 0.98, alpha: 1.00))),
+    Preset(backgroundColor: Color(uiColor: UIColor(red: 0.97, green: 0.56, blue: 0.70, alpha: 1.00)),
+           fontColor: Color(uiColor: UIColor(red: 0.34, green: 0.29, blue: 0.56, alpha: 1.00))),
+    Preset(backgroundColor: Color(uiColor: UIColor(red: 0.44, green: 0.63, blue: 1.00, alpha: 1.00)),
+           fontColor: .white),
+    Preset(backgroundColor: Color(uiColor: UIColor(red: 0.18, green: 0.21, blue: 0.26, alpha: 1.00)),
+           fontColor: Color(uiColor: UIColor(red: 0.87, green: 0.89, blue: 0.92, alpha: 1.00)))
+  ]
 
   var body: some View {
     Form {
-      Section("Theme") {
+      Section("Edit Theme") {
         ColorPicker("Background color", selection: $backgroundColor)
         ColorPicker("Font color", selection: $fontColor)
       }
-      Section("Presets") {
-        PresetView(backgroundColor: $backgroundColor,
-                   fontColor: $fontColor,
-                   presetBackgroundColor: $preset1BackgroundColor,
-                   presetFontColor: $preset1FontColor)
+      Section("Preview") {
+        ZStack {
+          LinearGradient(gradient:
+                          Gradient(
+                            colors: [backgroundColor, colorScheme == .dark ? .black : backgroundColor.opacity(0.3)]),
+                         startPoint: .topTrailing,
+                         endPoint: .bottomLeading)
+          .clipShape(RoundedRectangle(cornerRadius: 10))
+          VStack {
+            Text("My awesome quote!")
+              .padding(5)
+              .font(ChameleoUI.quoteOfTheDayFont)
+              .foregroundColor(fontColor)
+              .minimumScaleFactor(0.01)
+          }
+        }
       }
       .listRowBackground(Color.clear)
-      Section("Preview") {
-
+      Section("Presets") {
+        HStack {
+          ForEach(presets, id: \.self) { preset in
+            PresetView(backgroundColor: $backgroundColor,
+                       fontColor: $fontColor,
+                       presetBackgroundColor: preset.backgroundColor,
+                       presetFontColor: preset.fontColor)
+            .frame(maxWidth: .infinity)
+          }
+        }
       }
+      .listRowBackground(Color.clear)
       Section {
         Button {
           backgroundColor = ChameleoUI.backgroundColor
           fontColor = ChameleoUI.textColor
         } label: {
           Text("Reset settings")
-            .foregroundColor(.blue)
         }
       }
     }
   }
+}
+
+struct Preset: Hashable {
+  let backgroundColor: Color
+  let fontColor: Color
 }
 
 struct PresetView: View {
@@ -66,15 +88,25 @@ struct PresetView: View {
   @Binding var backgroundColor: Color
   @Binding var fontColor: Color
 
-  @Binding var presetBackgroundColor: Color
-  @Binding var presetFontColor: Color
+  var presetBackgroundColor: Color
+  var presetFontColor: Color
+
+  init(backgroundColor: Binding<Color>,
+       fontColor: Binding<Color>,
+       presetBackgroundColor: Color,
+       presetFontColor: Color) {
+    self._backgroundColor = backgroundColor
+    self._fontColor = fontColor
+    self.presetBackgroundColor = presetBackgroundColor
+    self.presetFontColor = presetFontColor
+  }
 
   var body: some View {
     ZStack {
       Circle()
-        .fill(Color.pink)
+        .fill(presetBackgroundColor)
       Circle()
-        .fill(fontColor)
+        .fill(presetFontColor)
         .offset(x: 17, y: 17)
     }
     .frame(width: 50, height: 70)

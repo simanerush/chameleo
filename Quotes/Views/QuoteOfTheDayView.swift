@@ -30,23 +30,20 @@ struct QuoteOfTheDayView: View {
       LinearGradient(gradient:
                       Gradient(
                         colors: [backgroundColor, colorScheme == .dark ? .black : backgroundColor.opacity(0.3)]),
-                        startPoint: startAnimation ? .topLeading : .topTrailing,
-                        endPoint: startAnimation ? .bottomTrailing : .bottomLeading)
+                     startPoint: startAnimation ? .topLeading : .topTrailing,
+                     endPoint: startAnimation ? .bottomTrailing : .bottomLeading)
 
-        .edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
-        .onAppear {
-          withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {
-            startAnimation.toggle()
-          }
+      .edgesIgnoringSafeArea(showTabBar ? [.top, .horizontal] : [.top, .horizontal, .bottom])
+      .onAppear {
+        withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {
+          startAnimation.toggle()
         }
-      VStack {
-        Text(model.quoteOfTheDay)
-          .padding(5)
-          .font(ChameleoUI.quoteOfTheDayFont)
-          .foregroundColor(fontColor)
-          .minimumScaleFactor(0.01)
       }
-      .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
+      Text(model.quoteOfTheDay)
+        .padding(15)
+        .font(ChameleoUI.quoteOfTheDayFont)
+        .foregroundColor(fontColor)
+        .minimumScaleFactor(0.01)
     }
     .onTapGesture {
       withAnimation {
