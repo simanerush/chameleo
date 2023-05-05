@@ -23,6 +23,7 @@ struct MainView: View {
           Label("", systemSymbol: .listBulletRectanglePortrait)
         }
         .tag("QuotesList")
+        .navigationViewStyle(.stack)
       GeneratedQuoteView(model: model)
         .tabItem {
           Label("", systemSymbol: .wandAndStars)

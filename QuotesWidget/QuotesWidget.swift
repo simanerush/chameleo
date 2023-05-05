@@ -57,7 +57,6 @@ struct QuotesWidgetEntryView: View {
   var entry: QuotesTimelineProvider.Entry
 
   var body: some View {
-    #warning("Widgets should look slightly different for each size because of the gradient")
     switch family {
     case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
       HomeScreenWidgetView(entry: entry)
@@ -96,9 +95,8 @@ struct HomeScreenWidgetView: View {
 
   var body: some View {
     ZStack {
-      RadialGradient(gradient:
-                      Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]),
-                     center: .center, startRadius: 2, endRadius: 220).ignoresSafeArea()
+      Rectangle().fill(backgroundColor.gradient)
+      .edgesIgnoringSafeArea(.all)
       Text(entry.title)
         .padding(5)
         .font(.custom("DelaGothicOne-Regular", size: 50))
