@@ -11,9 +11,6 @@ import SFSafeSymbols
 struct QuoteDetailView: View {
 
   @Environment(\.managedObjectContext) private var viewContext
-  @Environment(\.presentationMode) private var presentationMode
-
-  @EnvironmentObject var context: NavigationContext
 
   @ObservedObject var model: QuoteModel
 
@@ -73,9 +70,6 @@ struct QuoteDetailView: View {
     .padding()
     .alert("🚨Failed to edit the quote!", isPresented: $alertIsPresented) {
       Button("Ok", role: .cancel) {}
-    }
-    .onChange(of: context.navToHome) { _ in
-      presentationMode.wrappedValue.dismiss()
     }
   }
 

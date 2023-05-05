@@ -9,8 +9,6 @@ import SwiftUI
 import RevenueCat
 
 struct SubscriptionSettingView: View {
-  @EnvironmentObject var context: NavigationContext
-  @Environment(\.presentationMode) private var presentationMode
 
   @ObservedObject var model = SubscriptionModel.shared
 
@@ -61,9 +59,6 @@ struct SubscriptionSettingView: View {
             message: Text("Somehing went wrong"),
             dismissButton: .default(Text("Ok"))
       )
-    }
-    .onChange(of: context.navToHome) { _ in
-      presentationMode.wrappedValue.dismiss()
     }
   }
 

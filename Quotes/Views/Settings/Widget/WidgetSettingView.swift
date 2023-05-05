@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct WidgetSettingView: View {
-  @EnvironmentObject var context: NavigationContext
-  @Environment(\.presentationMode) private var presentationMode
 
   @AppStorage("widgetUpdateFrequency", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
@@ -17,14 +15,11 @@ struct WidgetSettingView: View {
 
     var body: some View {
       Form {
-        Picker("frequency of widget updates", selection: $widgetUpdateFrequency) {
+        Picker("Frequency of widget updates", selection: $widgetUpdateFrequency) {
           ForEach(WidgetUpdateFrequency.allCases, id: \.self) { frequency in
-            Text("\(frequency.stringValue())").tag(frequency)
+            Text("\(frequency.stringValue().capitalized)").tag(frequency)
           }
         }
-      }
-      .onChange(of: context.navToHome) { _ in
-        presentationMode.wrappedValue.dismiss()
       }
     }
 }
