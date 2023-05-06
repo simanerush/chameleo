@@ -31,10 +31,13 @@ struct QuoteView: View {
           }
       }
     }
+    .onAppear {
+      model.setQuoteOfTheDay()
+    }
   }
 
   private var quoteOfTheDay: String {
-    if model.quoteOfTheDay == "" {
+    if model.quoteOfTheDay == "You don't have any quotes!" {
       return defaults.object(forKey: "WatchQuote") as? String ??
       "Open Chameleo on your iPhone for setting up the Watch app"
     } else {
