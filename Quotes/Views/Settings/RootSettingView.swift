@@ -15,8 +15,6 @@ struct RootSettingView: View {
       ThemeSettingView()
     case "Widget":
       WidgetSettingView()
-    case "Manage subscription":
-      SubscriptionSettingView()
     case "Other":
       OtherSettingView()
     default:

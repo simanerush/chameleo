@@ -7,7 +7,6 @@
 
 import SwiftUI
 import WidgetKit
-import RevenueCat
 
 @main
 struct QuotesApp: App {
@@ -16,18 +15,6 @@ struct QuotesApp: App {
   private var backgroundColor = ChameleoUI.backgroundColor
 
   init() {
-
-    #if DEBUG
-    Purchases.logLevel = .debug
-    #endif
-
-    Purchases.configure(
-        with: Configuration.Builder(withAPIKey: Constants.purchasesKey)
-            .with(usesStoreKit2IfAvailable: true)
-            .build()
-    )
-    Purchases.shared.delegate = PurchasesDelegateHandler.shared
-
     WidgetCenter.shared.reloadAllTimelines()
     GPTCaller.shared.setup()
   }
@@ -37,15 +24,6 @@ struct QuotesApp: App {
       MainView(model: QuoteModel.shared)
         .environment(\.managedObjectContext, QuoteModel.shared.persistenceController.container.viewContext)
         .accentColor(backgroundColor)
-        .task {
-            do {
-                // Fetch the available offerings
-                SubscriptionModel.shared.offerings = try await Purchases.shared.offerings()
-                print("successfully fethced offerings \(SubscriptionModel.shared.offerings!.description)")
-            } catch {
-                print("Error fetching offerings: \(error)")
-            }
-        }
     }
   }
 }

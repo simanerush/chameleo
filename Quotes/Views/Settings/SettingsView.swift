@@ -13,7 +13,6 @@ struct SettingsView: View {
   private let settings: [Setting] = [
     Setting(title: "Theme", color: .red, image: .heartSquareFill),
     Setting(title: "Widget", color: .yellow, image: .starSquareFill),
-    Setting(title: "Manage subscription", color: .green, image: .dollarsignSquareFill),
     Setting(title: "Other", color: .blue, image: .commandSquareFill)
   ]
 

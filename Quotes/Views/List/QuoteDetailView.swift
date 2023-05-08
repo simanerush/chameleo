@@ -57,7 +57,7 @@ struct QuoteDetailView: View {
         shareButton
       }
       .padding(.horizontal)
-      .padding(.bottom, 10)
+      .padding(.vertical, 10)
       .background(backgroundColor.gradient)
       .contentShape(Rectangle())
       .cornerRadius(10)

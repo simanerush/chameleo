@@ -14,12 +14,9 @@ struct QuotesListView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
   @ObservedObject var model: QuoteModel
-  @ObservedObject private var subscriptionModel = SubscriptionModel.shared
 
   @State private var textField = ""
   @State private var alertIsPresented = false
-
-  @State private var paywallIsPresented = false
 
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
@@ -101,9 +98,6 @@ struct QuotesListView: View {
       .defaultAppStorage(UserDefaults(suiteName: "group.com.simanerush.Quotes")!)
       .navigationTitle("My quotes")
       .chameleoNavBar()
-      .sheet(isPresented: $paywallIsPresented, content: {
-          PaywallView(isPresented: $paywallIsPresented)
-      })
     }
   }
 
@@ -124,11 +118,7 @@ struct QuotesListView: View {
         }
       if !textField.isEmpty {
         Button {
-          if items.count < 10 || subscriptionModel.subscriptionActive {
-            addQuote()
-          } else {
-            paywallIsPresented = true
-          }
+          addQuote()
         } label: {
           Image(systemSymbol: .plus)
             .foregroundColor(fontColor)

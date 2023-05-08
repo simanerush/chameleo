@@ -8,8 +8,6 @@ import SwiftUI
 
 struct GeneratedQuoteView: View {
   @ObservedObject var model: QuoteModel
-  @ObservedObject var keyValueStore = KeyValueStore.shared
-  @ObservedObject var subscriptionModel = SubscriptionModel.shared
 
   @State private var selectedQuoteType: QuoteType?
   @State private var quoteOutput = ""
@@ -18,7 +16,6 @@ struct GeneratedQuoteView: View {
   @State private var didGenerateOnce = false
 
   @State private var alertIsPresented = false
-  @State private var paywallIsPresented = false
 
   var body: some View {
     NavigationStack {
@@ -46,15 +43,11 @@ struct GeneratedQuoteView: View {
             }
             .onChange(of: selectedQuoteType) { quoteType in
               guard let quoteType else { return }
-              if userCanAskMore {
-                Task {
-                  isLoading = true
-                  await displayGeneratedQuote(withType: quoteType)
-                  isLoading = false
-                  didGenerateOnce = true
-                }
-              } else {
-                paywallIsPresented = true
+              Task {
+                isLoading = true
+                await displayGeneratedQuote(withType: quoteType)
+                isLoading = false
+                didGenerateOnce = true
               }
             }
           }
@@ -72,8 +65,7 @@ struct GeneratedQuoteView: View {
             QuoteTextField(model: model,
                            text: $quoteOutput,
                            author: $authorOutput,
-                           alertIsPresented: $alertIsPresented,
-                           paywallIsPresented: $paywallIsPresented)
+                           alertIsPresented: $alertIsPresented)
           }
         }
         Spacer()
@@ -82,32 +74,9 @@ struct GeneratedQuoteView: View {
       .navigationTitle("Chameleo AI")
       .chameleoNavBar()
     }
-    .onAppear {
-      if !userCanAskMore {
-        paywallIsPresented = true
-      }
-    }
     .alert("🚨Failed to get the quote!", isPresented: $alertIsPresented) {
       Button("Ok", role: .cancel) {}
     }
-    .sheet(isPresented: $paywallIsPresented) {
-      PaywallView(isPresented: $paywallIsPresented)
-    }
-  }
-
-  private var userCanAskMore: Bool {
-    if let numberOfGenerations = keyValueStore.retrieveInt(forKey: "gen") {
-      // If stored number of generations exceed 10, user is not allowed to ask
-      // for more quotes unless they have an active subscription
-      if numberOfGenerations > 10 && !subscriptionModel.subscriptionActive {
-        return false
-      }
-      keyValueStore.save(value: numberOfGenerations + 1, forKey: "gen")
-    } else {
-      // This is the first generation
-      keyValueStore.save(value: 1, forKey: "gen")
-    }
-    return true
   }
 
   private func displayGeneratedQuote(withType type: QuoteType) async {
@@ -150,7 +119,6 @@ struct GeneratedQuoteView: View {
 private struct QuoteTextField: View {
   @Environment(\.managedObjectContext) private var viewContext
   @ObservedObject var model: QuoteModel
-  @ObservedObject var subscriptionModel = SubscriptionModel.shared
 
   @AppStorage("backgroundColor", store:
                 UserDefaults(suiteName: "group.com.simanerush.Quotes"))
@@ -170,7 +138,6 @@ private struct QuoteTextField: View {
   @Binding var text: String
   @Binding var author: String
   @Binding var alertIsPresented: Bool
-  @Binding var paywallIsPresented: Bool
 
   @State var didAddQuote = false
 
@@ -221,7 +188,6 @@ private struct QuoteTextField: View {
   }
 
   private func addQuote() {
-    if items.count < 10 || subscriptionModel.subscriptionActive {
       var isTheFirstEntry = false
       if items.isEmpty {
         isTheFirstEntry = true
@@ -234,9 +200,6 @@ private struct QuoteTextField: View {
       if isTheFirstEntry { model.setQuoteOfTheDay() }
       didAddQuote = true
       success()
-    } else {
-      paywallIsPresented = true
-    }
   }
 
   private func success() {
